@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 4224445004584203100}
   - component: {fileID: 7109740171722827930}
   m_Layer: 7
-  m_Name: PetDragon
+  m_Name: PetAttacker
   m_TagString: Pet Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

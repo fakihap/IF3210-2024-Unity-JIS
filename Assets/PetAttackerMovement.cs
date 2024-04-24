@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class DragonMovement : MonoBehaviour
+public class PetAttackerMovement : MonoBehaviour
 {
-    public Transform target;
     public GameObject player;
     NavMeshAgent nav;
     Animator _anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +20,31 @@ public class DragonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((player.transform.position - transform.position).magnitude >= 0.5)
+
+    }
+
+    private void FixedUpdate()
+    {
+        if ((player.transform.position - transform.position).magnitude >= 0.8)
         {
             _anim.SetBool("IsMoving", true);
             Debug.Log("Move to player");
             nav.SetDestination(player.transform.position);
             Debug.Log(player.transform.position);
+
+            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+            directionToPlayer.y = 0f;
+
+            if (directionToPlayer != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+            }
         }
         else
         {
             _anim.SetBool("IsMoving", false);
+            nav.ResetPath();
         }
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 }
