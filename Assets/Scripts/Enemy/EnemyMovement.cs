@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
-public class EnemyMovement : MonoBehaviour
+namespace Nightmare
 {
     public class EnemyMovement : PausibleObject
     {
@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
             playerHealth = player.GetComponent<PlayerHealth>();
             enemyHealth = GetComponent<EnemyHealth>();
-        EnemyHealth enemyHealth;
+
             nav = GetComponent<NavMeshAgent>();
         }
 
@@ -37,45 +37,5 @@ public class EnemyMovement : MonoBehaviour
         {
 
         }
-                }
-            }
-        }
-
-        private void IsPsychic()
-        {
-            GoToPlayer();
-        }
-
-        private Vector3 GetRandomPoint(float distance, int layermask)
-        {
-            Vector3 randomPoint = UnityEngine.Random.insideUnitSphere * distance + this.transform.position;;
-
-            NavMeshHit navHit;
-            NavMesh.SamplePosition(randomPoint, out navHit, distance, layermask);
-
-            return navHit.position;
-        }
-
-        public void ScaleVision(float scale)
-        {
-            currentVision = visionRange * scale;
-        }
-
-        private int GetCurrentNavArea()
-        {
-            NavMeshHit navHit;
-            nav.SamplePathPosition(-1, 0.0f, out navHit);
-
-            return navHit.mask;
-        }
-
-        //void OnDrawGizmos()
-        //{
-        //    Vector3 position = this.transform.position;
-        //    Gizmos.color = Color.red;
-        //    Gizmos.DrawWireSphere(position, currentVision);
-        //    Gizmos.color = Color.yellow;
-        //    Gizmos.DrawWireSphere(position, hearingRange);
-        //}
     }
 }
