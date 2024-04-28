@@ -11,7 +11,7 @@ namespace Nightmare
         Animator anim;
         GameObject player;
         PlayerHealth playerHealth;
-        EnemyHealth enemyHealth;
+        // EnemyHealth enemyHealth;
         bool playerInRange;
         float timer;
 
@@ -82,6 +82,7 @@ namespace Nightmare
             // If the player has health to lose...
             if (playerHealth.currentHealth > 0)
             {
+                print("attack");
                 // ... damage the player.
                 playerHealth.TakeDamage(attackDamage);
             }
