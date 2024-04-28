@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -19,7 +19,7 @@ namespace Nightmare
         Animator anim;
         AudioSource playerAudio;
         PlayerMovement playerMovement;
-        PlayerShooting playerShooting;
+        // PlayerShooting playerShooting;
         bool isDead;
         bool damaged;
 
@@ -29,7 +29,7 @@ namespace Nightmare
             anim = GetComponent<Animator>();
             playerAudio = GetComponent<AudioSource>();
             playerMovement = GetComponent<PlayerMovement>();
-            playerShooting = GetComponentInChildren<PlayerShooting>();
+            // playerShooting = GetComponentInChildren<PlayerShooting>();
 
             ResetPlayer();
         }
@@ -40,7 +40,7 @@ namespace Nightmare
             currentHealth = startingHealth;
 
             playerMovement.enabled = true;
-            playerShooting.enabled = true;
+            // playerShooting.enabled = true;
 
             anim.SetBool("IsDead", false);
         }
@@ -97,7 +97,7 @@ namespace Nightmare
             isDead = true;
 
             // Turn off any remaining shooting effects.
-            playerShooting.DisableEffects();
+            // playerShooting.DisableEffects();
 
             // Tell the animator that the player is dead.
             anim.SetBool("IsDead", true);
@@ -108,12 +108,12 @@ namespace Nightmare
 
             // Turn off the movement and shooting scripts.
             playerMovement.enabled = false;
-            playerShooting.enabled = false;
+            // playerShooting.enabled = false;
         }
 
         public void RestartLevel()
         {
-            EventManager.TriggerEvent("GameOver");
+            // EventManager.TriggerEvent("GameOver");
         }
     }
 }

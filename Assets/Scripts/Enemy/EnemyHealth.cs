@@ -8,27 +8,26 @@ namespace Nightmare
         public float sinkSpeed = 2.5f;
         public int scoreValue = 10;
         public AudioClip deathClip;
+        public int currentHealth;
 
-        int currentHealth;
         Animator anim;
         AudioSource enemyAudio;
         ParticleSystem hitParticles;
         CapsuleCollider capsuleCollider;
         EnemyMovement enemyMovement;
 
-        void Awake ()
-        {
-            anim = GetComponent <Animator> ();
-            enemyAudio = GetComponent <AudioSource> ();
-            hitParticles = GetComponentInChildren <ParticleSystem> ();
-            capsuleCollider = GetComponent <CapsuleCollider> ();
-            enemyMovement = this.GetComponent<EnemyMovement>();
-        }
+        bool isDead;
+        bool isSinking;
 
-        void OnEnable()
+        void Awake()
         {
+            anim = GetComponent<Animator>();
+            enemyAudio = GetComponent<AudioSource>();
+            hitParticles = GetComponentInChildren<ParticleSystem>();
+            capsuleCollider = GetComponent<CapsuleCollider>();
+            enemyMovement = this.GetComponent<EnemyMovement>();
+
             currentHealth = startingHealth;
-            SetKinematics(false);
         }
 
         private void SetKinematics(bool isKinematic)
@@ -37,64 +36,55 @@ namespace Nightmare
             capsuleCollider.attachedRigidbody.isKinematic = isKinematic;
         }
 
-        void Update ()
+        void Update()
         {
-            if (IsDead())
+            if (isSinking)
             {
-                transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
-                if (transform.position.y < -10f)
-                {
-                    Destroy(this.gameObject);
-                }
+                transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
             }
         }
 
-        public bool IsDead()
+        public void TakeDamage(int amount, Vector3 hitPoint)
         {
-            return (currentHealth <= 0f);
-        }
-
-        public void TakeDamage (int amount, Vector3 hitPoint)
-        {
-            if (!IsDead())
+            if (isDead)
             {
-                enemyAudio.Play();
-                currentHealth -= amount;
-
-                if (IsDead())
-                {
-                    Death();
-                }
-                else
-                {
-                    enemyMovement.GoToPlayer();
-                }
+                return;
             }
-                
+
+            enemyAudio.Play();
+
+            currentHealth -= amount;
+
             hitParticles.transform.position = hitPoint;
             hitParticles.Play();
+
+            if (currentHealth <= 0)
+            {
+                Death();
+            }
         }
 
-        void Death ()
+        void Death()
         {
-            EventManager.TriggerEvent("Sound", this.transform.position);
-            anim.SetTrigger ("Dead");
+            isDead = true;
 
+            capsuleCollider.isTrigger = true;
+            anim.SetTrigger("Dead");
             enemyAudio.clip = deathClip;
-            enemyAudio.Play ();
+            enemyAudio.Play();
         }
 
-        public void StartSinking ()
+        public void StartSinking()
         {
-            GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
-            SetKinematics(true);
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            GetComponent<Rigidbody>().isKinematic = false;
 
-            ScoreManager.score += scoreValue;
+            isSinking = true;
+
+            Destroy(gameObject, 2f);
+
+            //ScoreManager.score += scoreValue;
         }
 
-        public int CurrentHealth()
-        {
-            return currentHealth;
-        }
     }
 }

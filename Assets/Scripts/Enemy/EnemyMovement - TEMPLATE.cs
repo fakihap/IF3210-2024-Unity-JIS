@@ -48,19 +48,19 @@ namespace Nightmare
 
         void Update ()
         {
-            if (!isPaused)
-            {
-                // If both the enemy and the player have health left...
-                if (enemyHealth.CurrentHealth() > 0 && playerHealth.currentHealth > 0)
-                {
-                    LookForPlayer();
-                    WanderOrIdle();
-                }
-                else
-                {
-                    nav.enabled = false;
-                }
-            }
+            // if (!isPaused)
+            // {
+            //     // If both the enemy and the player have health left...
+            //     if (enemyHealth.CurrentHealth() > 0 && playerHealth.currentHealth > 0)
+            //     {
+            //         LookForPlayer();
+            //         WanderOrIdle();
+            //     }
+            //     else
+            //     {
+            //         nav.enabled = false;
+            //     }
+            // }
         }
 
         void OnDestroy()
@@ -107,10 +107,10 @@ namespace Nightmare
         private void GoToPosition(Vector3 position)
         {
             timer = -1f;
-            if (!enemyHealth.IsDead())
-            {
-                SetDestination(position);
-            }
+            // if (!enemyHealth.IsDead())
+            // {
+            //     SetDestination(position);
+            // }
         }
 
         private void SetDestination(Vector3 position)
