@@ -20,7 +20,7 @@ namespace Nightmare
         {
 #if !MOBILE_INPUT
             // Create a layer mask for the floor layer.
-            floorMask = LayerMask.GetMask ("Floor");
+            floorMask = LayerMask.GetMask ("Environment");
 #endif
 
             // Set up references.
@@ -58,7 +58,7 @@ namespace Nightmare
         void Move (float h, float v)
         {
             // Set the movement vector based on the axis input.
-            movement.Set (h, 0f, v);
+            movement =  transform.right * h + transform.forward * v;
             
             // Normalise the movement vector and make it proportional to the speed per second.
             movement = movement.normalized * speed * Time.deltaTime;

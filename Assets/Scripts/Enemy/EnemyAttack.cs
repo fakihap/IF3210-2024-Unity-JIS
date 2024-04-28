@@ -11,7 +11,7 @@ namespace Nightmare
         Animator anim;
         GameObject player;
         PlayerHealth playerHealth;
-        EnemyHealth enemyHealth;
+        // EnemyHealth enemyHealth;
         bool playerInRange;
         float timer;
 
@@ -20,7 +20,7 @@ namespace Nightmare
             // Setting up the references.
             player = GameObject.FindGameObjectWithTag ("Player");
             playerHealth = player.GetComponent <PlayerHealth> ();
-            enemyHealth = GetComponent<EnemyHealth>();
+            // enemyHealth = GetComponent<EnemyHealth>();
             anim = GetComponent <Animator> ();
 
             StartPausible();
@@ -60,7 +60,8 @@ namespace Nightmare
             timer += Time.deltaTime;
 
             // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-            if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.CurrentHealth() > 0)
+            // && enemyHealth.CurrentHealth() > 0
+            if(timer >= timeBetweenAttacks && playerInRange )
             {
                 // ... attack.
                 Attack ();
@@ -82,6 +83,7 @@ namespace Nightmare
             // If the player has health to lose...
             if(playerHealth.currentHealth > 0)
             {
+                print("attack");
                 // ... damage the player.
                 playerHealth.TakeDamage (attackDamage);
             }
