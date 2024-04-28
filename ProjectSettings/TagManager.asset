@@ -8,6 +8,7 @@ TagManager:
   - PetHealer
   - Enemy
   - Pet Dragon
+  - Rifle
   layers:
   - Default
   - TransparentFX

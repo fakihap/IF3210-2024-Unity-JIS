@@ -2,41 +2,45 @@
 using UnityEngine.Events;
 using System.Text;
 using UnitySampleAssets.CrossPlatformInput;
+using System.Collections.Generic;
 
 namespace Nightmare
 {
     public class PlayerShooting : PausibleObject
     {
-        public int damagePerShot = 20;
-        public float timeBetweenBullets = 0.15f;
-        public float range = 100f;
+        //public int damagePerShot = 20;
+        //public float timeBetweenBullets = 0.15f;
+        //public float range = 100f;
         //public GameObject grenade;
         //public float grenadeSpeed = 200f;
         //public float grenadeFireDelay = 0.5f;
+        public List<Weapon> weapons;
 
-        float timer;
-        Ray shootRay;
-        RaycastHit shootHit;
-        int shootableMask;
+        int currentWeaponIndex = 0;
+
+        //float timer;
+        //Ray shootRay;
+        //RaycastHit shootHit;
+        //int shootableMask;
         ParticleSystem gunParticles;
         LineRenderer gunLine;
-        AudioSource gunAudio;
         Light gunLight;
+        //float effectsDisplayTime = 0.2f;
         //public Light faceLight;
-        float effectsDisplayTime = 0.2f;
         //int grenadeStock = 99;
 
         //private UnityAction listener;
 
         void Awake()
         {
+
+            InitializeWeapons();
             // Create a layer mask for the Shootable layer.
-            shootableMask = LayerMask.GetMask("Shootable"/*, "Enemy"*/);
+            //shootableMask = LayerMask.GetMask("Shootable"/*, "Enemy"*/);
 
             // Set up the references.
             gunParticles = GetComponent<ParticleSystem>();
             gunLine = GetComponent<LineRenderer>();
-            gunAudio = GetComponent<AudioSource>();
             gunLight = GetComponent<Light>();
             //faceLight = GetComponentInChildren<Light> ();
 
@@ -47,6 +51,25 @@ namespace Nightmare
             //EventManager.StartListening("GrenadePickup", CollectGrenade);
 
             //StartPausible();
+        }
+
+        void InitializeWeapons()
+        {
+            //print(weapons.Count);
+            foreach (var weapon in weapons) { weapon.enabled = false; }
+            weapons[currentWeaponIndex].enabled = true;
+        }
+
+        void SwitchWeapon(int newWeaponIndex)
+        {
+            // Deactivate the current weapon
+            weapons[currentWeaponIndex].gameObject.SetActive(false);
+
+            // Update the index to the new weapon
+            currentWeaponIndex = newWeaponIndex;
+
+            // Activate the new weapon
+            weapons[currentWeaponIndex].gameObject.SetActive(true);
         }
 
         //void OnDestroy()
@@ -96,87 +119,113 @@ namespace Nightmare
             //                DisableEffects ();
             //            }
 
-            timer += Time.deltaTime;
+            //timer += Time.deltaTime;
 
-            if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
+            //Weapon currWeapon = weapons[currentWeaponIndex];
+            //bool validAttack = currWeapon.ValidAttack(timer);
+            //bool invalidEffects = currWeapon.InvalidEffects(timer);
+
+            //if (Input.GetButton("Fire1") && validAttack)
+            //{
+            //    Shoot();
+            //}
+
+            //if (invalidEffects)
+            //{
+            //    DisableEffects();
+            //}
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Shoot();
+                SwitchWeapon(0);
+                gunLight.intensity = 1;
+                gunLine.startWidth = 0.05f;
+                gunLine.endWidth = 0.05f;
+                gunParticles.startSize = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SwitchWeapon(1);
+                gunLight.intensity = 5;
+                gunLine.startWidth = 0.09f;
+                gunLine.endWidth = 0.05f;
+                gunParticles.startSize = 3;
+
             }
 
-            if (timer >= timeBetweenBullets * effectsDisplayTime)
-            {
-                DisableEffects();
-            }
+            weapons[currentWeaponIndex].UpdateAttack();
         }
 
+        //public void DisableEffects()
+        //{
+        //    // Disable the line renderer and the light.
+        //    gunLine.enabled = false;
+        //    ////faceLight.enabled = false;
+        //    gunLight.enabled = false;
+        //}
 
-        public void DisableEffects()
-        {
-            // Disable the line renderer and the light.
-            gunLine.enabled = false;
-            //faceLight.enabled = false;
-            gunLight.enabled = false;
-        }
 
+        //void Shoot()
+        //{
+        //    // Reset the timer.
+        //    timer = 0f;
 
-        void Shoot()
-        {
-            // Reset the timer.
-            timer = 0f;
+        //    // Play the gun shot audioclip.
+        //    gunAudio.Play();
 
-            // Play the gun shot audioclip.
-            gunAudio.Play();
+        //    // Enable the lights.
+        //    gunLight.enabled = true;
+        //    //faceLight.enabled = true;
 
-            // Enable the lights.
-            gunLight.enabled = true;
-            //faceLight.enabled = true;
+        //    // Stop the particles from playing if they were, then start the particles.
+        //    gunParticles.Stop();
+        //    gunParticles.Play();
 
-            // Stop the particles from playing if they were, then start the particles.
-            gunParticles.Stop();
-            gunParticles.Play();
+        //    // Enable the line renderer and set it's first position to be the end of the gun.
+        //    gunLine.enabled = true;
+        //    gunLine.SetPosition(0, transform.position);
 
-            // Enable the line renderer and set it's first position to be the end of the gun.
-            gunLine.enabled = true;
-            gunLine.SetPosition(0, transform.position);
+        //    // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
+        //    shootRay.origin = transform.position;
+        //    shootRay.direction = transform.forward;
 
-            // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
-            shootRay.origin = transform.position;
-            shootRay.direction = transform.forward;
+        //    // Perform the raycast against gameobjects on the shootable layer and if it hits something...
 
-            // Perform the raycast against gameobjects on the shootable layer and if it hits something...
-            if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-            {
-                // Try and find an EnemyHealth script on the gameobject hit.
-                EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+        //    Weapon currWeapon = weapons[currentWeaponIndex];
 
-                // If the EnemyHealth component exist...
-                if (enemyHealth != null)
-                {
-                    // ... the enemy should take damage.
-                    enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-                }
+        //    if (Physics.Raycast(shootRay, out shootHit, currWeapon.range, shootableMask))
+        //    {
+        //        // Try and find an EnemyHealth script on the gameobject hit.
+        //        EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
 
-                // Set the second position of the line renderer to the point the raycast hit.
-                gunLine.SetPosition(1, shootHit.point);
-            }
-            // If the raycast didn't hit anything on the shootable layer...
-            else
-            {
-                // ... set the second position of the line renderer to the fullest extent of the gun's range.
-                gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-            }
-        }
+        //        // If the EnemyHealth component exist...
+        //        if (enemyHealth != null)
+        //        {
+        //            // ... the enemy should take damage.
+        //            enemyHealth.TakeDamage(currWeapon.baseDamage, shootHit.point);
+        //        }
 
-        private void ChangeGunLine(float midPoint)
-        {
-            AnimationCurve curve = new AnimationCurve();
+        //        // Set the second position of the line renderer to the point the raycast hit.
+        //        gunLine.SetPosition(1, shootHit.point);
+        //    }
+        //    // If the raycast didn't hit anything on the shootable layer...
+        //    else
+        //    {
+        //        // ... set the second position of the line renderer to the fullest extent of the gun's range.
+        //        gunLine.SetPosition(1, shootRay.origin + shootRay.direction * currWeapon.range);
+        //    }
+        //}
 
-            curve.AddKey(0f, 0f);
-            curve.AddKey(midPoint, 0.5f);
-            curve.AddKey(1f, 1f);
+        //private void ChangeGunLine(float midPoint)
+        //{
+        //    AnimationCurve curve = new AnimationCurve();
 
-            gunLine.widthCurve = curve;
-        }
+        //    curve.AddKey(0f, 0f);
+        //    curve.AddKey(midPoint, 0.5f);
+        //    curve.AddKey(1f, 1f);
+
+        //    gunLine.widthCurve = curve;
+        //}
 
         //public void CollectGrenade()
         //{

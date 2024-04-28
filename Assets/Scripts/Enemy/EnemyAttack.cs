@@ -11,7 +11,7 @@ namespace Nightmare
         Animator anim;
         GameObject player;
         PlayerHealth playerHealth;
-        // EnemyHealth enemyHealth;
+        EnemyHealth enemyHealth;
         bool playerInRange;
         float timer;
 
