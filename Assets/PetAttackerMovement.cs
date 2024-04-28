@@ -25,7 +25,7 @@ public class PetAttackerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((player.transform.position - transform.position).magnitude >= 0.8)
+        if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);
             Debug.Log("Move to player");
