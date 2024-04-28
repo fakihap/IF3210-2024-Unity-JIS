@@ -25,7 +25,7 @@ public class PetHealerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((player.transform.position - transform.position).magnitude >= 0.5f)
+        if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);
             Debug.Log("Move to player");
