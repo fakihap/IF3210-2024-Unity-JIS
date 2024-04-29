@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 11400004}
   - component: {fileID: 11400002}
   - component: {fileID: 11400000}
-  - component: {fileID: 8018477137535684901}
   - component: {fileID: 8200000}
   - component: {fileID: 11400006}
   m_Layer: 9
@@ -276,6 +275,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 7
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
+  currentHealth: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,18 +294,6 @@ MonoBehaviour:
   idleTimeRange: {x: 0.5, y: 2}
   psychicLevels: 0.65
   timer: 0
---- !u!114 &8018477137535684901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e393243fa30306a4882b53fd52963202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 0

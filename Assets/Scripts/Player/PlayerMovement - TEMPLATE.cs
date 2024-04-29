@@ -15,7 +15,7 @@ namespace Nightmare
 
         private void Awake()
         {
-            floorMask = LayerMask.GetMask("Floor");
+            floorMask = LayerMask.GetMask("Environment");
             anim = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody>();
         }
@@ -32,7 +32,7 @@ namespace Nightmare
 
         void Move(float h, float v)
         {
-            movement.Set(h, 0f, v);
+            movement = transform.right * h + transform.forward * v;
 
             movement = movement.normalized * speed * Time.deltaTime;
 
