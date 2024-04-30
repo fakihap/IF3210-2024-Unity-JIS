@@ -28,9 +28,9 @@ public class PetHealerMovement : MonoBehaviour
         if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);
-            Debug.Log("Move to player");
+            // Debug.Log("Move to player");
             nav.SetDestination(player.transform.position);
-            Debug.Log(player.transform.position);
+            // Debug.Log(player.transform.position);
 
             // Calculate direction to the player
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;

@@ -34,6 +34,14 @@ namespace Nightmare
         void OnTriggerEnter(Collider other)
         {
             // If the entering collider is the player...
+            // int includedLayers = other.includeLayers.Equals;
+
+
+            // string layerName = LayerMask.LayerToName(includedLayers);
+            // Debug.Log("Layername " + layerName);
+
+
+
             if (other.gameObject == player)
             {
                 // ... the player is in range.
@@ -82,7 +90,6 @@ namespace Nightmare
             // If the player has health to lose...
             if (playerHealth.currentHealth > 0)
             {
-                print("attack");
                 // ... damage the player.
                 playerHealth.TakeDamage(attackDamage);
             }

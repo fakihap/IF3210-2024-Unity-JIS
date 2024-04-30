@@ -146,11 +146,17 @@ namespace Nightmare
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 SwitchWeapon(1);
-                gunLight.intensity = 5;
-                gunLine.startWidth = 0.09f;
+                gunLight.intensity = 1;
+                gunLine.startWidth = 0.05f;
                 gunLine.endWidth = 0.05f;
                 gunParticles.startSize = 3;
+            }
 
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SwitchWeapon(2);
+                gunLight.intensity = 0;
+                gunParticles.startSize = 2;
             }
 
             weapons[currentWeaponIndex].UpdateAttack();

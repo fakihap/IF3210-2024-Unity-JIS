@@ -28,9 +28,9 @@ public class PetAttackerMovement : MonoBehaviour
         if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);
-            Debug.Log("Move to player");
+            // Debug.Log("Move to player");
             nav.SetDestination(player.transform.position);
-            Debug.Log(player.transform.position);
+            // Debug.Log(player.transform.position);
 
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
             directionToPlayer.y = 0f;
