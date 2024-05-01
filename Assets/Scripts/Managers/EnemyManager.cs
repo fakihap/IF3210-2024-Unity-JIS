@@ -51,11 +51,16 @@ namespace Nightmare
             }
 
             // Find a random index between zero and one less than the number of spawn points.
-            int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
-            // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+            //get position player
+            Vector3 playerPosition = playerHealth.transform.position;
+
+            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+
+            //get random rotation 
             
-            Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            
+            Instantiate (enemy, playerPosition, rotation);
         }
     }
 }
