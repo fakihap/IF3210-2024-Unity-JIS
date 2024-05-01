@@ -11,11 +11,11 @@ namespace Nightmare
         Animator anim;
         Rigidbody playerRigidBody;
         int floorMask;
-        readonly float camRayLength = 100f;
+        readonly float camRayLength = 500f;
 
         private void Awake()
         {
-            floorMask = LayerMask.GetMask("Floor");
+            floorMask = LayerMask.GetMask("Environment");
             anim = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody>();
         }
@@ -32,7 +32,7 @@ namespace Nightmare
 
         void Move(float h, float v)
         {
-            movement.Set(h, 0f, v);
+            movement = transform.right * h + transform.forward * v;
 
             movement = movement.normalized * speed * Time.deltaTime;
 
@@ -46,7 +46,6 @@ namespace Nightmare
             if (Physics.Raycast(camRay, out RaycastHit floorHit, camRayLength, floorMask))
             {
                 Vector3 playerToMouse = floorHit.point - transform.position;
-                playerToMouse.y = 0f;
 
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
                 playerRigidBody.MoveRotation(newRotation);

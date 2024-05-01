@@ -39,11 +39,6 @@ namespace Nightmare
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
-            //print("Mouse is pressed");
-            //print(range);
-            //print(shootRay);
-            //print(shootableMask);
-            // Perform the raycast against gameobjects on the shootable layer and if it hits something...
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
                 print("Enemy is hit");
@@ -78,12 +73,7 @@ namespace Nightmare
 
         private void Awake()
         {
-            shootableMask = LayerMask.GetMask("Shootable");
-
-            //gunLine = GetComponent<LineRenderer>();
-            //attackSound = GetComponent<AudioSource>();
-            //gunLight = GetComponent<Light>();
-            //gunParticles = GetComponent<ParticleSystem>();
+            shootableMask = LayerMask.GetMask("Environment");
         }
 
         public override void UpdateAttack()

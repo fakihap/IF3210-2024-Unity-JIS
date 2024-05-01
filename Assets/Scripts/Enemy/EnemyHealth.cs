@@ -83,7 +83,12 @@ namespace Nightmare
 
             Destroy(gameObject, 2f);
 
-            //ScoreManager.score += scoreValue;
+            ScoreManager.score += scoreValue;
+        }
+
+        public bool IsDead()
+        {
+            return isDead;
         }
 
     }
