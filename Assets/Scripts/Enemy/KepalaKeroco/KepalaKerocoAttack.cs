@@ -1,42 +1,29 @@
 using UnityEngine;
-using UnityEngine.Events;
-using System.Text;
-using UnitySampleAssets.CrossPlatformInput;
+using System.Collections;
 
 namespace Nightmare
 {
     public class KepalaKerocoAttack : PausibleObject
     {
-        public int damagePerShot = 10;
-        public float timeBetweenBullets = 0.15f;
-        public float range = 40f;
-        public GameObject grenade;
-        public float grenadeSpeed = 200f;
-        public float grenadeFireDelay = 0.5f;
+        public float timeBetweenAttacks = 0.5f;
+        public int attackDamage = 5;
 
+        Animator anim;
+        GameObject player;
+        PlayerHealth playerHealth;
+        EnemyHealth enemyHealth;
+        bool playerInRange;
         float timer;
 
-        float shotTimer;
-        Ray shootRay = new Ray();
-        RaycastHit shootHit;
-        int shootableMask;
-        ParticleSystem gunParticles;
-        LineRenderer gunLine;
-        AudioSource gunAudio;
-        Light gunLight;
-		public Light faceLight;
-        float effectsDisplayTime = 0.2f;
-
-        void Awake ()
+        void Awake()
         {
-            // Create a layer mask for the Shootable layer.
-            shootableMask = LayerMask.GetMask ("Shootable", "Enemy");
+            // Setting up the references.
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerHealth = player.GetComponent<PlayerHealth>();
+            enemyHealth = GetComponent<EnemyHealth>();
+            anim = GetComponent<Animator>();
 
-            // Set up the references.
-            gunParticles = GetComponent<ParticleSystem> ();
-            gunLine = GetComponent <LineRenderer> ();
-            gunAudio = GetComponent<AudioSource> ();
-            gunLight = GetComponent<Light> ();
+            //StartPausible();
         }
 
         void OnDestroy()
@@ -44,74 +31,61 @@ namespace Nightmare
             StopPausible();
         }
 
-        void Update ()
+        void OnTriggerEnter(Collider other)
+        {
+            // If the entering collider is the player...
+            if (other.gameObject == player)
+            {
+                // ... the player is in range.
+                playerInRange = true;
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            // If the exiting collider is the player...
+            if (other.gameObject == player)
+            {
+                // ... the player is no longer in range.
+                playerInRange = false;
+            }
+        }
+
+        void Update()
         {
             if (isPaused)
                 return;
 
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
+            // Add the time since Update was last called to the timer.
+            timer += Time.deltaTime;
+
+            // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
+            if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
-                Shoot();
-                timer = 5f;
+                // ... attack.
+                Attack();
             }
 
+            // If the player has zero or less health...
+            if (playerHealth.currentHealth <= 0)
+            {
+                // ... tell the animator the player is dead.
+                anim.SetTrigger("PlayerDead");
+            }
         }
 
-
-        public void DisableEffects ()
-        {
-            // Disable the line renderer and the light.
-            gunLine.enabled = false;
-			// faceLight.enabled = false;
-            gunLight.enabled = false;
-        }
-
-
-        void Shoot ()
+        void Attack()
         {
             // Reset the timer.
             timer = 0f;
 
-            // Play the gun shot audioclip.
-            gunAudio.Play ();
-
-            // Enable the lights.
-            gunLight.enabled = true;
-			// faceLight.enabled = true;
-
-            // Stop the particles from playing if they were, then start the particles.
-            gunParticles.Stop ();
-            gunParticles.Play ();
-
-            // Enable the line renderer and set it's first position to be the end of the gun.
-            gunLine.enabled = true;
-            gunLine.SetPosition (0, transform.position);
-
-            // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
-            shootRay.origin = transform.position;
-            shootRay.direction = transform.forward;
-
-            // Perform the raycast against gameobjects on the shootable layer and if it hits something...
-            if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
+            // If the player has health to lose...
+            if (playerHealth.currentHealth > 0)
             {
-                // Try and find an EnemyHealth script on the gameobject hit.
-                PlayerHealth playerHealth = shootHit.collider.GetComponent <PlayerHealth> ();
-
-                // If the EnemyHealth component exist...
-                // ... the enemy should take damage.
-                playerHealth?.TakeDamage(damagePerShot);
-
-                // Set the second position of the line renderer to the point the raycast hit.
-                gunLine.SetPosition (1, shootHit.point);
-            }
-            // If the raycast didn't hit anything on the shootable layer...
-            else
-            {
-                // ... set the second position of the line renderer to the fullest extent of the gun's range.
-                gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
+                print("attack");
+                // ... damage the player.
+                playerHealth.TakeDamage(attackDamage);
             }
         }
-        
     }
 }

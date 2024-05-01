@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Nightmare
 {
@@ -7,6 +8,8 @@ namespace Nightmare
     {
         public float timeBetweenAttacks = 0.5f;
         public int attackDamage = 5;
+        public int DPSDamage = 2;
+        public float rangeDPS = 10f;
 
         Animator anim;
         GameObject player;
@@ -60,7 +63,7 @@ namespace Nightmare
             // Add the time since Update was last called to the timer.
             timer += Time.deltaTime;
 
-            if(playerInRangeDamage())
+            if(PlayerInRangeDamage())
             {
                 timerDPS -= Time.deltaTime;
                 if (timerDPS <= 0f)
@@ -90,17 +93,15 @@ namespace Nightmare
             // Reset the timer.
             timer = 0f;
 
-            // If the player has health to lose...
             if (playerHealth.currentHealth > 0)
             {
-                print("attack");
-                // ... damage the player.
                 playerHealth.TakeDamage(attackDamage);
             }
         }
 
-        bool playerInRangeDamage(){
-            if(player.transform.position.x - transform.position.x < 10 && player.transform.position.z - transform.position.z < 10){
+        bool PlayerInRangeDamage(){
+            float range = (float)Math.Sqrt((player.transform.position.x - transform.position.x)*(player.transform.position.x - transform.position.x) + (player.transform.position.z - transform.position.z)*(player.transform.position.z - transform.position.z));
+            if(range <= rangeDPS){
                 return true;
             }
             return false;
@@ -109,8 +110,7 @@ namespace Nightmare
         void DPS(){
             if (playerHealth.currentHealth > 0)
             {
-                print("attack DPS");
-                playerHealth.TakeDamage(4);
+                playerHealth.TakeDamage(DPSDamage);
             }
         }
     }

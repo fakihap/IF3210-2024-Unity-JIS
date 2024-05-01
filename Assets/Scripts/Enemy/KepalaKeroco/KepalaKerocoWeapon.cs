@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Nightmare
 {
-    public class Rifle : Weapon
+    public class KepalaKerocoWeapon : Weapon
     {
         public LineRenderer gunLine;
         public Light gunLight;
@@ -41,17 +41,17 @@ namespace Nightmare
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
-                print("Enemy is hit123");
+                print("Player is hit123");
                 // Try and find an EnemyHealth script on the gameobject hit.
-                EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-                print(enemyHealth);
-                // If the EnemyHealth component exist...
-                print("this is enemny health "+enemyHealth);
-                if (enemyHealth != null)
+                PlayerHealth playerHealth = shootHit.collider.GetComponent<PlayerHealth>();
+                print(playerHealth);
+                // If the playerHealth component exist...
+                print("this is playerrr health "+playerHealth);
+                if (playerHealth != null)
                 {
                     // ... the enemy should take damage.
-                    print("Enemy is take damage");
-                    enemyHealth.TakeDamage(baseDamage, shootHit.point);
+                    print("playerrr is take damage");
+                    playerHealth.TakeDamage(baseDamage);
                 }
                 else
                 {
