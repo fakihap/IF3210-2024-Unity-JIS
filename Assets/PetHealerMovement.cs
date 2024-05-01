@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Nightmare;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,7 @@ public class PetHealerMovement : MonoBehaviour
     public GameObject player;
     NavMeshAgent nav;
     Animator _anim;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,15 @@ public class PetHealerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //heal player
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            PlayerHealth heal = player.GetComponent<PlayerHealth>();
+            heal.AddHealth(10);
+            print("Healing player");
+            timer = 5f;
+        }
     }
 
     private void FixedUpdate()
