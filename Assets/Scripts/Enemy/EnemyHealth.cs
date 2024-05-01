@@ -86,5 +86,10 @@ namespace Nightmare
             ScoreManager.score += scoreValue;
         }
 
+        public bool IsDead()
+        {
+            return isDead;
+        }
+
     }
 }
