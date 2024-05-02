@@ -8,6 +8,7 @@ public class TravelQuestNotifier : QuestNotifier
     {
         if (isReached) {
             Notify();
+            isReached = false;
         }
     }
 

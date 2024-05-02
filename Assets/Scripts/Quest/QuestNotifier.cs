@@ -8,6 +8,9 @@ public abstract class QuestNotifier : MonoBehaviour {
     public void Subscribe(Quest quest) {
         subscribers.Add(quest);
     }
+    public void Unsubscribe(Quest quest) {
+        subscribers.Remove(quest);
+    }
 
     // should be called from CheckQuest
     public void Notify() {

@@ -9,7 +9,7 @@ public abstract class Quest : MonoBehaviour
     [SerializeField]
     protected List<QuestNotifier> notifiers;
     [SerializeField]
-    protected bool isActive = false;
+    protected bool isActive = false; // might delete this later as its purpose was only to tell us whether the quest is active or not
     private QuestManager questManager;
 
     protected abstract void StartQuest();
@@ -18,9 +18,7 @@ public abstract class Quest : MonoBehaviour
     public abstract string GetQuestMessage();
 
     public void Start() {
-        foreach (QuestNotifier questNotifier in notifiers) {
-            questNotifier.Subscribe(this);
-        }
+        
     }
 
     public void Subscribe(QuestManager questManager) {
@@ -28,7 +26,7 @@ public abstract class Quest : MonoBehaviour
     }
 
     public void Update() {
-        if (CheckQuest()) {
+        if (CheckQuest() && isActive) {
             FinishQuest();
         }
     }
@@ -37,6 +35,7 @@ public abstract class Quest : MonoBehaviour
         isActive = true;
         StartQuest();
 
+        SubscribeToNotifiers();
         Debug.Log("Quest Started : " + GetQuestMessage());
     }
 
@@ -46,5 +45,18 @@ public abstract class Quest : MonoBehaviour
         Debug.Log("Task Finished");
 
         questManager.FinishQuest(this);
+        UnsubscribeFromNotifiers();
+    }
+
+    void SubscribeToNotifiers() {
+        foreach (QuestNotifier questNotifier in notifiers) {
+            questNotifier.Subscribe(this);
+        }
+    }
+
+    void UnsubscribeFromNotifiers() {
+        foreach (QuestNotifier questNotifier in notifiers) {
+            questNotifier.Unsubscribe(this);
+        }
     }
 } 
