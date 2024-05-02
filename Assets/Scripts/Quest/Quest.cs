@@ -10,16 +10,12 @@ public abstract class Quest : MonoBehaviour
     protected List<QuestNotifier> notifiers;
     [SerializeField]
     protected bool isActive = false; // might delete this later as its purpose was only to tell us whether the quest is active or not
-    private QuestManager questManager;
+    protected QuestManager questManager;
 
     protected abstract void StartQuest();
     public abstract void ProgressQuest();
     protected abstract bool CheckQuest();
     public abstract string GetQuestMessage();
-
-    public void Start() {
-        
-    }
 
     public void Subscribe(QuestManager questManager) {
         this.questManager = questManager;

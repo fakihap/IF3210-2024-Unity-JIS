@@ -8,10 +8,19 @@ public class QuestManager : MonoBehaviour
     private List<Quest> quests;
     [SerializeField]
     private List<Quest> activeQuests;
+
+    private QuestUIManager questUIManager;
+
     [SerializeField]
     private bool IsInQuest() {
         return activeQuests.Count == 0;
     }
+
+    public void Awake() {
+        questUIManager = FindObjectOfType<QuestUIManager>();
+        questUIManager.SetQuestList(activeQuests);
+    }
+
     public void Start() {
         foreach (Quest quest in quests) {
             quest.Subscribe(this);
@@ -22,6 +31,8 @@ public class QuestManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U) && quests.Count > 0) {
             StartQuest(quests[0]);
         }
+
+
     }
 
     public void StartQuest(Quest quest) {
@@ -29,9 +40,18 @@ public class QuestManager : MonoBehaviour
         activeQuests.Add(quest);
 
         quest.ActivateQuest();
+
+        UpdateUI();
     }
 
     public void FinishQuest(Quest quest) {
         activeQuests.Remove(quest);
+
+        UpdateUI();
+    }
+
+    // must call this last
+    public void UpdateUI() {
+        questUIManager.UpdateUI();
     }
 }

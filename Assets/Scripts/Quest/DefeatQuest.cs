@@ -13,6 +13,8 @@ public class DefeatQuest : Quest
         currentCount += 1;
 
         Debug.Log("Quest Updated : " + GetQuestMessage());
+        
+        questManager.UpdateUI();
     }
     
     public override string GetQuestMessage()
