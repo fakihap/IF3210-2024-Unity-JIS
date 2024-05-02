@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -33,16 +34,12 @@ public class CutsceneManager : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        DisableUI();
     }
 
     void Update()
     {
-        bgImage.enabled = isInCutscene;
-
-        nameText.enabled = isInCutscene;
-        dialogueText.enabled = isInCutscene;
-
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P) && !isInCutscene) {
             StartCutscene();
         }
     }
@@ -57,12 +54,19 @@ public class CutsceneManager : MonoBehaviour
             dialoguesCount = cutsceneDialogues[cutsceneDialoguesIndex].dialogues.Count;
 
             ProgressCutscene();
+
+            isInCutscene = true;
+            EnableUI();
+            return;
         }
+
+        EndCutscene();
     }
 
     public void ProgressCutscene() {
         if (dialoguesIndex + 1 == dialoguesCount) {
             isInCutscene = false;
+            DisableUI();
             return;
         }
 
@@ -73,6 +77,26 @@ public class CutsceneManager : MonoBehaviour
         dialogueText.text = currentDialog.text;
         mainCamera.transform.position = currentDialog.camTransform.position;
         mainCamera.transform.rotation = Quaternion.Euler(currentDialog.camTransform.rotation);
+    }
+
+    void EndCutscene() {
+        // currently using build index, might cause progress corruption
+        // load next scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void EnableUI() {
+        bgImage.enabled = true;
+
+        nameText.enabled = true;
+        dialogueText.enabled = true;
+    }
+
+    void DisableUI() {
+        bgImage.enabled = false;
+
+        nameText.enabled = false;
+        dialogueText.enabled = false;
     }
 }
  

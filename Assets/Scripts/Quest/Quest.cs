@@ -42,7 +42,7 @@ public abstract class Quest : MonoBehaviour
     private void FinishQuest(){
         isActive = false;
 
-        Debug.Log("Task Finished");
+        Debug.Log("Task Finished : " + GetQuestMessage());
 
         questManager.FinishQuest(this);
         UnsubscribeFromNotifiers();
