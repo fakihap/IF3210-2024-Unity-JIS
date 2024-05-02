@@ -16,7 +16,7 @@ namespace Nightmare
         CapsuleCollider capsuleCollider;
         EnemyMovement enemyMovement;
 
-        bool isDead;
+        public bool isDead;
         bool isSinking;
 
         void Awake()

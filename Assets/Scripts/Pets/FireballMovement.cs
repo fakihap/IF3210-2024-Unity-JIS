@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Nightmare;
 using UnityEngine;
 
 public class FireballMovement : MonoBehaviour
@@ -27,12 +28,12 @@ public class FireballMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // var enemyHealth = other.GetComponent<EnemyHealth>();
+        var enemyHealth = other.GetComponent<EnemyHealth>();
 
-        // if (enemyHealth)
-        // {
-        //     enemyHealth.TakeDamage(fireballDamage, transform.position);
-        //     Destroy(this.gameObject);
-        // }
+        if (enemyHealth)
+        {
+            enemyHealth.TakeDamage(fireballDamage, transform.position);
+            Destroy(this.gameObject);
+        }
     }
 }

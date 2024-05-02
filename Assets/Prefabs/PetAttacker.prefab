@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 3878630058993967862}
   - component: {fileID: 3878630058993967849}
   - component: {fileID: 3678622190371924686}
+  - component: {fileID: 9156198809516844491}
   - component: {fileID: 1733041299}
   - component: {fileID: 1249818700}
   - component: {fileID: 1249818701}
@@ -490,7 +491,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d3d5aedd6f91c44bb5cb070de988d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  Damageables: []
+  closestDamageable: {fileID: 0}
+--- !u!114 &9156198809516844491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878630058993967848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18066d0a4c495e4b897f9fd96acb9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1975959190090480, guid: 3332a30ac0de2ff4e902808f8abf6866, type: 3}
+  radius: 5
 --- !u!136 &1733041299
 CapsuleCollider:
   m_ObjectHideFlags: 0
