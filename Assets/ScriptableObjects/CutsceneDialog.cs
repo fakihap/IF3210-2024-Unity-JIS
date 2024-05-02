@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [Serializable]
 public class CameraTransform {
     public Vector3 position;
-    public Quaternion rotation;
+    public Vector3 rotation;
 }
 
 [Serializable]
@@ -24,14 +24,17 @@ public class CutsceneDialog : ScriptableObject
     [SerializeField]
     public List<Dialog> dialogues;
 
-    [MenuItem("Cutscene/Copy Scene View Camera Position")]
-    static public void MoveSceneViewCamera()
+    [MenuItem("Cutscene/Copy Scene View Camera Transform")]
+    static public void CopySceneViewCameraTransform()
     {
-        Debug.Log(EditorGUIUtility.systemCopyBuffer);
         Vector3 position = SceneView.lastActiveSceneView.pivot;
-        Quaternion rotation = SceneView.lastActiveSceneView.rotation;
+        Vector3 rotation = SceneView.lastActiveSceneView.rotation.eulerAngles;
 
-        EditorGUIUtility.systemCopyBuffer = "GenericPropertyJSON:{\"name\":\"camTransform\",\"type\":-1,\"children\":[{\"name\":\"position\",\"type\":9,\"children\":[{\"name\":\"x\",\"type\":2,\"val\":"+ position.x +"},{\"name\":\"y\",\"type\":2,\"val\":" + position.y + "},{\"name\":\"z\",\"type\":2,\"val\":" + position.z + "}]},{\"name\":\"rotation\",\"type\":17,\"val\":\"{Quaternion(" + rotation.w + ", " + rotation.x + ", " + rotation.y + ", " + rotation.z + ")}\"}]}" ;
+        // offset distance of SceneView from its actual position
+        Vector3 backingDistance = (Quaternion.Euler(rotation) * Vector3.forward).normalized * 2;
+        position -= backingDistance;
+    
+        EditorGUIUtility.systemCopyBuffer = "GenericPropertyJSON:{\"name\":\"camTransform\",\"type\":-1,\"children\":[{\"name\":\"position\",\"type\":9,\"children\":[{\"name\":\"x\",\"type\":2,\"val\":"+ position.x +"},{\"name\":\"y\",\"type\":2,\"val\":"+ position.y +"},{\"name\":\"z\",\"type\":2,\"val\":"+ position.z +"}]},{\"name\":\"rotation\",\"type\":9,\"children\":[{\"name\":\"x\",\"type\":2,\"val\":"+ rotation.x +"},{\"name\":\"y\",\"type\":2,\"val\":"+ rotation.y +"},{\"name\":\"z\",\"type\":2,\"val\":"+ rotation.z +"}]}]}";
     }
 }
 

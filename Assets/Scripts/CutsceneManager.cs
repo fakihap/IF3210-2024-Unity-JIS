@@ -72,7 +72,7 @@ public class CutsceneManager : MonoBehaviour
         nameText.text = currentDialog.name;
         dialogueText.text = currentDialog.text;
         mainCamera.transform.position = currentDialog.camTransform.position;
-        mainCamera.transform.rotation = currentDialog.camTransform. rotation;
+        mainCamera.transform.rotation = Quaternion.Euler(currentDialog.camTransform.rotation);
     }
 }
  
