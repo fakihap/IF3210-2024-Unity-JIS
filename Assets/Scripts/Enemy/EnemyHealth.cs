@@ -25,9 +25,10 @@ namespace Nightmare
             enemyAudio = GetComponent<AudioSource>();
             hitParticles = GetComponentInChildren<ParticleSystem>();
             capsuleCollider = GetComponent<CapsuleCollider>();
-            enemyMovement = this.GetComponent<EnemyMovement>();
+            enemyMovement = GetComponent<EnemyMovement>();
 
             currentHealth = startingHealth;
+            // print("Enemy health is " + currentHealth);
         }
 
         private void SetKinematics(bool isKinematic)
@@ -50,6 +51,7 @@ namespace Nightmare
             {
                 return;
             }
+            // print("Enemy is take damage");
 
             enemyAudio.Play();
 
@@ -83,7 +85,7 @@ namespace Nightmare
 
             Destroy(gameObject, 2f);
 
-            //ScoreManager.score += scoreValue;
+            ScoreManager.score += scoreValue;
         }
 
         public bool IsDead()

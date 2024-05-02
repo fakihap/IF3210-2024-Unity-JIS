@@ -1,40 +1,42 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 namespace Nightmare
 {
     public class ScoreManager : MonoBehaviour
     {
         public static int score;
-        private int levelThreshhold;
-        const int LEVEL_INCREASE = 300;
+        // private int levelThreshhold;
+        // const int LEVEL_INCREASE = 300;
 
-        Text sText;
+        public TextMeshProUGUI text;
 
         void Awake ()
         {
-            sText = GetComponent <Text> ();
+            text = FindObjectOfType<TextMeshProUGUI> ();
+            // sText = GetComponent <TMPro.TextMeshProUGUI> ().text;
 
             score = 0;
-            levelThreshhold = LEVEL_INCREASE;
+            // levelThreshhold = LEVEL_INCREASE;
         }
 
 
         void Update ()
         {
-            sText.text = "Score: " + score;
-            if (score >= levelThreshhold)
-            {
-                AdvanceLevel();
-            }
+            text.text = "Score: " + score;
+            // if (score >= levelThreshhold)
+            // {
+            //     AdvanceLevel();
+            // }
         }
 
-        private void AdvanceLevel()
-        {
-            levelThreshhold = score + LEVEL_INCREASE;
-            LevelManager lm = FindObjectOfType<LevelManager>();
-            lm.AdvanceLevel();
-        }
+        // private void AdvanceLevel()
+        // {
+        //     levelThreshhold = score + LEVEL_INCREASE;
+        //     LevelManager lm = FindObjectOfType<LevelManager>();
+        //     lm.AdvanceLevel();
+        // }
     }
 }
