@@ -11,6 +11,8 @@ public class DefeatQuest : Quest
     public override void ProgressQuest()
     {
         currentCount += 1;
+
+        Debug.Log("Quest Updated : " + GetQuestMessage());
     }
     
     public override string GetQuestMessage()

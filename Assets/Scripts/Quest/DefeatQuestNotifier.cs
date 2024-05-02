@@ -1,11 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DefeatQuestNotifier : QuestNotifier
 {
-    protected override void CheckQuest()
+    // notify that the target is dead
+    public void NotifyDefeat()
     {
-        if (Input.GetKeyDown(KeyCode.K)) {
-            Notify();
-        }
+        Notify();
     }
 }
