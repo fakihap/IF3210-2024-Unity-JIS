@@ -16,18 +16,18 @@ MonoBehaviour:
   - name: You
     text: ugh, what is this? where am i?
     camTransform:
-      position: {x: 10.75695, y: -11.38731, z: -15.91308}
-      rotation: {x: 31.97105, y: 146.9981, z: 0.002763667}
+      position: {x: 0.1426327, y: 0.97616, z: 3.326822}
+      rotation: {x: 12.03218, y: 178.1771, z: 0.004100446}
   - name: ???
     text: we're inside ur mind. u're actually dreaming as we speak
     camTransform:
-      position: {x: 10.79743, y: -1.559464, z: 3.465233}
-      rotation: {x: 22.86106, y: 79.96186, z: 0.003178083}
+      position: {x: 4.279854, y: 1.100524, z: 1.732211}
+      rotation: {x: 13.57917, y: 224.0712, z: 0.004093878}
   - name: You
     text: huh, what? who are u? show yourself!
     camTransform:
-      position: {x: 14.4423, y: -2.838737, z: 10.66304}
-      rotation: {x: 12.54783, y: 52.63131, z: 0.003339471}
+      position: {x: 1.58124, y: 4.147247, z: 10.09235}
+      rotation: {x: 20.97032, y: 187.2879, z: 0.004348571}
   - name: ???
     text: me? u dont need to know me.
     camTransform:

@@ -19,6 +19,8 @@ namespace Nightmare
         public bool isDead;
         bool isSinking;
 
+        [SerializeField] private DefeatQuestNotifier defeatQuestNotifier;
+
         void Awake()
         {
             anim = GetComponent<Animator>();
@@ -29,6 +31,8 @@ namespace Nightmare
 
             currentHealth = startingHealth;
             // print("Enemy health is " + currentHealth);
+
+            defeatQuestNotifier = GetComponent<DefeatQuestNotifier>();
         }
 
         private void SetKinematics(bool isKinematic)
@@ -74,6 +78,9 @@ namespace Nightmare
             anim.SetTrigger("Dead");
             enemyAudio.clip = deathClip;
             enemyAudio.Play();
+
+            // set dead
+            defeatQuestNotifier.NotifyDefeat();
         }
 
         public void StartSinking()
