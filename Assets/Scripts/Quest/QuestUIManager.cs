@@ -9,20 +9,6 @@ public class QuestUIManager : MonoBehaviour
     [SerializeField] private List<Quest> activeQuests;
     [SerializeField] private TextMeshProUGUI questText;
 
-    // public void AddQuest(Quest quest) {
-    //     activeQuests.Add(quest);
-
-    //     UpdateUI();
-    // }
-    // public void UpdateQuest(Quest quest) {
-    //     UpdateUI();
-    // }
-
-    // public void FinishQuest(Quest quest) {
-    //     activeQuests.Remove(quest);
-
-    //     UpdateUI();
-    // }
     public void SetQuestList(List<Quest> quests) {
         activeQuests = quests;
     }
