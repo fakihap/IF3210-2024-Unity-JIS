@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Pet Dragon
   - Rifle
+  - Healing Wizard
+  - PetBuffer
+  - Aura Buff Wizard
   layers:
   - Default
   - TransparentFX

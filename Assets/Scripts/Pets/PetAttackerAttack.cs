@@ -16,6 +16,7 @@ public class PetAttackerAttack : MonoBehaviour
     float time;
     RaycastHit hit;
     public float radius = 5f;
+    private AudioSource fireballAudio;
     int shootableMask;
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class PetAttackerAttack : MonoBehaviour
         _anim = GetComponent<Animator>();
         petAttackerMovement = GetComponent<PetAttackerMovement>();
         petAttackerRigidbody = GetComponent<Rigidbody>();
+        fireballAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,9 +49,10 @@ public class PetAttackerAttack : MonoBehaviour
             Debug.Log("TIDAK NULL");
             var enemyTransform = petAttackerMovement.closestDamageable.transform;
             var enemyPosition = new Vector3(enemyTransform.position.x, 0, enemyTransform.position.z);
-            var petAttackerPosition = new Vector3(enemyTransform.position.x, 0, enemyTransform.position.z);
+            var petAttackerPosition = new Vector3(transform.position.x, 0, transform.position.z);
             if(Vector3.Distance(petAttackerPosition, enemyPosition) < radius)
             {
+                fireballAudio.Play();
                 if(HasLineofSightTo(enemyTransform))
                 {
                     _anim.SetTrigger("Attack");
