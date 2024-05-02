@@ -41,15 +41,21 @@ namespace Nightmare
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
-                print("Enemy is hit");
+                print("Enemy is hit123");
                 // Try and find an EnemyHealth script on the gameobject hit.
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-
+                print(enemyHealth);
                 // If the EnemyHealth component exist...
+                print("this is enemny health "+enemyHealth);
                 if (enemyHealth != null)
                 {
                     // ... the enemy should take damage.
+                    print("Enemy is take damage");
                     enemyHealth.TakeDamage(baseDamage, shootHit.point);
+                }
+                else
+                {
+                    print("Enemy is not take damage");
                 }
 
                 // Set the second position of the line renderer to the point the raycast hit.
