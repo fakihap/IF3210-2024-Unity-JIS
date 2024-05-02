@@ -17,7 +17,7 @@ public class Dialog {
     // or maybe also animation
 }
 
-[CreateAssetMenu(fileName = "Cutscene", menuName = "Cutscene/CutsceneDialog", order = 1)]
+[CreateAssetMenu(fileName = "Cutscene", menuName = "Cutscene/Cutscene Dialog", order = 1)]
 public class CutsceneDialog : ScriptableObject
 {
     
