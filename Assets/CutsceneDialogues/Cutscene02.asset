@@ -16,5 +16,5 @@ MonoBehaviour:
   - name: Peko
     text: my name is oekoakdspakdapskdal;djalkj
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -4.922823, y: 2.237705, z: 2.638572}
+      rotation: {x: 13.06344, y: 94.67496, z: -0.00001928203}

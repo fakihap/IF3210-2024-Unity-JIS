@@ -1,30 +1,33 @@
 using UnityEngine;
 using System.Collections.Generic;
-public enum QuestType {
-    Travel,
-    Defeat
-}
+using System;
+using Unity.VisualScripting;
+
+[Serializable]
 public abstract class Quest : MonoBehaviour
 {
-    [SerializeField]
-    protected QuestType questType;
     [SerializeField]
     protected List<QuestNotifier> notifiers;
     [SerializeField]
     protected bool isActive = false;
+    private QuestManager questManager;
 
     protected abstract void StartQuest();
     public abstract void ProgressQuest();
     protected abstract bool CheckQuest();
     public abstract string GetQuestMessage();
 
-    void Start() {
+    public void Start() {
         foreach (QuestNotifier questNotifier in notifiers) {
             questNotifier.Subscribe(this);
         }
     }
 
-    void Update() {
+    public void Subscribe(QuestManager questManager) {
+        this.questManager = questManager;
+    }
+
+    public void Update() {
         if (CheckQuest()) {
             FinishQuest();
         }
@@ -33,11 +36,15 @@ public abstract class Quest : MonoBehaviour
     public void ActivateQuest() {
         isActive = true;
         StartQuest();
+
+        Debug.Log("Quest Started : " + GetQuestMessage());
     }
 
     private void FinishQuest(){
         isActive = false;
 
         Debug.Log("Task Finished");
+
+        questManager.FinishQuest(this);
     }
 } 

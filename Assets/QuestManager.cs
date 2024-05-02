@@ -7,25 +7,31 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     private List<Quest> quests;
     [SerializeField]
-    private int currentIndex = -1;
-
+    private List<Quest> activeQuests;
     [SerializeField]
-    private bool isInQuest = false;
-    void Start()
+    private bool IsInQuest() {
+        return activeQuests.Count == 0;
+    }
+    public void Start() {
+        foreach (Quest quest in quests) {
+            quest.Subscribe(this);
+        }
+    }
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.U) && quests.Count > 0) {
+            StartQuest(quests[0]);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void StartQuest(Quest quest) {
+        quests.Remove(quest);
+        activeQuests.Add(quest);
 
+        quest.ActivateQuest();
     }
 
-    public void StartQuest() {
-        currentIndex += 1;
-        isInQuest = true;
-
-        quests[currentIndex].ActivateQuest();
+    public void FinishQuest(Quest quest) {
+        activeQuests.Remove(quest);
     }
 }
