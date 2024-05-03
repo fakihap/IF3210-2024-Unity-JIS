@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa0c7b58a6b3454790f287b5fdcba63, type: 3}
+  m_Name: Cutscene01
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Zai
+    text: asdad
+    camTransform:
+      position: {x: 4.708431, y: 2.07244, z: 6.782599}
+      rotation: {x: 6.875502, y: 212.2459, z: -0.000002149895}
+  - name: Teko
+    text: asdlakmlkm
+    camTransform:
+      position: {x: -5.024345, y: 2.211611, z: -2.089985}
+      rotation: {x: 7.391158, y: 72.15774, z: 0.0000129139}
+  - name: Zai
+    text: well ye
+    camTransform:
+      position: {x: 0.3205231, y: 1.50359, z: 3.641845}
+      rotation: {x: 7.219275, y: 175.2902, z: 0.000003792001}
+  - name: Teko
+    text: hohooo
+    camTransform:
+      position: {x: -0.02673994, y: 2.114154, z: 7.162742}
+      rotation: {x: 15.98553, y: 173.0556, z: 0.000000444058}
+  - name: Zai
+    text: yes
+    camTransform:
+      position: {x: -2.693103, y: 1.536727, z: 2.144566}
+      rotation: {x: 14.43855, y: 143.6629, z: -0.00001234267}
