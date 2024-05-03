@@ -32,8 +32,7 @@ public class OrbRestoreHealth : MonoBehaviour
     private void HealPlayer()
     {
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        int currentHealth = playerHealth.currentHealth;
-        playerHealth.AddHealth(currentHealth/5);
+        playerHealth.OrbRestoreHealth();
     }
 
 

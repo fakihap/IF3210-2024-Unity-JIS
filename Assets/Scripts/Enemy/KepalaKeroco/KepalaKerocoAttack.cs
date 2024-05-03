@@ -87,5 +87,7 @@ namespace Nightmare
                 playerHealth.TakeDamage(attackDamage);
             }
         }
+
+        
     }
 }
