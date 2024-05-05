@@ -4,7 +4,7 @@ using Nightmare;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PetHealerheal : MonoBehaviour
+public class PetHealerHeal : MonoBehaviour
 {
     public GameObject player;
     public float healDelay = 10f;

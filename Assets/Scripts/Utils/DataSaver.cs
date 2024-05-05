@@ -8,14 +8,14 @@ public class DataSaver
     public static void SaveData<T>(T data, string fileName)
     {
         var path = Path.Combine(Application.persistentDataPath, "data");
-        path = path.Combine(path, fileName + ".txt");
+        path = Path.Combine(path, fileName + ".txt");
 
         var jsonData = JsonUtility.ToJson(data, true);
         var jsonByte = Encoding.ASCII.GetBytes(jsonData);
 
-        if(!Directory.Exist(Path.GetDirectoryName(path)))
+        if(!Directory.Exists(Path.GetDirectoryName(path)))
         {
-            Directory.CreateDirectory(path.GetDirectoryName(path) ?? throw new InvalidOperationException());
+            Directory.CreateDirectory(Path.GetDirectoryName(path) ?? throw new InvalidOperationException());
         }
 
         try
@@ -33,7 +33,7 @@ public class DataSaver
     public static T LoadData<T>(string fileName) where T: new()
     {
         var path = Path.Combine(Application.persistentDataPath, "data");
-        path = path.Combine(path, fileName + ".txt");
+        path = Path.Combine(path, fileName + ".txt");
 
         if (!File.Exists(path))
         {
@@ -67,18 +67,18 @@ public class DataSaver
     public static bool DeleteData(string fileName)
     {
         var path = Path.Combine(Application.persistentDataPath, "data");
-        path = path.Combine(path, fileName + ".txt");
+        path = Path.Combine(path, fileName + ".txt");
 
         if (!File.Exists(path))
         {
             Debug.Log("File does not exist");
-            return new T();
+            return false;
         }
 
         if (!Directory.Exists(Path.GetDirectoryName(path)))
         {
             Debug.LogWarning("Directory does not exist");
-            return new T();
+            return false;
         }
 
         var success = false;

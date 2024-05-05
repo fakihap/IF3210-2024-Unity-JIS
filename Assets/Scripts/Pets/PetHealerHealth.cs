@@ -18,7 +18,7 @@ public class PetHealerHealth : PetHealth, IDamageable
     {
         isDead = false;
         isImmortal = false;
-        currHealth = startHealth
+        currHealth = startHealth;
         _anim = GetComponent<Animator>();
         petHealerMovement = GetComponent<PetHealerMovement>();
         petHealerHeal = GetComponent<PetHealerHeal>();
@@ -34,7 +34,7 @@ public class PetHealerHealth : PetHealth, IDamageable
     {
         isDead = true;
         petHealerMovement.enabled = false;
-        petHealerAttack.enabled = false;
+        petHealerHeal.enabled = false;
         _anim.SetTrigger("Dead");
         spellEffect.SetActive(false);
     }
