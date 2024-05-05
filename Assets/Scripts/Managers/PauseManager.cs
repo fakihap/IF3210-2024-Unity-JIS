@@ -10,12 +10,14 @@ public class PauseManager : MonoBehaviour {
 	
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
+	public static bool isPaused;
 	
 	Canvas canvas;
 	
 	void Start()
 	{
 		canvas = GetComponent<Canvas>();
+		isPaused = false;
 	}
 	
 	void Update()
@@ -30,8 +32,15 @@ public class PauseManager : MonoBehaviour {
 	public void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+		isPaused = Time.timeScale == 0;
 		Lowpass ();
 		
+	}
+
+	public static void StaticPauseOrUnPause()
+    {
+		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+		isPaused = Time.timeScale == 0;
 	}
 	
 	void Lowpass()
@@ -55,5 +64,10 @@ public class PauseManager : MonoBehaviour {
 		#else 
 		Application.Quit();
 		#endif
+	}
+
+	public static bool IsPaused()
+	{
+		return isPaused;
 	}
 }
