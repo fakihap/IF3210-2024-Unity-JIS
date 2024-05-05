@@ -7,4 +7,5 @@ using UnityEngine;
 public class CurrStateData
 {
     private static GameData currGameData;
+
 }
