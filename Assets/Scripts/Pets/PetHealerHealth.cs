@@ -11,8 +11,10 @@ public class PetHealerHealth : PetHealth, IDamageable
     private PetHealerMovement petHealerMovement;
     private PetHealerHeal petHealerHeal;
     private Animator _anim;
+    public float disappearTime = 2.5f;
     public bool isDead;
     public bool isImmortal;
+    public bool isDisappear;
 
     private void Awake()
     {
@@ -52,6 +54,15 @@ public class PetHealerHealth : PetHealth, IDamageable
             /* TO DO:  */
             Death();
         }
+    }
+
+    public void Disappear()
+    {
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        isDisappear = true;
+
+        Destroy(gameObject, 2f);
     }
 
     public void Immortal()

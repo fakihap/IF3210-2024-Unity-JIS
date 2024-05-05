@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class PetHealerHeal : MonoBehaviour
 {
     public GameObject player;
-    public float healDelay = 10f;
+    public float healDelay = 2f;
     public int healAmount = 10;
     float time;
     bool playerInRange;
