@@ -1,43 +1,42 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Nightmare;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PetAttackerHealth : PetHealth, IDamageable
+public class PetHealerHealth : PetHealth, IDamageable
 {
-    public float sinkSpeed = 2.5f;
+    public GameObject spellEffect;
     public AudioClip deathClip;
-    private PetAttackerMovement petAttackerMovement;
-    private PetAttackerAttack petAttackerAttack;
+    private PetHealerMovement petHealerMovement;
+    private PetHealerHeal petHealerHeal;
     private Animator _anim;
-    private bool isDead;
-    private bool isImmortal;
+    public bool isDead;
+    public bool isImmortal;
 
     private void Awake()
     {
         isDead = false;
         isImmortal = false;
-        currHealth = startHealth;
+        currHealth = startHealth
         _anim = GetComponent<Animator>();
-        petAttackerMovement = GetComponent<PetAttackerMovement>();
-        petAttackerAttack = GetComponent<PetAttackerAttack>();
+        petHealerMovement = GetComponent<PetHealerMovement>();
+        petHealerHeal = GetComponent<PetHealerHeal>();
     }
 
     private void Update()
     {
         /* TO DO: use state data */
-        Debug.Log("Take Damage Pet Attacker");
-        
+        Debug.Log("Take Damage Pet Healer");
     }
 
     private void Death()
     {
         isDead = true;
-        petAttackerMovement.enabled = false;
-        petAttackerAttack.enabled = false;
+        petHealerMovement.enabled = false;
+        petHealerAttack.enabled = false;
         _anim.SetTrigger("Dead");
+        spellEffect.SetActive(false);
     }
 
     public void TakeDamage(int amount)
