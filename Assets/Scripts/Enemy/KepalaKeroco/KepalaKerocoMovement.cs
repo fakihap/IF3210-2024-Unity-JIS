@@ -34,6 +34,7 @@ namespace Nightmare
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             player = GameObject.FindGameObjectWithTag ("Player").transform;
             nav = GetComponent<NavMeshAgent>();
+            shootableMask = LayerMask.GetMask("Player");
             nav.speed= speed;
         }
 
@@ -44,11 +45,11 @@ namespace Nightmare
                 return;
 
             spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0f)
-            {
-                Spawn();
-                spawnTimer = spawnTime;
-            }
+            // if (spawnTimer <= 0f)
+            // {
+            //     Spawn();
+            //     spawnTimer = spawnTime;
+            // }
 
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0f)
@@ -107,7 +108,7 @@ namespace Nightmare
                 {
                     // ... the enemy should take damage.
                     print("playerrr is take damage");
-                    playerHealth.TakeDamage(baseDamage);
+                    playerHealth.TakeDamage(10);
                 }
                 else
                 {
