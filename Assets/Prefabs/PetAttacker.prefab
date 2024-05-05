@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 3878630058993967849}
   - component: {fileID: 3678622190371924686}
   - component: {fileID: 9156198809516844491}
+  - component: {fileID: 6987163326375123509}
   - component: {fileID: 1733041299}
   - component: {fileID: 1249818700}
   - component: {fileID: 4224445004584203100}
@@ -508,6 +509,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1975959190090480, guid: 3332a30ac0de2ff4e902808f8abf6866, type: 3}
   radius: 5
+--- !u!114 &6987163326375123509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878630058993967848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f403b25865c1498cfc599eb11b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currHealth: 0
+  startHealthReduced: 0
+  deathClip: {fileID: 0}
+  disappearTime: 2.5
 --- !u!136 &1733041299
 CapsuleCollider:
   m_ObjectHideFlags: 0

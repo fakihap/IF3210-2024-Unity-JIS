@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
 
 namespace Nightmare
@@ -6,6 +7,7 @@ namespace Nightmare
     public class PlayerMovement : PausibleObject
     {
         public float speed = 6f;
+        private float originalSpeed; // untuk menyimpan nilai kecepatan asli sebelum peningkatan
 
         Vector3 movement;
         Animator anim;
@@ -18,6 +20,7 @@ namespace Nightmare
             floorMask = LayerMask.GetMask("Environment");
             anim = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody>();
+            originalSpeed = speed; // menyimpan nilai awal kecepatan
         }
 
         private void FixedUpdate()
@@ -58,5 +61,16 @@ namespace Nightmare
             anim.SetBool("IsWalking", walking);
         }
 
+        public void OrbIncreaseSpeed(float duration, float multiplier)
+        {
+            StartCoroutine(IncreaseSpeedForDuration(duration, multiplier));
+        }
+
+        IEnumerator IncreaseSpeedForDuration(float duration, float multiplier)
+        {
+            speed *= multiplier; // meningkatkan kecepatan sesuai multiplier
+            yield return new WaitForSeconds(duration);
+            speed = originalSpeed; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
+        }
     }
 }

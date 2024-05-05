@@ -123,5 +123,10 @@ namespace Nightmare
         {
             // EventManager.TriggerEvent("GameOver");
         }
+
+        public void OrbRestoreHealth()
+        {
+            AddHealth(currentHealth/5);
+        }
     }
 }
