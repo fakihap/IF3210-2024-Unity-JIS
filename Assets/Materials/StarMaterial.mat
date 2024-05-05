@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: StarMaterial
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: 2cc03082a5ed39b48989495e27eca771, type: 2}
+  m_Parent: {fileID: 2100000, guid: bcebcbd6d4247e840b145e63ae9878de, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSION
@@ -50,9 +50,9 @@ Material:
     - _Glossiness: 0.75
     - _Shininess: 0.078125
     m_Colors:
-    - _Color: {r: 0.84277236, g: 0.9044118, b: 0.7448097, a: 1}
-    - _EmissionColor: {r: 0.1034646, g: 3, b: 0, a: 1}
+    - _Color: {r: 0.8018868, g: 0.4678751, b: 0.14751692, a: 1}
+    - _EmissionColor: {r: 1, g: 0.6462264, b: 0.6462264, a: 1}
     - _EmissionColorUI: {r: 0.0344882, g: 1, b: 0, a: 1}
-    - _SpecColor: {r: 0.5441177, g: 1, b: 0.5661258, a: 1}
+    - _SpecColor: {r: 0.016776435, g: 0.122641504, b: 0.021339586, a: 1}
     - _SpecularColor: {r: 0.74264705, g: 0.74264705, b: 0.74264705, a: 1}
   m_BuildTextureStacks: []
