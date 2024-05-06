@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Nightmare;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class ShopItemTemplate : MonoBehaviour
 {
     public Text title;
     public Text price;
-    // public Image image;
+    public Image image;
     public Button buyButton;
     public ShopCanvasManager manager;
 
