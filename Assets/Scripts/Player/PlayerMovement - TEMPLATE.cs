@@ -13,11 +13,11 @@ namespace Nightmare
         Animator anim;
         Rigidbody playerRigidBody;
         int floorMask;
-        readonly float camRayLength = 500f;
+        readonly float camRayLength = 1000f;
 
         private void Awake()
         {
-            floorMask = LayerMask.GetMask("Environment");
+            floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody>();
             originalSpeed = speed; // menyimpan nilai awal kecepatan
@@ -35,7 +35,7 @@ namespace Nightmare
 
         void Move(float h, float v)
         {
-            movement = transform.right * h + transform.forward * v;
+            movement = new Vector3(h, 0, v);;
 
             movement = movement.normalized * speed * Time.deltaTime;
 
@@ -49,6 +49,7 @@ namespace Nightmare
             if (Physics.Raycast(camRay, out RaycastHit floorHit, camRayLength, floorMask))
             {
                 Vector3 playerToMouse = floorHit.point - transform.position;
+                playerToMouse.y = 0;
 
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
                 playerRigidBody.MoveRotation(newRotation);
