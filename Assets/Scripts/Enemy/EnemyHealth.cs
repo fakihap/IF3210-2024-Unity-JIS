@@ -95,10 +95,10 @@ namespace Nightmare
         {
             print("Spawn orb");
             float random = Random.Range(0f, 1f);
-            if(random>0.5f)
-            {
-                return;
-            }
+            // if(random>0.5f)
+            // {
+            //     return;
+            // }
             Vector3 enemyPosition = transform.position;
             enemyPosition.y +=0.5f;
             Quaternion rotation = Quaternion.Euler(0, 0, 0);

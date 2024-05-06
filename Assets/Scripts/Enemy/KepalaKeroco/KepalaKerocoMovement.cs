@@ -82,31 +82,28 @@ namespace Nightmare
             spawnTimer = 0f;
             attackTimer = 0f;
 
-            
-
-            gunLight.enabled = true;
-
-            // Stop the particles from playing if they were, then start the particles.
-            gunParticles.Stop();
-            gunParticles.Play();
-
-            // Enable the line renderer and set it's first position to be the end of the gun.
-            gunLine.enabled = true;
-            gunLine.SetPosition(0, gunBarrelEnd.transform.position);
-
             // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
+                gunLight.enabled = true;
+
+                // Stop the particles from playing if they were, then start the particles.
+                gunParticles.Stop();
+                gunParticles.Play();
+
+                // Enable the line renderer and set it's first position to be the end of the gun.
+                gunLine.enabled = true;
+                gunLine.SetPosition(0, gunBarrelEnd.transform.position);
                 attackSound.Play();
                 print("Player is hit123");
                 // Try and find an EnemyHealth script on the gameobject hit.
                 PlayerHealth playerHealth = shootHit.collider.GetComponent<PlayerHealth>();
-                print(playerHealth);
+                print("ini player health"+playerHealth);
                 // If the playerHealth component exist...
-                print("this is playerrr health "+playerHealth);
+                print("this is playerrr health "+playerHealth.currentHealth);
                 if (playerHealth != null)
                 {
                     // ... the enemy should take damage.
@@ -120,17 +117,18 @@ namespace Nightmare
 
                 // Set the second position of the line renderer to the point the raycast hit.
                 gunLine.SetPosition(1, shootHit.point);
+                Invoke("DisableGunLine", 0.1f);
             }
             // If the raycast didn't hit anything on the shootable layer...
             else
             {
-                attackSound.Play();
-                // ... set the second position of the line renderer to the fullest extent of the gun's range.
-                gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+                // attackSound.Play();
+                // // ... set the second position of the line renderer to the fullest extent of the gun's range.
+                // gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
                 print("ga jadi gunggg");
             }
             // make it delay 0.5s
-            Invoke("DisableGunLine", 0.1f);
+            
         }
         void DisableGunLine()
         {
