@@ -7263,13 +7263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df57e85bce037284abc1d3100c0ee726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheatCodeMotherlode:
-  - m
+  cheatCodeOneHit:
   - o
-  - t
-  - h
+  - n
   - e
-  - r
+  - h
+  - i
+  - t
   rifle: {fileID: 1092956512825928575}
   shotgun: {fileID: 441146631463676931}
   sword: {fileID: 2682546380177682136}

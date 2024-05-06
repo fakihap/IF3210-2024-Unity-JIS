@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Nightmare;
 using UnityEngine;
 
-public class PlayerCheatMotherlode : MonoBehaviour
+public class PlayerCheatOneHit : MonoBehaviour
 {
 
-    public string[] cheatCodeMotherlode = new string[] { "m", "o", "t", "h", "e", "r" };
-    private int indexMotherlode;
+    public string[] cheatCodeOneHit = new string[] { "o", "n", "e", "h", "i", "t" };
+    private int indexOneHit;
     public Rifle rifle;
     public Shotgun shotgun;
     public Sword sword;
@@ -19,7 +19,7 @@ public class PlayerCheatMotherlode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        indexMotherlode = 0;
+        indexOneHit = 0;
 
         rifleBaseDamage = rifle.baseDamage;
         shotgunBaseDamage = shotgun.baseDamage;
@@ -33,35 +33,35 @@ public class PlayerCheatMotherlode : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            if (Input.GetKeyDown(cheatCodeMotherlode[indexMotherlode]))
+            if (Input.GetKeyDown(cheatCodeOneHit[indexOneHit]))
             {
-                indexMotherlode++;
+                indexOneHit++;
 
             }
             else
             {
-                indexMotherlode = 0;
+                indexOneHit = 0;
             }
         }
 
-        if (indexMotherlode == cheatCodeMotherlode.Length)
+        if (indexOneHit == cheatCodeOneHit.Length)
         {
 
             if (!isOn)
             {
-                print("motherlode on");
+                print("OneHit on");
                 rifle.baseDamage = 999999;
                 shotgun.baseDamage = 999999;
                 sword.baseDamage = 999999;
             }
             else
             {
-                print("motherlode off");
+                print("OneHit off");
                 rifle.baseDamage = rifleBaseDamage;
                 shotgun.baseDamage = shotgunBaseDamage;
                 sword.baseDamage = swordBaseDamage;
             }
-            indexMotherlode = 0;
+            indexOneHit = 0;
             isOn = !isOn;
         }
     }
