@@ -5099,12 +5099,6 @@ MonoBehaviour:
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
   currentHealth: 0
-  orbs:
-  - {fileID: 8186544323179993974, guid: 1bcfb2ad2016ed542b48947421221c1f, type: 3}
-  - {fileID: 8186544323179993974, guid: e0d24be29967f944cb96f41531090e83, type: 3}
-  - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
-  isDead: 0
-  defeatQuestNotifier: {fileID: 0}
 --- !u!114 &817390837492609422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5131,7 +5125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2637c8b9068830c4d91f42a2e4e29f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
 --- !u!1 &4642746332030584114
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,11 +98,6 @@ namespace Nightmare
                 DisableEffects();
             }
         }
-        
-        public override void IncreaseDamage(int damageIncrease)
-        {
-            baseDamage += baseDamage * damageIncrease / 100;
-        }
 
     }
 

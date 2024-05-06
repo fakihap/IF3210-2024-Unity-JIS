@@ -9,7 +9,6 @@ namespace Nightmare
         public int scoreValue = 10;
         public AudioClip deathClip;
         public int currentHealth;
-        public GameObject[] orbs;
 
         Animator anim;
         AudioSource enemyAudio;
@@ -79,31 +78,9 @@ namespace Nightmare
             anim.SetTrigger("Dead");
             enemyAudio.clip = deathClip;
             enemyAudio.Play();
-            float random = Random.Range(0f, 1f);
-            SpawnOrb();
+
             // set dead
             defeatQuestNotifier.NotifyDefeat();
-
-            //buat peluang 0-1 dalam float
-            // if(random>0.5f)
-            // {
-            //     SpawnOrb();
-            // }
-        }
-
-        public void SpawnOrb()
-        {
-            print("Spawn orb");
-            float random = Random.Range(0f, 1f);
-            if(random>0.5f)
-            {
-                return;
-            }
-            Vector3 enemyPosition = transform.position;
-            enemyPosition.y +=0.5f;
-            Quaternion rotation = Quaternion.Euler(0, 0, 0);
-            GameObject orb = orbs[Random.Range(0, orbs.Length)];
-            Instantiate(orb, enemyPosition, rotation);
         }
 
         public void StartSinking()

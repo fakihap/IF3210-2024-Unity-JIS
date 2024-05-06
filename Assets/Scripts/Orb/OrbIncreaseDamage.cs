@@ -19,9 +19,9 @@ public class OrbIncreaseDamage : MonoBehaviour
     {
         if (OrbInrange())
         {
-            IncreaseDamage();
+            HealPlayer();
             Despawn();
-            print("Increase damage via orb");
+            print("heal via orb");
         }
     }
     bool OrbInrange()
@@ -29,17 +29,10 @@ public class OrbIncreaseDamage : MonoBehaviour
         return (player.transform.position - transform.position).magnitude <= 1.5;
     }
 
-    private void IncreaseDamage()
+    private void HealPlayer()
     {
-        // i want to increase damage of player 10% with 10 second
-        Weapon rifle = GameObject.FindGameObjectWithTag("Rifle").GetComponent<Rifle>();
-        Weapon sword = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Sword>();
-        Weapon shotgun = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Shotgun>();
-
-        rifle.IncreaseDamage(10);
-        sword.IncreaseDamage(10);
-        shotgun.IncreaseDamage(10);
-        
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.AddHealth(10);
     }
 
 

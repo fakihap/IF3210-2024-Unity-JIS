@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: RPGTalkConfig
   m_EditorClassIdentifier: 
   logo: {fileID: 21300000, guid: ff9acc7e4a75e4593a9ef3a2451edf86, type: 3}
+<<<<<<< HEAD
   alreadyConfigured: 1
 <<<<<<< HEAD
+=======
+  alreadyConfigured: 0
+>>>>>>> parent of 64f6190 (fix orb)
   usingTMP: 1
 =======
   usingTMP: 0
