@@ -3,42 +3,43 @@ using System.Collections.Generic;
 using Nightmare;
 using UnityEngine;
 
-public class OrbIncreaseSpeed : MonoBehaviour
+namespace Nightmare
 {
-    public float despawnTime = 5f;
-    public GameObject player;
-    // Start is called before the first frame update
-    void Start()
+    public class OrbIncreaseSpeed : MonoBehaviour
     {
-        Invoke("Despawn", despawnTime);
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (OrbInrange())
+        public float despawnTime = 5f;
+        public GameObject player;
+        // Start is called before the first frame update
+        void Start()
         {
-            IncreaseSpeed();
-            Despawn();
-            print("heal via orb");
+            Invoke("Despawn", despawnTime);
+            player = GameObject.FindGameObjectWithTag("Player");
         }
-    }
-    bool OrbInrange()
-    {
-        return (player.transform.position - transform.position).magnitude <= 1.5;
-    }
 
-    private void IncreaseSpeed()
-    {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        playerMovement.OrbIncreaseSpeed(15,1.2f);
-    }
+        // Update is called once per frame
+        private void Update()
+        {
+            if (OrbInrange())
+            {
+                IncreaseSpeed();
+                Despawn();
+                print("increase speed via orb");
+            }
+        }
+        bool OrbInrange()
+        {
+            return (player.transform.position - transform.position).magnitude <= 1.5;
+        }
 
+        private void IncreaseSpeed()
+        {
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            playerMovement.OrbIncreaseSpeed(5,1.2f);
+        }
 
-
-    private void Despawn()
-    {
-        Destroy(gameObject);
+        private void Despawn()
+        {
+            Destroy(gameObject);
+        }
     }
 }

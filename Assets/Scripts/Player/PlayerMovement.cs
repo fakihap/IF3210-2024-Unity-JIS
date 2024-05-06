@@ -53,15 +53,5 @@ public class PlayerMovement : MonoBehaviour
         bool walking = h != 0f || v != 0f;
         anim.SetBool("IsWalking", walking);
     }
-    public void OrbIncreaseSpeed(float duration, float multiplier)
-        {
-            StartCoroutine(IncreaseSpeedForDuration(duration, multiplier));
-        }
-
-    IEnumerator IncreaseSpeedForDuration(float duration, float multiplier)
-    {
-        speed *= multiplier; // meningkatkan kecepatan sesuai multiplier
-        yield return new WaitForSeconds(duration);
-        speed = originalSpeed; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
-    }
+    
 }
