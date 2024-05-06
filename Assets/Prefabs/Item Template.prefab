@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.98046875, y: 46}
-  m_SizeDelta: {x: 181.2337, y: 59.4051}
+  m_AnchoredPosition: {x: -0.98046875, y: 86}
+  m_SizeDelta: {x: 289.35, y: 93.8786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916449442106713589
 CanvasRenderer:
@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 1.8867}
-  m_SizeDelta: {x: 360, y: 550}
+  m_AnchoredPosition: {x: 8, y: 1.8867035}
+  m_SizeDelta: {x: 600, y: 910}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1916449442251081549
 CanvasRenderer:
@@ -253,8 +253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8741, y: 222.3253}
-  m_SizeDelta: {x: 317.8237, y: 86.2246}
+  m_AnchoredPosition: {x: -0.98046875, y: 381}
+  m_SizeDelta: {x: 409.2266, y: 111.0219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916449442370456997
 CanvasRenderer:
@@ -286,7 +286,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: eadd520cb4ec5f34f9983b4ba2ca1235, type: 3}
-    m_FontSize: 43
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -333,8 +333,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.87338, y: 21.7313}
-  m_SizeDelta: {x: 317.82, y: 317.82}
+  m_AnchoredPosition: {x: -6.2652893, y: 36}
+  m_SizeDelta: {x: 537.5094, y: 520.8772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916449443256068260
 CanvasRenderer:
@@ -409,8 +409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.058914, y: -169.1}
-  m_SizeDelta: {x: 265.4462, y: 38.7221}
+  m_AnchoredPosition: {x: 18, y: -271}
+  m_SizeDelta: {x: 293.42, y: 58.1299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916449443394405796
 CanvasRenderer:
@@ -442,11 +442,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 46238fb1ad7a7a84ba8954c1c860994c, type: 3}
-    m_FontSize: 31
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 86
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -488,8 +488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.76}
-  m_SizeDelta: {x: 0, y: -7.52}
+  m_AnchoredPosition: {x: 0, y: -8.92}
+  m_SizeDelta: {x: 0, y: -17.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916449443449662211
 CanvasRenderer:
@@ -521,11 +521,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 46238fb1ad7a7a84ba8954c1c860994c, type: 3}
-    m_FontSize: 38
+    m_FontSize: 61
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 44
+    m_MaxSize: 75
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -567,8 +567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000061989, y: -0.000012398}
-  m_SizeDelta: {x: 270, y: 270}
+  m_AnchoredPosition: {x: -0.000011444, y: 0.000011444}
+  m_SizeDelta: {x: 454.1024, y: 454.1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7183791015935645223
 CanvasRenderer:
@@ -642,8 +642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158, y: 0.14705}
-  m_SizeDelta: {x: 38.4277, y: 38.428}
+  m_AnchoredPosition: {x: -190.077, y: 8}
+  m_SizeDelta: {x: 59.3152, y: 59.316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9174755330822974085
 CanvasRenderer:

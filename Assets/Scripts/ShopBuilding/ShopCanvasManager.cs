@@ -23,7 +23,7 @@ public class ShopCanvasManager : MonoBehaviour
         for (int i = 0; i < shopItemObjs.Length; i++)
         {
             var shopPanelGO = shopPanelsGO[i];
-            // shopPanelsGO.gameObject.SetActive(true);
+            shopPanelGO.gameObject.SetActive(true);
         }
         LoadPanels();
     }
@@ -45,7 +45,6 @@ public class ShopCanvasManager : MonoBehaviour
             var shopPanel = shopPanels[i];
             var shopItemSO = shopItemObjs[i];
             shopPanel.title.text = shopItemSO.title;
-            shopPanel.description.text = shopItemSO.description;
             shopPanel.price.text = shopItemSO.price.ToString();
             shopPanel.manager = this;
         }
