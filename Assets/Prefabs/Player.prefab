@@ -1745,6 +1745,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2883502623161188918}
+    - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 728054550856329800}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1092956512825928575}
@@ -7248,3 +7251,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+--- !u!114 &728054550856329800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884904307103509863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df57e85bce037284abc1d3100c0ee726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheatCodeMotherlode:
+  - m
+  - o
+  - t
+  - h
+  - e
+  - r
+  rifle: {fileID: 1092956512825928575}
+  shotgun: {fileID: 441146631463676931}
+  sword: {fileID: 2682546380177682136}
