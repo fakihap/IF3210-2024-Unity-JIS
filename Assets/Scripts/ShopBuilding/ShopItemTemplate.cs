@@ -15,8 +15,8 @@ public class ShopItemTemplate : MonoBehaviour
     void Start()
     {
         buyButton = GetComponentInChildren<Button>();
-        buyButton.onClick.AddListener(buyItem);
-        isPurchasable();
+        buyButton.onClick.AddListener(BuyItem);
+        // IsPurchasable();
     }
 
     // Update is called once per frame
@@ -25,28 +25,28 @@ public class ShopItemTemplate : MonoBehaviour
         
     }
 
-    void buyItem()
+    void BuyItem()
     {
         /* TO DO: substract coin*/
         Debug.Log("Buy");
 
-        int petType=0;
-        if(title.text == "Attacker")
-        {
-            petType = 1;
-        }
-        else if(title.text == "Healer")
-        {
-            petType = 2;
-        }
+        // int petType=0;
+        // if(title.text == "Attacker")
+        // {
+        //     petType = 1;
+        // }
+        // else if(title.text == "Healer")
+        // {
+        //     petType = 2;
+        // }
         /*TO DO: Add pet*/
 
         manager.BroadcastIsPurchasable();
     }
 
-    public void isPurchasable()
-    {
-        var itemPrice = int.Parse(price.text);
-        /*TO DO: check harga dan coin yang dimiliki*/
-    }
+    // public void IsPurchasable()
+    // {
+    //     var itemPrice = int.Parse(price.text);
+    //     /*TO DO: check harga dan coin yang dimiliki*/
+    // }
 }
