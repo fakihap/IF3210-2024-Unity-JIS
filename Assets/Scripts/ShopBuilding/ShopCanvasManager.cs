@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Nightmare;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,8 +52,10 @@ public class ShopCanvasManager : MonoBehaviour
             Debug.Log("Shop Item price: " + shopItemSO.price);
             shopPanel.title.text = shopItemSO.title;
             shopPanel.price.text = shopItemSO.price.ToString();
-            Debug.Log("Shop Panel title: " + shopPanel.title);
-            Debug.Log("Shop Panel price: " + shopPanel.price);
+            shopPanel.image.sprite = shopItemSO.image;
+            Debug.Log("Shop Panel: " + shopPanel);
+            Debug.Log("Shop Panel title: " + shopPanel.title.text);
+            Debug.Log("Shop Panel price: " + shopPanel.price.text);
             shopPanel.manager = this;
         }
     }
