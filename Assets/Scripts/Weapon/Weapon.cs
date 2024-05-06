@@ -14,6 +14,7 @@ namespace Nightmare
         public abstract void Attack();
         public abstract void DisableEffects();
         public abstract void UpdateAttack();
+        public abstract void IncreaseDamage(int damageIncrease);
     }
 
 }

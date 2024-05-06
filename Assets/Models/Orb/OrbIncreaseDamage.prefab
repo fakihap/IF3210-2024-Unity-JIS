@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5978609159736803736}
   - component: {fileID: 3570685629591400598}
   - component: {fileID: 8989491455677208152}
-  - component: {fileID: 7070975528633851285}
+  - component: {fileID: -6137288999604877515}
   m_Layer: 0
-  m_Name: OrbRestoreHealth
+  m_Name: OrbIncreaseDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d689278fa2bebe34e871f444df7b353f, type: 2}
+  - {fileID: 2100000, guid: 0d54160f836d7e34f99c94454a40c138, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7070975528633851285
+--- !u!114 &-6137288999604877515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8186544323179993974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e4635ab4005874e89a4376b29cbfdb, type: 3}
+  m_Script: {fileID: 11500000, guid: f3a3b2311942fd44294dda9a009fbfdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   despawnTime: 10

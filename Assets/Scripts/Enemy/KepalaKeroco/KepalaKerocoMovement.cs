@@ -15,7 +15,8 @@ namespace Nightmare
         public GameObject enemy;
         private float spawnTimer;
         private float attackTimer;
-        public float spawnTime = 3f;
+        public float spawnTime ;
+        public float attackTime ;
         public float speed = 4f;
 
         public AudioSource attackSound;
@@ -27,7 +28,6 @@ namespace Nightmare
         RaycastHit shootHit;
         public float range;
         int shootableMask;
-        int baseDamage;
         void Awake ()
         {
             enemyHealth = GetComponent<EnemyHealth>();
@@ -44,19 +44,20 @@ namespace Nightmare
             if (isPaused)
                 return;
 
-            spawnTimer -= Time.deltaTime;
-            // if (spawnTimer <= 0f)
-            // {
-            //     Spawn();
-            //     spawnTimer = spawnTime;
-            // }
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer >= spawnTime)
+            {
+                print("spawn kepalakeroco");
+                Spawn();
+                spawnTimer = 0f;
+            }
 
-            attackTimer -= Time.deltaTime;
-            if (attackTimer <= 0f)
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackTime)
             {
                 print("attack kepalakeroco");
                 Attack();
-                attackTimer = spawnTime;
+                attackTimer = 0f;
             }
             nav.SetDestination(player.position);
         }
@@ -75,12 +76,13 @@ namespace Nightmare
             Instantiate (enemy, enemyPosition, rotation);
         }
 
+
         public void Attack()
         {
             spawnTimer = 0f;
             attackTimer = 0f;
 
-            attackSound.Play();
+            
 
             gunLight.enabled = true;
 
@@ -90,14 +92,15 @@ namespace Nightmare
 
             // Enable the line renderer and set it's first position to be the end of the gun.
             gunLine.enabled = true;
-            gunLine.SetPosition(0, transform.position);
+            gunLine.SetPosition(0, gunBarrelEnd.transform.position);
 
             // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
-            shootRay.origin = transform.position;
-            shootRay.direction = transform.forward;
+            shootRay.origin = gunBarrelEnd.transform.position;
+            shootRay.direction = gunBarrelEnd.transform.forward;
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
+                attackSound.Play();
                 print("Player is hit123");
                 // Try and find an EnemyHealth script on the gameobject hit.
                 PlayerHealth playerHealth = shootHit.collider.GetComponent<PlayerHealth>();
@@ -121,11 +124,17 @@ namespace Nightmare
             // If the raycast didn't hit anything on the shootable layer...
             else
             {
+                attackSound.Play();
                 // ... set the second position of the line renderer to the fullest extent of the gun's range.
                 gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
                 print("ga jadi gunggg");
             }
+            // make it delay 0.5s
+            Invoke("DisableGunLine", 0.1f);
         }
-
+        void DisableGunLine()
+        {
+            gunLine.enabled = false;
+        }
     }
 }
