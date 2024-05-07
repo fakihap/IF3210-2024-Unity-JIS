@@ -46,8 +46,9 @@ public class PlayerCheatOneHit : MonoBehaviour
 
         if (indexOneHit == cheatCodeOneHit.Length)
         {
-
-            if (!isOn)
+            isOn = !isOn;
+            indexOneHit = 0;
+            if (isOn)
             {
                 print("OneHit on");
                 rifle.baseDamage = 999999;
@@ -61,8 +62,6 @@ public class PlayerCheatOneHit : MonoBehaviour
                 shotgun.baseDamage = shotgunBaseDamage;
                 sword.baseDamage = swordBaseDamage;
             }
-            indexOneHit = 0;
-            isOn = !isOn;
         }
     }
 }

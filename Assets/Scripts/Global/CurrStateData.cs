@@ -7,6 +7,7 @@ using UnityEngine;
 public class CurrStateData
 {
     private static GameData currGameData;
+    public static bool motherlode = false;
 
     public static void LoadStateData()
     {
@@ -32,7 +33,8 @@ public class CurrStateData
 
     public static bool SubstractCoin(int coin)
     {
-        if(currGameData.coin < coin)
+        if (motherlode) return true;
+        if (currGameData.coin < coin)
         {
             return false;
         }
@@ -47,7 +49,7 @@ public class CurrStateData
 
     public static int GetCurrentPet()
     {
-        if(currGameData.pets.Count > 0)
+        if (currGameData.pets.Count > 0)
         {
             return currGameData.pets[0];
         }
@@ -59,7 +61,7 @@ public class CurrStateData
 
     public static void RemoveCurrentPet()
     {
-        if(currGameData.pets.Count > 0)
+        if (currGameData.pets.Count > 0)
         {
             currGameData.pets.RemoveAt(0);
         }
