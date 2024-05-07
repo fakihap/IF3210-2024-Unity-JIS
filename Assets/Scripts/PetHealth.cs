@@ -8,12 +8,22 @@ using UnityEngine.AI;
 public class PetHealth : MonoBehaviour
 {
     public int startHealth = 100;
-    public int currHealth;
+    public int currHealth = 100;
+    protected bool isImmortal;
     public int startHealthReduced = 0;
     protected PetManager manager;
     public void SetManager(PetManager manager)
     {
         this.manager = manager;
+    }
+    public void setImmortal() {
+        isImmortal = !isImmortal;
+        if (isImmortal) {
+            print("cheat is immortal is on");
+        } else {
+            print("cheat is immortal is off");
+        }
+        
     }
 
 }

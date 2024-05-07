@@ -6,13 +6,13 @@ using UnityEngine.AI;
 
 public class PetHealerMovement : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     NavMeshAgent nav;
     Animator _anim;
     float timer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
