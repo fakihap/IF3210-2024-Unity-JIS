@@ -17,7 +17,7 @@ public class ShopItemTemplate : MonoBehaviour
     {
         buyButton = GetComponentInChildren<Button>();
         buyButton.onClick.AddListener(BuyItem);
-        // IsPurchasable();
+        IsPurchasable();
     }
 
     // Update is called once per frame
@@ -29,25 +29,36 @@ public class ShopItemTemplate : MonoBehaviour
     void BuyItem()
     {
         /* TO DO: substract coin*/
+        CurrStateData.SubstractCoin(int.Parse(price.text));
         Debug.Log("Buy");
 
-        // int petType=0;
-        // if(title.text == "Attacker")
-        // {
-        //     petType = 1;
-        // }
-        // else if(title.text == "Healer")
-        // {
-        //     petType = 2;
-        // }
+        int petId=2;
+        if(title.text == "Attacker")
+        {
+            petId = 0;
+        }
+        else if(title.text == "Healer")
+        {
+            petId = 1;
+        }
         /*TO DO: Add pet*/
+        CurrStateData.AddPet(petId);
+        Debug.Log($"Length = {CurrStateData.GetPetsLength()}");
+        if (CurrStateData.GetPetsLength() == 1)
+        {
+            PetManager.isSpawnNewPet = true;
+        }
 
         manager.BroadcastIsPurchasable();
     }
 
-    // public void IsPurchasable()
-    // {
-    //     var itemPrice = int.Parse(price.text);
-    //     /*TO DO: check harga dan coin yang dimiliki*/
-    // }
+    public void IsPurchasable()
+    {
+        var itemPrice = int.Parse(price.text);
+        /*TO DO: check harga dan coin yang dimiliki*/
+        if(CurrStateData.GetCurrentCoin() < itemPrice)
+        {
+            buyButton.gameObject.SetActive(false);
+        }
+    }
 }

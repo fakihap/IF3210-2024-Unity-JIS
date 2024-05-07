@@ -13,12 +13,14 @@ public class ShopCanvasManager : MonoBehaviour
     public GameObject player;
     public GameObject healerPet;
     public GameObject attackerPet;
-    // public Text coinText;
+    public Text coinText;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        coinText.text = CurrStateData.GetCurrentCoin().ToString();
+        Debug.Log("Current coin (state data): " + CurrStateData.GetCurrentCoin().ToString());
         /*TO DO: get current player coint*/
         shopPanels = new ShopItemTemplate[shopItemObjs.Length];
         for (int i = 0; i < shopItemObjs.Length; i++)
@@ -63,11 +65,12 @@ public class ShopCanvasManager : MonoBehaviour
     public void BroadcastIsPurchasable()
     {
         /*TO DO: get current player coint*/
-
+        coinText.text = CurrStateData.GetCurrentCoin().ToString();
+        Debug.Log("Current coin (state data): " + CurrStateData.GetCurrentCoin().ToString());
         for (int i = 0; i < shopItemObjs.Length; i++)
         {
             var shopPanel = shopPanels[i];
-            // shopPanel.IsPurchasable();
+            shopPanel.IsPurchasable();
         }
     }
 }

@@ -868,6 +868,7 @@ MonoBehaviour:
   player: {fileID: 0}
   healerPet: {fileID: 107872, guid: 7add1d5b90ab7234d92b5feb2d77c953, type: 3}
   attackerPet: {fileID: 3878630058993967848, guid: 88992ae95f5e3074fbf50fced5aada28, type: 3}
+  coinText: {fileID: 1107455423}
 --- !u!1001 &2239041681297485332
 PrefabInstance:
   m_ObjectHideFlags: 0
