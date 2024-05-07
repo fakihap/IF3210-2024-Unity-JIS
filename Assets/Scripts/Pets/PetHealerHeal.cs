@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class PetHealerHeal : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float healDelay = 2f;
     public int healAmount = 10;
     float time;
@@ -15,7 +15,7 @@ public class PetHealerHeal : MonoBehaviour
     AudioSource healAudio;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();

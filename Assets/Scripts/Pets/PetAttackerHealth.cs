@@ -15,7 +15,6 @@ public class PetAttackerHealth : PetHealth, IDamageable
     // public Slider healthSlider;
     public float disappearTime = 2.5f;
     private bool isDead;
-    private bool isImmortal;
     private bool isDisappear;
 
     private void Awake()
