@@ -64,4 +64,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(duration);
         speed = originalSpeed; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
     }
+
+    
 }

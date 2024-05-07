@@ -52,6 +52,7 @@ namespace Nightmare
 
         public void TakeDamage(int amount, Vector3 hitPoint)
         {
+            print("damage sebeasr "+amount);
             if (isDead)
             {
                 return;
@@ -84,21 +85,20 @@ namespace Nightmare
             // set dead
             defeatQuestNotifier.NotifyDefeat();
 
-            //buat peluang 0-1 dalam float
-            // if(random>0.5f)
-            // {
-            //     SpawnOrb();
-            // }
         }
 
         public void SpawnOrb()
         {
             print("Spawn orb");
             float random = Random.Range(0f, 1f);
-            // if(random>0.5f)
-            // {
-            //     return;
-            // }
+            if(random>0.5f)
+            {
+                return;
+            }
+            PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+            if(playerMovement.OrbIncreaseDamageCount >= 15) {
+                return;
+            }
             Vector3 enemyPosition = transform.position;
             enemyPosition.y +=0.5f;
             Quaternion rotation = Quaternion.Euler(0, 0, 0);
@@ -121,6 +121,11 @@ namespace Nightmare
         public bool IsDead()
         {
             return isDead;
+        }
+
+        public void AddHealth(int amount)
+        {
+            currentHealth += amount;
         }
 
     }

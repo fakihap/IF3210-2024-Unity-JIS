@@ -62,8 +62,14 @@ namespace Nightmare
                 float distanceToTarget = Vector3.Distance(shootRay.origin, shootHit.point);
 
                 // Define the maximum and minimum damage values
-                int maxDamage = baseDamage;
-                int minDamage = baseDamage / 2; // Adjust as necessary
+                PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
+                if(playerMovement.DamageDecreaseByRaja){
+                    damage = damage * 80 / 100;
+                }
+
+                int maxDamage = damage;
+                int minDamage = damage / 2; // Adjust as necessary
 
                 // Calculate the damage based on the distance (closer targets take more damage)
                 float damageFactor = 1 - (distanceToTarget / range);

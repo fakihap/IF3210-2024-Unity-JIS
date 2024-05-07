@@ -336,6 +336,12 @@ MonoBehaviour:
   scoreValue: 10
   deathClip: {fileID: 0}
   currentHealth: 0
+  orbs:
+  - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
+  - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
+  - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
+  isDead: 0
+  defeatQuestNotifier: {fileID: 0}
 --- !u!114 &8759247469298852745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +357,7 @@ MonoBehaviour:
   timeBetweenAttacks: 0.5
   attackDamage: 5
   DPSDamage: 2
+  rangeDPS: 10
 --- !u!114 &5960281513326329832
 MonoBehaviour:
   m_ObjectHideFlags: 0

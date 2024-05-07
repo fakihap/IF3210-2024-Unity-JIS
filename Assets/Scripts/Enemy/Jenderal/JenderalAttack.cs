@@ -108,6 +108,7 @@ namespace Nightmare
         }
 
         void DPS(){
+            print("kena dps");
             if (playerHealth.currentHealth > 0)
             {
                 playerHealth.TakeDamage(DPSDamage);

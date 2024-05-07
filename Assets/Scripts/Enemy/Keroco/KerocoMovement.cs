@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 namespace Nightmare
 {
@@ -26,7 +27,37 @@ namespace Nightmare
 
         void Update ()
         {
-            nav.SetDestination(player.position);
+
+            Transform petHealerMovement = null;
+            Transform petAttackerMovement = null;
+
+            float distanceToPlayer = Vector3.Distance(player.position, transform.position);
+            float distanceToHealer = 999999999;
+            float distanceToAttacker = 99999999;
+        
+            if(GameObject.FindGameObjectWithTag("PetHealer") != null)
+            {
+                petHealerMovement = GameObject.FindGameObjectWithTag("PetHealer").transform;
+                distanceToHealer = Vector3.Distance(petHealerMovement.position, transform.position);
+            }
+            if(GameObject.FindGameObjectWithTag("PetAttacker") != null)
+            {
+                petAttackerMovement = GameObject.FindGameObjectWithTag("PetAttacker").transform;
+                distanceToAttacker = Vector3.Distance(petAttackerMovement.position, transform.position);
+            }
+            
+            if (distanceToPlayer < distanceToHealer && distanceToPlayer < distanceToAttacker)
+            {
+                nav.SetDestination(player.position);
+            }
+            else if (distanceToHealer < distanceToAttacker)
+            {
+                nav.SetDestination(petHealerMovement.position);
+            }
+            else
+            {
+                nav.SetDestination(petAttackerMovement.position);
+            }
         }
 
     }

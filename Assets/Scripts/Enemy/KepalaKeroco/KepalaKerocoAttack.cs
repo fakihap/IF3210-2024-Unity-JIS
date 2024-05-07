@@ -14,7 +14,6 @@ namespace Nightmare
         EnemyHealth enemyHealth;
         bool playerInRange;
         float timer;
-
         void Awake()
         {
             // Setting up the references.

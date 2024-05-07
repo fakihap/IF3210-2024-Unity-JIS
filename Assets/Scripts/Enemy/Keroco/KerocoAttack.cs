@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 namespace Nightmare
 {
@@ -56,14 +57,20 @@ namespace Nightmare
             if (isPaused)
                 return;
 
-            // Add the time since Update was last called to the timer.
             timer += Time.deltaTime;
 
-            // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
             if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
                 // ... attack.
-                Attack();
+                AttackPlayer();
+            }
+            if(timer >= timeBetweenAttacks && PetHealerInRange() && enemyHealth.currentHealth > 0)
+            {
+                AttackHelaer();
+            }
+            if(timer >= timeBetweenAttacks && PetAttackerInRange() && enemyHealth.currentHealth > 0)
+            {
+                AttackAttacker();
             }
 
             // If the player has zero or less health...
@@ -74,7 +81,7 @@ namespace Nightmare
             }
         }
 
-        void Attack()
+        void AttackPlayer()
         {
             // Reset the timer.
             timer = 0f;
@@ -82,10 +89,52 @@ namespace Nightmare
             // If the player has health to lose...
             if (playerHealth.currentHealth > 0)
             {
-                print("attack");
                 // ... damage the player.
                 playerHealth.TakeDamage(attackDamage);
             }
+        }
+        void AttackHelaer()
+        {
+            // Reset the timer.
+            timer = 0f;
+
+            // If the player has health to lose...
+            PetHealerHealth petHealerHealth = GameObject.FindGameObjectWithTag("PetHealer").GetComponent<PetHealerHealth>();
+            if (petHealerHealth.currHealth > 0)
+            {
+                // ... damage the player.
+                print("attack healer take damage"+ petHealerHealth.currHealth +" "+attackDamage);
+                petHealerHealth.TakeDamage(attackDamage);
+            }
+        }
+        void AttackAttacker()
+        {
+            // Reset the timer.
+            timer = 0f;
+
+            // If the player has health to lose...
+            PetAttackerHealth petAttackerHealth = player.GetComponent<PetAttackerHealth>().GetComponent<PetAttackerHealth>();
+            if (petAttackerHealth.currHealth > 0)
+            {
+                // ... damage the player.
+                petAttackerHealth.TakeDamage(attackDamage);
+            }
+        }
+        bool PlayerInRange(){
+            return (player.transform.position - transform.position).magnitude <= 1.5;
+        }
+        bool PetHealerInRange(){
+            if(GameObject.FindGameObjectWithTag("PetHealer") == null){
+                return false;
+            }
+            return (GameObject.FindGameObjectWithTag("PetHealer").transform.position - transform.position).magnitude <= 1.5;
+        }
+        bool PetAttackerInRange()
+        {
+            if(GameObject.FindGameObjectWithTag("PetAttacker") == null){
+                return false;
+            }
+            return (GameObject.FindGameObjectWithTag("PetAttacker").transform.position - transform.position).magnitude <= 1.5;
         }
     }
 }

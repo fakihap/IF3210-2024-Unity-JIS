@@ -8,6 +8,8 @@ namespace Nightmare
     {
         public float speed = 6f;
         private float originalSpeed; // untuk menyimpan nilai kecepatan asli sebelum peningkatan
+        public int OrbIncreaseDamageCount = 0 ;
+        public bool DamageDecreaseByRaja;
 
         Vector3 movement;
         Animator anim;
@@ -21,6 +23,7 @@ namespace Nightmare
             anim = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody>();
             originalSpeed = speed; // menyimpan nilai awal kecepatan
+            DamageDecreaseByRaja = false;
         }
 
         private void FixedUpdate()
@@ -72,6 +75,22 @@ namespace Nightmare
             speed *= multiplier; // meningkatkan kecepatan sesuai multiplier
             yield return new WaitForSeconds(duration);
             speed = originalSpeed; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
+        }
+        public void AddOrbIncreseDamage(){
+            OrbIncreaseDamageCount++;
+        }
+
+        public void MultiplierSpeed(float multiplier){
+            speed *= multiplier;
+        }
+        public void ChangeDamageDecreaseByRaja(){
+            print("change damage decrease by raja");
+            if(DamageDecreaseByRaja){
+                DamageDecreaseByRaja = false;
+            }
+            else{
+                DamageDecreaseByRaja = true;
+            }
         }
     }
 }

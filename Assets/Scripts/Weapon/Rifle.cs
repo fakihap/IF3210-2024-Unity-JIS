@@ -50,8 +50,16 @@ namespace Nightmare
                 if (enemyHealth != null)
                 {
                     // ... the enemy should take damage.
-                    print("Enemy is take damage");
-                    enemyHealth.TakeDamage(baseDamage, shootHit.point);
+                    print("Enemy is take damage "+baseDamage);
+
+                    // add orb
+                    PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                    int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
+                    if(playerMovement.DamageDecreaseByRaja){
+                        print("Damage decrease by raja");
+                        damage = damage * 80 / 100;
+                    }
+                    enemyHealth.TakeDamage(damage, shootHit.point);
                 }
                 else
                 {

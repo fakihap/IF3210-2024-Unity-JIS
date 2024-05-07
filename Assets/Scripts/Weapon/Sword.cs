@@ -28,7 +28,12 @@ namespace Nightmare
                 if (enemyHealth.currentHealth > 0)
                 {
                     // ... damage the player.
-                    enemyHealth.TakeDamage(baseDamage, new Vector3(0f, 0.5f, 0f));
+                    PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                    int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
+                    if(playerMovement.DamageDecreaseByRaja){
+                        damage = damage * 80 / 100;
+                    }
+                    enemyHealth.TakeDamage(damage, new Vector3(0f, 0.5f, 0f));
                 }
             }
         }
