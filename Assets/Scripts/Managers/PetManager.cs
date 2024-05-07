@@ -90,7 +90,7 @@ public class PetManager : MonoBehaviour
         }
     }
 
-    public void SpawnNextPet()
+    public void SpawnNextPet(Transform transform)
     {
         int petId = CurrStateData.GetCurrentPet();
         if(petId != -1)

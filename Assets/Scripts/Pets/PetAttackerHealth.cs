@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Nightmare;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PetAttackerHealth : PetHealth, IDamageable
 {
@@ -11,6 +12,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
     private PetAttackerMovement petAttackerMovement;
     private PetAttackerAttack petAttackerAttack;
     private Animator _anim;
+    public Slider healthSlider;
     public float disappearTime = 2.5f;
     private bool isDead;
     private bool isImmortal;
@@ -30,6 +32,11 @@ public class PetAttackerHealth : PetHealth, IDamageable
     {
         /* TO DO: use state data */
         Debug.Log("Take Damage Pet Attacker");
+        if(CurrStateData.GetCurrentPetHealth() != -1 && currHealth > CurrStateData.GetCurrentPetHealth())
+        {
+            Debug.Log("Pet attacker health reduce");
+            TakeDamage(startHealth - CurrStateData.GetCurrentPetHealth());
+        }
         
         if(isDisappear)
         {
@@ -47,15 +54,15 @@ public class PetAttackerHealth : PetHealth, IDamageable
 
     public void TakeDamage(int amount)
     {
-        if(!isImmortal)
-        {
-            currHealth -= amount;
-            /* TO DO: set currHealthData */
-        }
+        if(isImmortal) return;
+
+        currHealth -= amount;
+        healthSlider.value = currHealth;
+        CurrStateData.SetCurrentPetHealth(currHealth);
 
         if(currHealth <= 0 && !isDead)
         {
-            /* TO DO:  */
+            CurrStateData.SetCurrentPetHealth(-1);
             Death();
         }
     }
@@ -65,7 +72,11 @@ public class PetAttackerHealth : PetHealth, IDamageable
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isDisappear = true;
+        if (manager != null)
+        {
+            manager.SpawnNextPet(transform);
 
+        }
         Destroy(gameObject, 2f);
     }
 
