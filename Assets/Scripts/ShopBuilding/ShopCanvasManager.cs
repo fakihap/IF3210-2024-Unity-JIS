@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Nightmare;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,9 @@ public class ShopCanvasManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        /* DEBUG */
+        CurrStateData.SetCurrentCoin(5000);
+        CurrStateData.InitCurrentPets();
         coinText.text = CurrStateData.GetCurrentCoin().ToString();
         Debug.Log("Current coin (state data): " + CurrStateData.GetCurrentCoin().ToString());
         /*TO DO: get current player coint*/

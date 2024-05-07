@@ -12,7 +12,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
     private PetAttackerMovement petAttackerMovement;
     private PetAttackerAttack petAttackerAttack;
     private Animator _anim;
-    public Slider healthSlider;
+    // public Slider healthSlider;
     public float disappearTime = 2.5f;
     private bool isDead;
     private bool isImmortal;
@@ -57,7 +57,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
         if(isImmortal) return;
 
         currHealth -= amount;
-        healthSlider.value = currHealth;
+        // healthSlider.value = currHealth;
         CurrStateData.SetCurrentPetHealth(currHealth);
 
         if(currHealth <= 0 && !isDead)

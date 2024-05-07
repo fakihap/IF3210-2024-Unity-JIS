@@ -40,6 +40,11 @@ public class CurrStateData
         return true;
     }
 
+    public static void InitCurrentPets()
+    {
+        currGameData.pets = new List<int>();
+    }
+
     public static int GetCurrentPet()
     {
         if(currGameData.pets.Count > 0)

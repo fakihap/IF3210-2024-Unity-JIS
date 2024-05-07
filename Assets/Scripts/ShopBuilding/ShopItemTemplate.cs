@@ -33,16 +33,18 @@ public class ShopItemTemplate : MonoBehaviour
         Debug.Log("Buy");
 
         int petId=2;
-        if(title.text == "Attacker")
+        Debug.Log("title text shop item: " + title.text);
+        if(title.text == "Attacker Pet")
         {
             petId = 0;
         }
-        else if(title.text == "Healer")
+        else if(title.text == "Healer Pet")
         {
             petId = 1;
         }
         /*TO DO: Add pet*/
         CurrStateData.AddPet(petId);
+        Debug.Log("PetID Shop Template: " + petId);
         Debug.Log($"Length = {CurrStateData.GetPetsLength()}");
         if (CurrStateData.GetPetsLength() == 1)
         {

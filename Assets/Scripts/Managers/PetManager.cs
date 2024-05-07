@@ -9,7 +9,7 @@ public class PetManager : MonoBehaviour
 {
     public GameObject petAttacker;
     public GameObject petHealer;
-    public GameObject petBuffer;
+    // public GameObject petBuffer;
     public static Transform nextTransform;
     public static bool isSpawnNewPet = false;
     GameObject player;
@@ -35,6 +35,7 @@ public class PetManager : MonoBehaviour
     public void SpawnCurrPet()
     {
         int petId = CurrStateData.GetCurrentPet();
+        Debug.Log("Curr PetID: " + petId);
         if(petId != -1)
         {
             if(CurrStateData.GetCurrentPetHealth() <= 0 && !isSpawnNewPet)
@@ -47,10 +48,16 @@ public class PetManager : MonoBehaviour
                     if(petId == 0)
                     {
                         pet = Instantiate(petAttacker, player.transform.position + Vector3.right, player.transform.rotation);
+                        Debug.Log("Pet initiated");
+                        pet.SetActive(true);
+                        Debug.Log("Pet is set to be active");
                     }
                     else
                     {
                         pet = Instantiate(petHealer, player.transform.position + Vector3.right, player.transform.rotation);
+                        Debug.Log("Pet initiated");
+                        pet.SetActive(true);
+                        Debug.Log("Pet is set to be active");
                     }
 
                     var petHealth = pet.GetComponent<PetHealth>();
