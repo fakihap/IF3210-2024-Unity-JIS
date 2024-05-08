@@ -8,8 +8,8 @@ using UnityEditor;
 
 public class PauseManager : MonoBehaviour {
 	
-	public AudioMixerSnapshot paused;
-	public AudioMixerSnapshot unpaused;
+	public static AudioMixerSnapshot paused;
+	public static AudioMixerSnapshot unpaused;
 	public static bool isPaused;
 	
 	Canvas canvas;
@@ -18,7 +18,8 @@ public class PauseManager : MonoBehaviour {
 	{
 		canvas = GetComponent<Canvas>();
 		Time.timeScale= 1;
-		canvas.enabled = false;
+		// canvas.enabled = false;
+		canvas.enabled = true;
 		isPaused = false;
 	}
 	
@@ -31,7 +32,7 @@ public class PauseManager : MonoBehaviour {
 		}
 	}
 	
-	public void Pause()
+	public static void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		isPaused = Time.timeScale == 0;
@@ -45,7 +46,7 @@ public class PauseManager : MonoBehaviour {
 		isPaused = Time.timeScale == 0;
 	}
 	
-	void Lowpass()
+	public static void Lowpass()
 	{
 		if (Time.timeScale == 0)
 		{

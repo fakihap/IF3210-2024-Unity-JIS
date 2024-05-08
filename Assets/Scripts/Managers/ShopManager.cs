@@ -49,6 +49,7 @@ public class ShopManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.B) && !PauseManager.IsPaused())
         {
+            PauseManager.IsPaused();
             Debug.Log("Press B");
             if (!shopBuildingEffect.isPlayerInShopRange)
             {
@@ -57,7 +58,8 @@ public class ShopManager : MonoBehaviour
             }
             else
             {
-                PauseManager.StaticPauseOrUnPause();
+                // PauseManager.StaticPauseOrUnPause();
+                PauseManager.Pause();
                 shopCanvas.SetActive(true);
             }
         }

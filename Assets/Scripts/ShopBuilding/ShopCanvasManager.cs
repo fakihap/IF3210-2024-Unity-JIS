@@ -42,7 +42,8 @@ public class ShopCanvasManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             gameObject.SetActive(false);
-            PauseManager.StaticPauseOrUnPause();
+            // PauseManager.StaticPauseOrUnPause();
+            // PauseManager.Pause();
         }   
     }
 
