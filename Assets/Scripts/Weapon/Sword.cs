@@ -33,6 +33,7 @@ namespace Nightmare
                     if(playerMovement.DamageDecreaseByRaja){
                         damage = damage * 80 / 100;
                     }
+                    CurrStateData.damageDealt += damage;
                     enemyHealth.TakeDamage(damage, new Vector3(0f, 0.5f, 0f));
                 }
             }

@@ -85,7 +85,8 @@ namespace Nightmare
                 {
                     // ... the enemy should take damage.
                     enemyHealth.TakeDamage((int)calculatedDamage, shootHit.point);
-                    CurrStateData.hitCount += 1;                    
+                    CurrStateData.hitCount += 1;
+                    CurrStateData.damageDealt += (int)calculatedDamage;
                 }
 
                 // Set the second position of the line renderer to the point the raycast hit.

@@ -9,15 +9,19 @@ public class CurrStateData
 {
     private static GameData currGameData;
     public static bool motherlode = false;
+    static CurrStateData currStateData;
 
     // for statistics 
     public static float hitCount = 0;
     public static float shotCount = 0;
     public static float distanceTravelled = 0;
-    static CurrStateData currStateData;
+    public static int damageDealt = 0;
+    public static int damageTaken = 0;
+    public static int enemyKilled = 0;
+
     private float startTime;
     private float elapsedTime;
-
+    
     public static CurrStateData GetInstance() {
         if (currStateData == null) {
             currStateData = new CurrStateData();

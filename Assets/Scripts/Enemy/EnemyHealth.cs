@@ -68,6 +68,7 @@ namespace Nightmare
 
             if (currentHealth <= 0)
             {
+                CurrStateData.enemyKilled += 1;
                 Death();
             }
         }
