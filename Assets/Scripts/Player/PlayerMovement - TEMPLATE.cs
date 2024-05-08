@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnitySampleAssets.CrossPlatformInput;
 
 namespace Nightmare
@@ -8,13 +10,16 @@ namespace Nightmare
     {
         public float speed = 6f;
         private float originalSpeed; // untuk menyimpan nilai kecepatan asli sebelum peningkatan
-        public int OrbIncreaseDamageCount = 0 ;
+        public int OrbIncreaseDamageCount = 0;
         public bool DamageDecreaseByRaja;
+        public Text saveText;
 
         Vector3 movement;
         Animator anim;
         Rigidbody playerRigidBody;
+        GameObject safeHouse;
         int floorMask;
+        bool canSave;
         readonly float camRayLength = 1000f;
 
         private void Awake()
@@ -24,6 +29,7 @@ namespace Nightmare
             playerRigidBody = GetComponent<Rigidbody>();
             originalSpeed = speed; // menyimpan nilai awal kecepatan
             DamageDecreaseByRaja = false;
+            safeHouse = GameObject.FindGameObjectWithTag("SafeHouse");
         }
 
         private void FixedUpdate()
@@ -31,9 +37,44 @@ namespace Nightmare
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
 
+            if (canSave)
+            {
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                {
+                    if (Input.GetKeyDown(KeyCode.P))
+                    {
+                        SaveGame();
+                    }
+                }
+            } 
             Move(h, v);
             Turning();
             Animating(h, v);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject == safeHouse)
+            {
+                //print("I hit the safe house (player movement)");
+                saveText.enabled = true;
+                canSave = true;
+            }
+        }
+
+        private void SaveGame()
+        {
+            print("Shift + P is pressed");
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject == safeHouse)
+            {
+                //print("I hit the safe house (player movement)");
+                saveText.enabled = false;
+                canSave = false;
+            }
         }
 
         void Move(float h, float v)
