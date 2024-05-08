@@ -35,24 +35,29 @@ public class PetHealerHeal : MonoBehaviour
         // Update is called once per frame
     void Update()
     {
+        // Debug.Log("Heal circle magnitue: " + (transform.position - player.transform.position).magnitude);
         if ((transform.position - player.transform.position).magnitude <= 8.5)
         {
+            // Debug.Log("Player in range masuk");
             playerInRange = true;
         }
         else
         {
+            // Debug.Log("Player in range masuk");
             playerInRange = false;
         }
 
-        time = Time.deltaTime;
-        if(playerInRange && time >= healDelay)
+        time += Time.deltaTime;
+        if(playerInRange && time >= healDelay && !PauseManager.IsPaused())
         {
+            Debug.Log("Panggil Heal");
             Heal();
         }
     }
 
     void Heal()
     {
+        Debug.Log("Dalam Heal");
         healAudio.Play();
         time = 0f;
         playerHealth.AddHealth(healAmount);

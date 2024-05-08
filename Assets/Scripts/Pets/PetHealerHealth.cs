@@ -21,7 +21,9 @@ public class PetHealerHealth : PetHealth, IDamageable
     {
         isDead = false;
         isImmortal = false;
+        spellEffect.SetActive(true);
         currHealth = startHealth;
+        CurrStateData.SetCurrentPetHealth(currHealth);
         _anim = GetComponent<Animator>();
         petHealerMovement = GetComponent<PetHealerMovement>();
         petHealerHeal = GetComponent<PetHealerHeal>();
@@ -30,7 +32,7 @@ public class PetHealerHealth : PetHealth, IDamageable
     private void Update()
     {
         /* TO DO: use state data */
-        Debug.Log("Take Damage Pet Healer");
+        // Debug.Log("Take Damage Pet Healer");
         if(CurrStateData.GetCurrentPetHealth() != -1 && currHealth > CurrStateData.GetCurrentPetHealth())
         {
             Debug.Log("Pet healer health reduce");
@@ -39,6 +41,7 @@ public class PetHealerHealth : PetHealth, IDamageable
 
         if(isDisappear)
         {
+            Debug.Log("Pet Healer disappear");
             transform.Translate(Vector3.down * (disappearTime * Time.deltaTime));
         }
     }
@@ -50,6 +53,7 @@ public class PetHealerHealth : PetHealth, IDamageable
         petHealerHeal.enabled = false;
         _anim.SetTrigger("Dead");
         spellEffect.SetActive(false);
+        Disappear();
     }
 
     public void TakeDamage(int amount)
@@ -69,6 +73,7 @@ public class PetHealerHealth : PetHealth, IDamageable
 
     public void Disappear()
     {
+        CurrStateData.RemoveCurrentPet();
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isDisappear = true;

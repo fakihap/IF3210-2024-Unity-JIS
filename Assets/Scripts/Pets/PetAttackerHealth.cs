@@ -22,6 +22,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
         isDead = false;
         isImmortal = false;
         currHealth = startHealth;
+        CurrStateData.SetCurrentPetHealth(currHealth);
         _anim = GetComponent<Animator>();
         petAttackerMovement = GetComponent<PetAttackerMovement>();
         petAttackerAttack = GetComponent<PetAttackerAttack>();
@@ -30,7 +31,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
     private void Update()
     {
         /* TO DO: use state data */
-        Debug.Log("Take Damage Pet Attacker");
+        // Debug.Log("Take Damage Pet Attacker");
         if(CurrStateData.GetCurrentPetHealth() != -1 && currHealth > CurrStateData.GetCurrentPetHealth())
         {
             Debug.Log("Pet attacker health reduce");
