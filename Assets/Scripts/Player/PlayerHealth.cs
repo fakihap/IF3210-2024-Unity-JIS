@@ -97,7 +97,7 @@ namespace Nightmare
             currentHealth += amount;
             if (currentHealth > startingHealth)
                 currentHealth = startingHealth;
-            // healthSlider.value = currentHealth;
+            healthSlider.value = currentHealth;
         }
 
         void Death()
