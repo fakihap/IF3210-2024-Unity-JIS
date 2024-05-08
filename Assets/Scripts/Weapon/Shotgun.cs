@@ -53,18 +53,20 @@ namespace Nightmare
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
+            CurrStateData.shotCount += 1;
+            // print("shot accuracy: " + CurrStateData.GetShotAccuracy());
 
             // Perform the raycast against gameobjects on the shootable layer and if it hits something...
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
-
                 // Calculate the distance to the hit target
                 float distanceToTarget = Vector3.Distance(shootRay.origin, shootHit.point);
 
                 // Define the maximum and minimum damage values
                 PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-                int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
-                if(playerMovement.DamageDecreaseByRaja){
+                int damage = baseDamage + 10 * playerMovement.OrbIncreaseDamageCount;
+                if (playerMovement.DamageDecreaseByRaja)
+                {
                     damage = damage * 80 / 100;
                 }
 
@@ -83,14 +85,15 @@ namespace Nightmare
                 {
                     // ... the enemy should take damage.
                     enemyHealth.TakeDamage((int)calculatedDamage, shootHit.point);
+                    CurrStateData.hitCount += 1;                    
                 }
 
                 // Set the second position of the line renderer to the point the raycast hit.
                 gunLine0.SetPosition(1, shootHit.point);
                 gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
-                gunLine2.SetPosition(1, shootRay.origin + Quaternion.Euler(bulletAngle, 0f, 0f) * shootRay.direction * range); 
+                gunLine2.SetPosition(1, shootRay.origin + Quaternion.Euler(bulletAngle, 0f, 0f) * shootRay.direction * range);
                 gunLine3.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, bulletAngle, 0f) * shootRay.direction * range);
-                gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);                   
+                gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);
             }
             // If the raycast didn't hit anything on the shootable layer...
             else
@@ -100,7 +103,7 @@ namespace Nightmare
                 gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
                 gunLine2.SetPosition(1, shootRay.origin + Quaternion.Euler(bulletAngle, 0f, 0f) * shootRay.direction * range);
                 gunLine3.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, bulletAngle, 0f) * shootRay.direction * range);
-                gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);                      
+                gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);
             }
         }
 
