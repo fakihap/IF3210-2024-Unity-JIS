@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
@@ -84,7 +85,7 @@ MonoBehaviour:
     m_Normal:
       m_Background: {fileID: 2800000, guid: 8a6f536f4b2392f40afb62df609f6e40, type: 3}
       m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.71323526, g: 0.85760653, b: 1, a: 1}
+      m_TextColor: {r: 0.7137255, g: 1, b: 0.76978594, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 67c34bb955c72e6419b7528e10e73c53, type: 3}
       m_ScaledBackgrounds: []
