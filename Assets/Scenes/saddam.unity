@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3878630058993967848, guid: 88992ae95f5e3074fbf50fced5aada28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3878630058993967862, guid: 88992ae95f5e3074fbf50fced5aada28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2183,6 +2183,10 @@ PrefabInstance:
     - target: {fileID: 166316, guid: 389a2abfc43444c49a249150e6908a78, type: 3}
       propertyPath: m_Name
       value: PetBuffer
+      objectReference: {fileID: 0}
+    - target: {fileID: 166316, guid: 389a2abfc43444c49a249150e6908a78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426240, guid: 389a2abfc43444c49a249150e6908a78, type: 3}
       propertyPath: m_LocalPosition.x
