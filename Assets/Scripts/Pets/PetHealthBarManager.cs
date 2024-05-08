@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class PetHealthBarManager : MonoBehaviour
+public class PetHealthBarManager1 : MonoBehaviour
 {
     public Slider petAttackerBar;
     public Slider petHealerBar;
