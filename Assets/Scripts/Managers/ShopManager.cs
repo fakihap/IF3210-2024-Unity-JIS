@@ -12,6 +12,8 @@ public class ShopManager : MonoBehaviour
     // public GameObject enemyManager;
     private float startTime;
     public float timeLimit;
+    private static readonly int BuyClick = Animator.StringToHash("BuyClick");
+    private static readonly int BuyErrorClick = Animator.StringToHash("BuyErrorClick");
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,16 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
+        if (shopBuildingEffect.isPlayerInShopRange)
+        {
+            Debug.Log("Masuk Range");
+            _anim.SetBool("IsPlayerInRange", true);
+        }
+        else
+        {
+            _anim.SetBool("IsPlayerInRange", false);
+        }
+
         if (Input.GetKey(KeyCode.B) && !PauseManager.IsPaused())
         {
             PauseManager.IsPaused();
@@ -54,7 +66,7 @@ public class ShopManager : MonoBehaviour
             if (!shopBuildingEffect.isPlayerInShopRange)
             {
                 Debug.Log("False");
-                _anim.SetTrigger("BuyErrorClick");
+                _anim.SetTrigger(BuyErrorClick);
             }
             else
             {
