@@ -95,7 +95,7 @@ namespace Nightmare
             timer += Time.deltaTime;
             //print("Mouse Pressed");
 
-            if (Input.GetButton("Fire1") && timer >= attackSpeed)
+            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused())
             {
                 //print("Mouse Pressed");
                 Attack();

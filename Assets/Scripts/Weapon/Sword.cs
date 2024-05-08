@@ -43,7 +43,7 @@ namespace Nightmare
             timer += Time.deltaTime;
             // Debug.Log("Number of enemies inside the collider: " + enemiesInsideCollider.Count);
 
-            if (Input.GetButton("Fire1") && timer >= attackSpeed)
+            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused())
             {
                 playerAnimator.SetBool("IsSwordAttack", true);
                 if (enemiesInsideCollider.Count > 0)

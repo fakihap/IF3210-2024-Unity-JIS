@@ -6,57 +6,60 @@ using UnityEngine.Audio;
 using UnityEditor;
 #endif
 
-public class PauseManager : MonoBehaviour {
-	
+public class PauseManager : MonoBehaviour
+{
+
 	public static AudioMixerSnapshot paused;
 	public static AudioMixerSnapshot unpaused;
 	public static bool isPaused;
-	
-	Canvas canvas;
-	
+
+	public Canvas healthCanvas;
+	public Canvas pauseCanvas;
+
 	void Start()
 	{
-		canvas = GetComponent<Canvas>();
-		Time.timeScale= 1;
+		Time.timeScale = 1;
 		// canvas.enabled = false;
-		canvas.enabled = true;
+		pauseCanvas.enabled = false;
+		healthCanvas.enabled = true;
 		isPaused = false;
 	}
-	
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			canvas.enabled = !canvas.enabled;
 			Pause();
+			healthCanvas.enabled = !isPaused;
+			pauseCanvas.enabled = isPaused;
 		}
 	}
-	
+
 	public static void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		isPaused = Time.timeScale == 0;
-		Lowpass ();
-		
+		Lowpass();
+
 	}
 
 	public static void StaticPauseOrUnPause()
-    {
+	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		isPaused = Time.timeScale == 0;
 	}
-	
+
 	public static void Lowpass()
 	{
 		if (Time.timeScale == 0)
 		{
 			if (paused != null)
-            {
+			{
 				paused.TransitionTo(.01f);
-            }
-		}		
+			}
+		}
 		else
-			
+
 		{
 			if (unpaused != null)
 			{
@@ -64,14 +67,14 @@ public class PauseManager : MonoBehaviour {
 			}
 		}
 	}
-	
+
 	public void Quit()
 	{
-		#if UNITY_EDITOR 
+#if UNITY_EDITOR
 		EditorApplication.isPlaying = false;
-		#else 
+#else
 		Application.Quit();
-		#endif
+#endif
 	}
 
 	public static bool IsPaused()

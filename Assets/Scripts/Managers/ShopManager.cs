@@ -60,6 +60,8 @@ public class ShopManager : MonoBehaviour
             {
                 // PauseManager.StaticPauseOrUnPause();
                 PauseManager.Pause();
+                // PauseManager.healthCanvas.enabled = false;
+                // PauseManager.pauseCanvas.enabled = false;                    
                 shopCanvas.SetActive(true);
             }
         }
