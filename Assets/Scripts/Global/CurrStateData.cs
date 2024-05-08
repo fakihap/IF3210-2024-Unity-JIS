@@ -9,17 +9,23 @@ public class CurrStateData
 {
     private static GameData currGameData;
     public static bool motherlode = false;
+    static CurrStateData currStateData;
 
     // for statistics 
     public static float hitCount = 0;
     public static float shotCount = 0;
     public static float distanceTravelled = 0;
-    static CurrStateData currStateData;
-    private float startTime;
-    private float elapsedTime;
+    public static int damageDealt = 0;
+    public static int damageTaken = 0;
+    public static int enemyKilled = 0;
 
-    public static CurrStateData GetInstance() {
-        if (currStateData == null) {
+    public static float startTime = 0;
+    public static float elapsedTime = 0;
+
+    public static CurrStateData GetInstance()
+    {
+        if (currStateData == null)
+        {
             currStateData = new CurrStateData();
         }
         return currStateData;
@@ -125,5 +131,20 @@ public class CurrStateData
         if (CurrStateData.shotCount > 0)
             return CurrStateData.hitCount / CurrStateData.shotCount;
         return 0;
+    }
+
+    public static int getSecondsPlaying()
+    {
+        return Mathf.FloorToInt(elapsedTime);
+    }
+
+    public static int getMinutesPlaying()
+    {
+        return Mathf.FloorToInt(elapsedTime / 60f);
+    }
+
+    public static int getHoursPlaying()
+    {
+        return Mathf.FloorToInt(elapsedTime / 3600f);
     }
 }

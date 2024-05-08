@@ -9,6 +9,7 @@ public class PetHealerMovement : MonoBehaviour
     private GameObject player;
     NavMeshAgent nav;
     Animator _anim;
+    Rigidbody petHealerRigidbody;
     float timer;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class PetHealerMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
+        petHealerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -24,8 +26,9 @@ public class PetHealerMovement : MonoBehaviour
     {
         //heal player
         timer -= Time.deltaTime;
-        if (timer <= 0f)
+        if (timer <= 0f && (player.transform.position - transform.position).magnitude < 4.5)
         {
+            
             PlayerHealth heal = player.GetComponent<PlayerHealth>();
             heal.AddHealth(10);
             print("Healing player");
@@ -35,6 +38,7 @@ public class PetHealerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("Gerak ke player");
         if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);

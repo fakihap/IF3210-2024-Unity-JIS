@@ -70,6 +70,7 @@ namespace Nightmare
         {
             if (godMode)
                 return;
+            CurrStateData.damageTaken += amount;
 
             // Set the damaged flag so the screen will flash.
             damaged = true;
@@ -96,7 +97,7 @@ namespace Nightmare
             currentHealth += amount;
             if (currentHealth > startingHealth)
                 currentHealth = startingHealth;
-            // healthSlider.value = currentHealth;
+            healthSlider.value = currentHealth;
         }
 
         void Death()

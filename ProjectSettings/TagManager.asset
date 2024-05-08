@@ -12,7 +12,7 @@ TagManager:
   - Healing Wizard
   - PetBuffer
   - Aura Buff Wizard
-  - SafeHouse
+  - SliderPet
   layers:
   - Default
   - TransparentFX

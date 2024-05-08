@@ -64,6 +64,7 @@ namespace Nightmare
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
                     CurrStateData.hitCount += 1;
+                    CurrStateData.damageDealt += damage;
                 }
                 else
                 {
