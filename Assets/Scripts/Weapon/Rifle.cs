@@ -39,27 +39,31 @@ namespace Nightmare
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
+            CurrStateData.shotCount += 1;
+            // print("shot count: " + CurrStateData.shotCount + " hit count: "+ CurrStateData.hitCount + " accuracy: "+ CurrStateData.GetShotAccuracy());
+
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
-                print("Enemy is hit123");
                 // Try and find an EnemyHealth script on the gameobject hit.
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
                 print(enemyHealth);
                 // If the EnemyHealth component exist...
-                print("this is enemny health "+enemyHealth);
+                print("this is enemny health " + enemyHealth);
                 if (enemyHealth != null)
                 {
                     // ... the enemy should take damage.
-                    print("Enemy is take damage "+baseDamage);
+                    print("Enemy is take damage " + baseDamage);
 
                     // add orb
                     PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-                    int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
-                    if(playerMovement.DamageDecreaseByRaja){
+                    int damage = baseDamage + 10 * playerMovement.OrbIncreaseDamageCount;
+                    if (playerMovement.DamageDecreaseByRaja)
+                    {
                         print("Damage decrease by raja");
                         damage = damage * 80 / 100;
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
+                    CurrStateData.hitCount += 1;
                 }
                 else
                 {
@@ -106,7 +110,7 @@ namespace Nightmare
                 DisableEffects();
             }
         }
-        
+
         public override void IncreaseDamage(int damageIncrease)
         {
             baseDamage += baseDamage * damageIncrease / 100;

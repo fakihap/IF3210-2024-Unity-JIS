@@ -41,7 +41,9 @@ namespace Nightmare
             movement = new Vector3(h, 0, v);;
 
             movement = movement.normalized * speed * Time.deltaTime;
-
+            
+            CurrStateData.distanceTravelled += movement.magnitude;
+            // print("distance travelled: " + CurrStateData.distanceTravelled);
             playerRigidBody.MovePosition(transform.position + movement);
         }
 
