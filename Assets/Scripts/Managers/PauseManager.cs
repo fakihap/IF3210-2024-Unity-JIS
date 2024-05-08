@@ -40,7 +40,14 @@ public class PauseManager : MonoBehaviour
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		isPaused = Time.timeScale == 0;
 		Lowpass();
-
+		if (isPaused) {
+			float currentTime = Time.time;
+			CurrStateData.elapsedTime += currentTime - CurrStateData.startTime; 
+			CurrStateData.startTime = 0;
+		} else {
+			CurrStateData.startTime = Time.time;
+		}
+		// print(CurrStateData.elapsedTime);
 	}
 
 	public static void StaticPauseOrUnPause()
