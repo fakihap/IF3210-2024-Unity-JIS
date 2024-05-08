@@ -50,6 +50,7 @@ namespace Nightmare
             Move(h, v);
             Turning();
             Animating(h, v);
+
         }
 
         private void OnTriggerEnter(Collider other)
@@ -64,7 +65,21 @@ namespace Nightmare
 
         private void SaveGame()
         {
-            print("Shift + P is pressed");
+            CurrStateData currData = CurrStateData.GetInstance();
+            print(currData.ToJson());
+
+            string output;
+            
+            if (FileManager.LoadFromFile("Slot1.dat", out output))
+            {
+                print(output);
+            }
+
+            if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
+            {
+                print("Save successful");
+            }
+
         }
 
         private void OnTriggerExit(Collider other)

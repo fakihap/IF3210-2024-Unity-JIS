@@ -5,11 +5,11 @@ using Nightmare;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[System.Serializable]
 public class CurrStateData
 {
     private static GameData currGameData;
     public static bool motherlode = false;
-    static CurrStateData currStateData;
 
     // for statistics 
     public static float hitCount = 0;
@@ -21,6 +21,12 @@ public class CurrStateData
 
     public static float startTime = 0;
     public static float elapsedTime = 0;
+    static CurrStateData currStateData;
+
+    public CurrStateData()
+    {
+
+    }
 
     public static CurrStateData GetInstance()
     {
@@ -29,6 +35,16 @@ public class CurrStateData
             currStateData = new CurrStateData();
         }
         return currStateData;
+    }
+
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(currGameData);
+    }
+
+    public void LoadFromJson(string json)
+    {
+        JsonUtility.FromJsonOverwrite(json, this);
     }
 
     public static void LoadStateData()
