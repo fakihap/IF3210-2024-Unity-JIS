@@ -1,14 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public abstract class QuestNotifier : MonoBehaviour {
     [SerializeField]
     private List<Quest> subscribers;
-    public void Subscribe(Quest quest) {
+    protected abstract void SetSubscriber(List<Quest> quests);
+    protected void Subscribe(Quest quest) {
         subscribers.Add(quest);
     }
-    public void Unsubscribe(Quest quest) {
+    protected void Unsubscribe(Quest quest) {
         subscribers.Remove(quest);
+    }
+
+    void Start() {
+        Debug.Log("NOTIFA " + GameDirector.Instance.GetQuests().Count);
+        SetSubscriber(GameDirector.Instance.GetQuests());
     }
 
     // should be called from CheckQuest

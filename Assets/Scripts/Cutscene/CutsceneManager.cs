@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
+    public static CutsceneManager Instance;
+
+    Cutscene currentCutscene;
+
     [SerializeField]
     Camera mainCamera;
 
@@ -20,13 +24,20 @@ public class CutsceneManager : MonoBehaviour
 
 
     [Header("Dialogues")]
-    [SerializeField]
-    private int cutsceneDialoguesIndex = -1;             // index for which cutscene
-    [SerializeField]
-    private List<Cutscene> cutscenes;
+    
 
     [SerializeField]
     private bool isInCutscene = false;
+
+    void Awake() {
+        if (Instance != null) {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+    }
 
     void Start()
     {
@@ -34,36 +45,38 @@ public class CutsceneManager : MonoBehaviour
         DisableUI();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && !isInCutscene) {
-            StartCutscene();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.P) && !isInCutscene) {
+    //         StartCutscene();
+    //     }
+    // }
 
-    void StartCutscene() {
-        if (NextCutscene()) {
-            isInCutscene = true;
-            EnableUI();
+    void StartCutscene(Cutscene cutscene) {
+        currentCutscene = cutscene;
 
-            ProgressCutscene();
+        isInCutscene = true;
+        EnableUI();
+
+        ProgressCutscene();
             
-            return;
-        }
 
         // check this behavior later
-        EndCutscene();
+        // EndCutscene();
     }
 
     public void ProgressCutscene() {
         // if cutscene is finished
-        if (!CurrentCutscene().NextDialogue()) {
+        if (!currentCutscene.NextDialogue()) {
             isInCutscene = false;
             DisableUI();
+            
+            EndCutscene();
+
             return;
         }
 
-        Dialogue currentDialogue = CurrentCutscene().GetCurrentDialogue();
+        Dialogue currentDialogue = currentCutscene.GetCurrentDialogue();
 
         nameText.text = currentDialogue.name;
         dialogueText.text = currentDialogue.text;
@@ -74,21 +87,11 @@ public class CutsceneManager : MonoBehaviour
     void EndCutscene() {
         // currently using build index, might cause progress corruption
         // load next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        currentCutscene.EndCutscene();
+        GameDirector.Instance.UpdateDirector();
     }
 
-    Cutscene CurrentCutscene() {
-        return cutscenes[cutsceneDialoguesIndex];
-    }
-
-    bool NextCutscene() {
-        if (cutsceneDialoguesIndex + 1 >= cutscenes.Count) {
-            return false;
-        }
-
-        cutsceneDialoguesIndex += 1;
-        return true;
-    }
 
     void EnableUI() {
         bgImage.enabled = true;

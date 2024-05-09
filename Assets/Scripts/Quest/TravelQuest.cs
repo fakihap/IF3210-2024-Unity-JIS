@@ -1,27 +1,20 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Tr_Quest_01", menuName = "Directable Objects/New Travel Quest", order = 1)]
 public class TravelQuest : Quest
 {
-    [SerializeField]
-    string targetName = "Default-Target-Name";
-    [SerializeField]
-    bool isReached = false;
+    public string targetName = "Default-Target-Name"; // this need to be unique
 
     protected override void StartQuest() {
-        isReached = false;
+        isCompleted = false;
     }
     public override void ProgressQuest()
     {
-        isReached = true;
+        isCompleted = true;
     }
     
     public override string GetQuestMessage()
     {
         return string.Format("Go to somewhere {0}", targetName);
-    }
-
-    protected override bool CheckQuest()
-    {
-        return isReached;
     }
 }
