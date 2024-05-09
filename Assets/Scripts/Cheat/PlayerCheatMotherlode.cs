@@ -40,12 +40,12 @@ public class PlayerCheatMotherlode : MonoBehaviour
             if (isOn)
             {
                 print("Motherlode on");
-                CurrStateData.motherlode = true;
+                CurrStateData.currGameData.motherlode = true;
             }
             else
             {
                 print("Motherlode off");
-                CurrStateData.motherlode = false;
+                CurrStateData.currGameData.motherlode = false;
             }
 
         }

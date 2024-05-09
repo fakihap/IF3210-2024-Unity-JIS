@@ -70,7 +70,11 @@ namespace Nightmare
         {
             if (godMode)
                 return;
-            CurrStateData.damageTaken += amount;
+            CurrStateData.currGameData.damageTaken += amount;
+            
+            int savedDamageTaken = PlayerPrefs.GetInt("damageTaken");
+            // print(savedDamageTaken);
+            PlayerPrefs.SetInt("damageTaken", savedDamageTaken + amount);            
 
             // Set the damaged flag so the screen will flash.
             damaged = true;

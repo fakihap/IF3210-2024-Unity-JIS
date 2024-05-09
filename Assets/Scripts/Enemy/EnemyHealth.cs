@@ -68,7 +68,10 @@ namespace Nightmare
 
             if (currentHealth <= 0)
             {
-                CurrStateData.enemyKilled += 1;
+                CurrStateData.currGameData.enemyKilled += 1;
+                int savedEnemyKilled = PlayerPrefs.GetInt("enemyKilled");
+                // print(savedEnemyKilled);
+                PlayerPrefs.SetInt("enemyKilled", savedEnemyKilled + 1);
                 Death();
             }
         }

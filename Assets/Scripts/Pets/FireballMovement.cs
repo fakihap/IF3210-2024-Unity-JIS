@@ -33,7 +33,10 @@ public class FireballMovement : MonoBehaviour
         if (enemyHealth)
         {
             enemyHealth.TakeDamage(fireballDamage, transform.position);
-            CurrStateData.damageDealt += fireballDamage;
+            CurrStateData.currGameData.damageDealt += fireballDamage;
+
+            int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+            PlayerPrefs.SetInt("damageDealt", savedDamageDealt + fireballDamage);
             Destroy(this.gameObject);
         }
     }

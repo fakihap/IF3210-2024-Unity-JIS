@@ -95,6 +95,7 @@ namespace Nightmare
 
             if (playerHealth.currentHealth > 0)
             {
+                print("kena mele "+attackDamage);
                 playerHealth.TakeDamage(attackDamage);
             }
         }
@@ -108,11 +109,20 @@ namespace Nightmare
         }
 
         void DPS(){
-            print("kena dps");
+            print("kena dps "+DPSDamage);
             if (playerHealth.currentHealth > 0)
             {
                 playerHealth.TakeDamage(DPSDamage);
             }
+        }
+
+        public void DoubleDamage(){
+            attackDamage *= 2;
+            DPSDamage *= 2;
+        }
+        public void ResetDamage(){
+            attackDamage /= 2;
+            DPSDamage /= 2;
         }
     }
 }

@@ -10224,8 +10224,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02ea90ea36fdea43b961ab913e26f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.5
-  attackDamage: 5
+  attackTime: 3
+  damage: 20
+  attackSound: {fileID: 1973331114848548668}
+  gunLight: {fileID: 6142160982804863833}
+  gunParticles: {fileID: 3291936356718263242}
+  gunBarrelEnd: {fileID: 6135779964896040500}
+  gunLine0: {fileID: 1262043871375078754}
+  gunLine1: {fileID: 7456102872154049054}
+  gunLine2: {fileID: 7004515649738945932}
+  gunLine3: {fileID: 581035218433430321}
+  gunLine4: {fileID: 6749950891344292915}
+  bulletAngle: 3
+  range: 25
 --- !u!114 &6385365105683146320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10240,14 +10251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
   spawnTime: 20
-  attackTime: 3
   speed: 4
-  attackSound: {fileID: 1973331114848548668}
-  gunLight: {fileID: 6142160982804863833}
-  gunParticles: {fileID: 3291936356718263242}
-  gunBarrelEnd: {fileID: 6135779964896040500}
-  gunLine: {fileID: 1262043871375078754}
-  range: 0
 --- !u!1 &3171239212889721565
 GameObject:
   m_ObjectHideFlags: 0
@@ -10398,7 +10402,6 @@ GameObject:
   - component: {fileID: 3199606711202652699}
   - component: {fileID: 6142160982804863833}
   - component: {fileID: 1973331114848548668}
-  - component: {fileID: 2554035585982891313}
   m_Layer: 0
   m_Name: GunBarrelEnd
   m_TagString: Untagged
@@ -15558,22 +15561,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2554035585982891313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135779964896040500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c83720df9acb89488dbf2c0dbd3ad78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &6196476868517645159
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,13 +36,19 @@ public class HealthBar : MonoBehaviour {
 			Debug.LogError("There is no Canvas in the scene or Canvas GameObject isn't active, please create one - GameObject->UI->Canvas or activate existing");
 		
 		for (int i = 0; i < canvases.Length; i++)
+		// foreach (Canvas canvas in canvases)
 		{
-			if(canvases[i].enabled && canvases[i].gameObject.activeSelf && canvases[i].renderMode == RenderMode.ScreenSpaceOverlay)
+			Debug.Log("Canvas Name: " + canvases[i].gameObject.name);
+            Debug.Log("Canvas Render Mode: " + canvases[i].renderMode);
+			if(canvases[i].gameObject.name == "ScreenCanvas")
+			{
 				canvas = canvases[i];
-			else
-				Debug.LogError("There is no Canvas with RenderMode: ScreenSpace - Overlay in the scene or it's disabled, please create one - GameObject->UI->Canvas or enable existing");
+			}
+			// if(canvases[i].enabled && canvases[i].gameObject.activeSelf && canvases[i].renderMode == RenderMode.ScreenSpaceOverlay)
+			// 	canvas = canvases[i];
+			// else
+			// 	Debug.LogError("There is no Canvas with RenderMode: ScreenSpace - Overlay in the scene or it's disabled, please create one - GameObject->UI->Canvas or enable existing");
 		}
-
         defaultHealth = healthLink.Value;
         lastHealth = defaultHealth;
 	}
@@ -56,8 +62,10 @@ public class HealthBar : MonoBehaviour {
 		}
 		
 		thisT = this.transform;
-        if (canvas.transform.Find("HealthbarRoot") != null)
+        if (canvas.transform.Find("HealthbarRoot") != null){
+			Debug.Log("HealthbarRoot tidak null");
             healthbarRoot = canvas.transform.Find("HealthbarRoot").gameObject;
+		}
         else
             healthbarRoot = new GameObject("HealthbarRoot", typeof(RectTransform), typeof(HealthbarRoot));
         healthbarRoot.transform.SetParent(canvas.transform, false);
@@ -67,6 +75,7 @@ public class HealthBar : MonoBehaviour {
 		canvasGroup = HealthbarPrefab.GetComponent<CanvasGroup> ();
 		
 		healthVolume = HealthbarPrefab.transform.Find ("Health").GetComponent<Image>();
+		Debug.Log("Healthbar info: " + HealthbarPrefab.transform.Find ("HealthInfo").GetComponent<Text> ());
 		backGround = HealthbarPrefab.transform.Find ("Background").GetComponent<Image>();
 		healthInfo = HealthbarPrefab.transform.Find ("HealthInfo").GetComponent<Text> ();
 		healthInfo.resizeTextForBestFit = true;
@@ -119,6 +128,7 @@ public class HealthBar : MonoBehaviour {
             rate = Time.time + alphaSettings.onHit.duration;
             lastHealth = healthLink.Value;
         }
+		//Debug.Log("Health Info: " + healthInfo.text);
 
         if (!OutDistance() && IsVisible())
         {

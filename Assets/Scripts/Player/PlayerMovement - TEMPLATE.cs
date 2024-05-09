@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnitySampleAssets.CrossPlatformInput;
 
 namespace Nightmare
@@ -8,13 +10,16 @@ namespace Nightmare
     {
         public float speed = 6f;
         private float originalSpeed; // untuk menyimpan nilai kecepatan asli sebelum peningkatan
-        public int OrbIncreaseDamageCount = 0 ;
+        public int OrbIncreaseDamageCount = 0;
         public bool DamageDecreaseByRaja;
+        public Text saveText;
 
         Vector3 movement;
         Animator anim;
         Rigidbody playerRigidBody;
+        GameObject safeHouse;
         int floorMask;
+        bool canSave;
         readonly float camRayLength = 1000f;
 
         private void Awake()
@@ -24,6 +29,7 @@ namespace Nightmare
             playerRigidBody = GetComponent<Rigidbody>();
             originalSpeed = speed; // menyimpan nilai awal kecepatan
             DamageDecreaseByRaja = false;
+            safeHouse = GameObject.FindGameObjectWithTag("SafeHouse");
         }
 
         private void FixedUpdate()
@@ -31,9 +37,60 @@ namespace Nightmare
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
 
+            if (canSave)
+            {
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                {
+                    if (Input.GetKeyDown(KeyCode.P))
+                    {
+                        print("Save key is pressed");
+                        SaveGame();
+                    }
+                }
+            } 
             Move(h, v);
             Turning();
             Animating(h, v);
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            print("Player collides with: " + other.name);
+            if (other.gameObject == safeHouse)
+            {
+                //print("I hit the safe house (player movement)");
+                saveText.enabled = true;
+                canSave = true;
+            }
+        }
+
+        private void SaveGame()
+        {
+            CurrStateData currData = CurrStateData.GetInstance();
+            string output;
+            
+            // if (FileManager.LoadFromFile("Slot1.dat", out output))
+            // {
+            //     print(output);
+            // }
+
+            if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
+            {
+                print("Save successful");
+                // CurrStateData.currGameData.distanceTravelled = 0;
+            }
+
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject == safeHouse)
+            {
+                //print("I hit the safe house (player movement)");
+                saveText.enabled = false;
+                canSave = false;
+            }
         }
 
         void Move(float h, float v)
@@ -42,7 +99,12 @@ namespace Nightmare
 
             movement = movement.normalized * speed * Time.deltaTime;
             
-            CurrStateData.distanceTravelled += movement.magnitude;
+            CurrStateData.currGameData.distanceTravelled += movement.magnitude;
+            
+            float savedDistanceTravelled = PlayerPrefs.GetFloat("distanceTravelled");
+            // print(savedDistanceTravelled);
+            PlayerPrefs.SetFloat("distanceTravelled", savedDistanceTravelled + movement.magnitude);            
+
             // print("distance travelled: " + CurrStateData.distanceTravelled);
             playerRigidBody.MovePosition(transform.position + movement);
         }
