@@ -1173,6 +1173,18 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 284724668}
+    - target: {fileID: 5813797496879243567, guid: cbd05a9dc957e5741b010cfe6734cd7c, type: 3}
+      propertyPath: cutscenes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813797496879243567, guid: cbd05a9dc957e5741b010cfe6734cd7c, type: 3}
+      propertyPath: cutscenes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8afc88c8e709dbe41966045a421b1b21, type: 2}
+    - target: {fileID: 5813797496879243567, guid: cbd05a9dc957e5741b010cfe6734cd7c, type: 3}
+      propertyPath: cutscenes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a1514ad2cfe57d458bc5475c85cf1e7, type: 2}
     - target: {fileID: 9068930472669884599, guid: cbd05a9dc957e5741b010cfe6734cd7c, type: 3}
       propertyPath: m_Name
       value: CutsceneManager

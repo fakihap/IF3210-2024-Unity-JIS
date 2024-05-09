@@ -19,7 +19,7 @@ public class PlaytimeCanvasManager : MonoBehaviour
         {
             float currentTime = Time.time;
             float elapsedTime = currentTime - _startTime; 
-            Debug.Log("Playtime: " + elapsedTime);
+            // Debug.Log("Playtime: " + elapsedTime);
             UpdateTimerDisplay(elapsedTime);
         }
     }

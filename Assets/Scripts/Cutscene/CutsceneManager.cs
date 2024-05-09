@@ -23,13 +23,10 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField]
     private int cutsceneDialoguesIndex = -1;             // index for which cutscene
     [SerializeField]
-    private List<CutsceneDialog> cutsceneDialogues;
+    private List<Cutscene> cutscenes;
 
     [SerializeField]
     private bool isInCutscene = false;
-
-    [SerializeField]
-    private int dialoguesIndex = -1, dialoguesCount;
 
     void Start()
     {
@@ -45,44 +42,52 @@ public class CutsceneManager : MonoBehaviour
     }
 
     void StartCutscene() {
-        if (cutsceneDialoguesIndex + 1 < cutsceneDialogues.Count) {
-            cutsceneDialoguesIndex += 1;
-
-            isInCutscene = true;
-
-            dialoguesIndex = -1;
-            dialoguesCount = cutsceneDialogues[cutsceneDialoguesIndex].dialogues.Count;
-
-            ProgressCutscene();
-
+        if (NextCutscene()) {
             isInCutscene = true;
             EnableUI();
+
+            ProgressCutscene();
+            
             return;
         }
 
+        // check this behavior later
         EndCutscene();
     }
 
     public void ProgressCutscene() {
-        if (dialoguesIndex + 1 == dialoguesCount) {
+        // if cutscene is finished
+        if (!CurrentCutscene().NextDialogue()) {
             isInCutscene = false;
             DisableUI();
             return;
         }
 
-        dialoguesIndex += 1;
+        Dialogue currentDialogue = CurrentCutscene().GetCurrentDialogue();
 
-        Dialog currentDialog = cutsceneDialogues[cutsceneDialoguesIndex].dialogues[dialoguesIndex];
-        nameText.text = currentDialog.name;
-        dialogueText.text = currentDialog.text;
-        mainCamera.transform.position = currentDialog.camTransform.position;
-        mainCamera.transform.rotation = Quaternion.Euler(currentDialog.camTransform.rotation);
+        nameText.text = currentDialogue.name;
+        dialogueText.text = currentDialogue.text;
+        mainCamera.transform.position = currentDialogue.camTransform.position;
+        mainCamera.transform.rotation = Quaternion.Euler(currentDialogue.camTransform.rotation);
     }
 
     void EndCutscene() {
         // currently using build index, might cause progress corruption
         // load next scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    Cutscene CurrentCutscene() {
+        return cutscenes[cutsceneDialoguesIndex];
+    }
+
+    bool NextCutscene() {
+        if (cutsceneDialoguesIndex + 1 >= cutscenes.Count) {
+            return false;
+        }
+
+        cutsceneDialoguesIndex += 1;
+        return true;
     }
 
     void EnableUI() {
