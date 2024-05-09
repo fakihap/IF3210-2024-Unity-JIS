@@ -30,6 +30,7 @@ public class CurrStateData
         currGameData = new GameData();
         stateData = new StateData();
         currGameData.playerName = stateData.playerName;
+        currGameData.volume= stateData.volume;
         currGameData.motherlode = false;
         currGameData.hitCount = 0;
         currGameData.shotCount = 0;
@@ -198,7 +199,12 @@ public class CurrStateData
         currGameData.playerName = name;
     }
 
-    public static List<string> GetDifficultyLevels()
+    public static void SetDifficultyLevel(string difficulty)
+    {
+        currGameData.difficultyLevel = difficulty;
+    }
+
+    public static string GetStateDataDifficulty()
     {
         return stateData.difficulty;
     }
@@ -208,20 +214,10 @@ public class CurrStateData
         return currGameData.difficultyLevel;
     }
 
-    public static int GetDifficultyLevelIndex()
+    public static void UpdateStateData()
     {
-        return stateData.difficulty.IndexOf(currGameData.difficultyLevel);
-    }
-
-    public static void SetDifficultyLevel(int index)
-    {
-        if (index >= 0 && index < stateData.difficulty.Count)
-        {
-            currGameData.difficultyLevel = stateData.difficulty[index];
-        }
-        else
-        {
-            Debug.LogError("Invalid difficulty level index.");
-        }
+        stateData.playerName = currGameData.playerName;
+        stateData.volume = currGameData.volume;
+        stateData.difficulty = currGameData.difficultyLevel;
     }
 }

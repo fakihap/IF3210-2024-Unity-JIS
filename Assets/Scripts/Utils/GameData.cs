@@ -9,6 +9,7 @@ public struct GameData
 {
     public string playerName;
     public string difficultyLevel;
+    public int volume;
     public int coin;
     public List<int> pets;
     public int currPetHealth;
