@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea40935d9c92c84c9896237cdd94255, type: 3}
-  m_Name: Tr_Quest_01 1
+  m_Script: {fileID: 11500000, guid: d8898f1bd474b5b49a9e8d6f22a41dcd, type: 3}
+  m_Name: El_Quest_01
   m_EditorClassIdentifier: 
   precedingDirectables:
   - {fileID: 11400000, guid: b66e745ea67d06a48bef02f3f6b5fa61, type: 2}
-  isActive: 0
-  isCompleted: 0
-  targetName: Default-Target-Name
+  targetCount: 5
+  enemyType: 0

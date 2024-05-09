@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2439633a04f911045963481b5b597c10, type: 3}
+  m_Name: Cutscene00b
+  m_EditorClassIdentifier: 
+  precedingDirectables:
+  - {fileID: 11400000, guid: e27c8b464b1918b4fa919f379300c68c, type: 2}
+  dialogues:
+  - name: Sleep-walker
+    text: you come back quick. scary, to think that you cried for help minutes ago.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: tch
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: anyway here is the thing that i promised you (*gives gold*). you can use
+      this to have me let you have my pets. now, don't hold on.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: cool.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: oh, and lastly, if you want to finish this nightmare, you can just take
+      the boss out. he'll be in The Dancing Riverie. i will clear out the passageway
+      so you can go there.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: alright, i'm going.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  sceneName: Cutscene00b

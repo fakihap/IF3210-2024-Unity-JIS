@@ -51,16 +51,20 @@ namespace Nightmare
                 }
             }
 
-            float distanceToSafeHouse = Vector3.Distance(transform.position, safeHouse.transform.position);
-            if (distanceToSafeHouse < 5)
-            {
-                // Kill all mobs
-                GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (GameObject mob in mobs)
+            // kill all mobs when we are inside safezone
+            if (safeHouse != null) {
+                float distanceToSafeHouse = Vector3.Distance(transform.position, safeHouse.transform.position);
+                if (distanceToSafeHouse < 5)
                 {
-                    Destroy(mob);
+                    // Kill all mobs
+                    GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject mob in mobs)
+                    {
+                        Destroy(mob);
+                    }
                 }
             }
+            
 
             Move(h, v);
             Turning();
@@ -109,6 +113,7 @@ namespace Nightmare
 
         void Move(float h, float v)
         {
+            Debug.Log("movbe harusnya");
             movement = new Vector3(h, 0, v);;
 
             movement = movement.normalized * speed * Time.deltaTime;

@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Tr_Quest_01
   m_EditorClassIdentifier: 
   precedingDirectables:
-  - {fileID: 11400000, guid: 53559c32f5e17274fa034c1d6ad976c3, type: 2}
-  isActive: 0
-  isCompleted: 0
-  targetName: Default-Target-Name
+  - {fileID: 11400000, guid: 93042316c53e054438dcb33d2d647de6, type: 2}
+  targetName: Land of the Lullabies

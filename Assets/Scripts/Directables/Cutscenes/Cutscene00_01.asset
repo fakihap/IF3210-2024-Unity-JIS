@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2439633a04f911045963481b5b597c10, type: 3}
+  m_Name: Cutscene00_01
+  m_EditorClassIdentifier: 
+  precedingDirectables:
+  - {fileID: 11400000, guid: 53559c32f5e17274fa034c1d6ad976c3, type: 2}
+  - {fileID: 11400000, guid: 44344c986cdb1cc4ea5850f28f9e6567, type: 2}
+  dialogues:
+  - name: Sleep-walker
+    text: you're not half bad. i think i underestimated you a bit.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: wh- i don't need your pity
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: is that so? be a bit grateful, eh?
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: said the one who left me to fight hordes of monsters
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: what are they anyway?
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: monsters, maybe? i'm not so sure of it myself. this is your dream afterall.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: '*sigh*'
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: anyway, i think you are short on help. i may let you have something from
+      my teasure.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: 'in return, go take some monsters out for me. i think they called it kerocos. '
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: go on, i don't have much time for your ponder
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  sceneName: Cutscene00
