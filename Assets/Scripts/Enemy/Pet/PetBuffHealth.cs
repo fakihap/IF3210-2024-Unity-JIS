@@ -5,17 +5,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class PetJenderalHealth : PetHealth, IDamageable
+public class PetBuffHealth : PetHealth, IDamageable
 {
-    public GameObject spellEffect;
-    public AudioClip deathClip;
-    private PetHealerMovement petHealerMovement;
-    private PetHealerHeal petHealerHeal;
-    private Animator _anim;
+    private PetBuffMovement petBuffMovement;
     // public Slider healthSlider;
     public float disappearTime = 2.5f;
     public bool isDead;
-    public bool isImmortal;
     public bool isDisappear;
 
     private void Awake()
@@ -23,20 +18,16 @@ public class PetJenderalHealth : PetHealth, IDamageable
         isDead = false;
         isImmortal = false;
         currHealth = startHealth;
-        _anim = GetComponent<Animator>();
-        petHealerMovement = GetComponent<PetHealerMovement>();
-        petHealerHeal = GetComponent<PetHealerHeal>();
+        petBuffMovement = GetComponent<PetBuffMovement>();
     }
 
     private void Update()
     {
         /* TO DO: use state data */
-        Debug.Log("Take Damage Pet Healer");
-        if(CurrStateData.GetCurrentPetHealth() != -1 && currHealth > CurrStateData.GetCurrentPetHealth())
-        {
-            Debug.Log("Pet healer health reduce");
-            TakeDamage(startHealth - CurrStateData.GetCurrentPetHealth());
-        }
+        // if(CurrStateData.GetCurrentPetHealth() != -1 && currHealth > CurrStateData.GetCurrentPetHealth())
+        // {
+        //     TakeDamage(startHealth - CurrStateData.GetCurrentPetHealth());
+        // }
 
         if(isDisappear)
         {
@@ -47,18 +38,15 @@ public class PetJenderalHealth : PetHealth, IDamageable
     private void Death()
     {
         isDead = true;
-        petHealerMovement.enabled = false;
-        petHealerHeal.enabled = false;
-        _anim.SetTrigger("Dead");
-        spellEffect.SetActive(false);
+        petBuffMovement.enabled = false;
     }
 
     public void TakeDamage(int amount)
     {
+        print("pet buff take damage " + amount);
         if(isImmortal) return;
 
         currHealth -= amount;
-        // healthSlider.value = currHealth;
         CurrStateData.SetCurrentPetHealth(currHealth);
 
         if(currHealth <= 0 && !isDead)
@@ -76,7 +64,15 @@ public class PetJenderalHealth : PetHealth, IDamageable
         if (manager != null)
         {
             manager.SpawnNextPet(transform);
-
+        }
+        GameObject enemy = transform.parent.gameObject;
+        if(enemy.GetComponent<JenderalAttack>() != null)
+        {
+            enemy.GetComponent<JenderalAttack>().ResetDamage();
+        }
+        else if(enemy.GetComponent<RajaAttack>() != null)
+        {
+            enemy.GetComponent<RajaAttack>().ResetDamage();
         }
         Destroy(gameObject, 2f);
     }

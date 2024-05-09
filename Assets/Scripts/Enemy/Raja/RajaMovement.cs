@@ -8,18 +8,14 @@ namespace Nightmare
     public class RajaMovement : PausibleObject
     {
         Transform player;
-        PlayerHealth playerHealth;
-        EnemyHealth enemyHealth;
         NavMeshAgent nav;
         public float speed = 6f;
-        Rigidbody enemyRigidbody;
 
 
         void Awake ()
         {
             player = GameObject.FindGameObjectWithTag ("Player").transform;
             nav = GetComponent<NavMeshAgent>();
-            enemyRigidbody = GetComponent<Rigidbody>();
             nav.speed= speed;
         }
 
