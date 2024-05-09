@@ -15701,6 +15701,7 @@ GameObject:
   - component: {fileID: 4328446811859367045}
   - component: {fileID: 537039457960505170}
   - component: {fileID: 2008960935835100214}
+  - component: {fileID: -2586515077678434342}
   m_Layer: 6
   m_Name: Raja
   m_TagString: Enemy
@@ -15904,7 +15905,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 0}
-  currentHealth: 0
+  currentHealth: 500
   orbs: []
   isDead: 0
   defeatQuestNotifier: {fileID: 0}
@@ -16029,6 +16030,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subscribers: []
+--- !u!114 &-2586515077678434342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277330263938654123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 8738382163646622709}
+    fieldName: currentHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: e2f6b3135d39e644abe52b3ba0948d6f, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 10
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 1
+  healthInfoSize: 10
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
 --- !u!1 &9133687730967589851
 GameObject:
   m_ObjectHideFlags: 0
