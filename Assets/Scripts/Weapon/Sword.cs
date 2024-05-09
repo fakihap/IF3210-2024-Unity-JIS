@@ -25,6 +25,7 @@ namespace Nightmare
             foreach (GameObject enemy in enemiesInsideCollider)
             {
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                PetBuffHealth petBuffHealth = enemy.GetComponent<PetBuffHealth>();
                 if (enemyHealth.currentHealth > 0)
                 {
                     // ... damage the player.
@@ -35,6 +36,17 @@ namespace Nightmare
                     }
                     CurrStateData.currGameData.damageDealt += damage;
                     enemyHealth.TakeDamage(damage, new Vector3(0f, 0.5f, 0f));
+                }
+                else if (petBuffHealth.currHealth > 0)
+                {
+                    // ... damage the pet.
+                    PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                    int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
+                    if(playerMovement.DamageDecreaseByRaja){
+                        damage = damage * 80 / 100;
+                    }
+                    CurrStateData.damageDealt += damage;
+                    petBuffHealth.TakeDamage(damage);
                 }
             }
         }

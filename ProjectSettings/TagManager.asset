@@ -13,6 +13,8 @@ TagManager:
   - PetBuffer
   - Aura Buff Wizard
   - SliderPet
+  - ShopBuilding
+  - ShopClosed
   layers:
   - Default
   - TransparentFX

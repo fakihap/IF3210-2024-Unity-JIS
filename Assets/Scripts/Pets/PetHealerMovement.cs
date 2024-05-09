@@ -38,7 +38,7 @@ public class PetHealerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("Gerak ke player");
+        // Debug.Log("Gerak ke player");
         if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool("IsMoving", true);
