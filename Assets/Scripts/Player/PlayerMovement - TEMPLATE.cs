@@ -43,6 +43,7 @@ namespace Nightmare
                 {
                     if (Input.GetKeyDown(KeyCode.P))
                     {
+                        print("Save key is pressed");
                         SaveGame();
                     }
                 }
@@ -55,11 +56,14 @@ namespace Nightmare
 
         private void OnTriggerEnter(Collider other)
         {
+            print("Player collides with: " + other.name);
             if (other.gameObject == safeHouse)
             {
+                print(saveText.enabled);
                 //print("I hit the safe house (player movement)");
                 saveText.enabled = true;
                 canSave = true;
+                print(saveText.enabled);
             }
         }
 

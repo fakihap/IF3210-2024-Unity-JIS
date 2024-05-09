@@ -128,7 +128,7 @@ public class HealthBar : MonoBehaviour {
             rate = Time.time + alphaSettings.onHit.duration;
             lastHealth = healthLink.Value;
         }
-		Debug.Log("Health Info: " + healthInfo.text);
+		//Debug.Log("Health Info: " + healthInfo.text);
 
         if (!OutDistance() && IsVisible())
         {
