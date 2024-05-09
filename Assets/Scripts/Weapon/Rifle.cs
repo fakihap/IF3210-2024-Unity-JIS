@@ -52,7 +52,7 @@ namespace Nightmare
 
                 // If the EnemyHealth component exist...
                 print("this is enemny health " + enemyHealth);
-                print("this is pet buff health " + petBuffHealth.currHealth);
+                // print("this is pet buff health " + petBuffHealth.currHealth);
                 if (enemyHealth != null)
                 {
                     print("Enemy is take damage " + baseDamage);
@@ -65,10 +65,9 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
-                    petBuffHealth.TakeDamage(damage);
-                    print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
                     CurrStateData.hitCount += 1;
                     CurrStateData.damageDealt += damage;
+                    gunLine.SetPosition(1, shootHit.point);
                 }
                 else if(petBuffHealth != null)
                 {
@@ -84,14 +83,18 @@ namespace Nightmare
                     print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
                     CurrStateData.hitCount += 1;
                     CurrStateData.damageDealt += damage;
+                    gunLine.SetPosition(1, shootHit.point);
                 }
                 else
                 {
                     print("Enemy is not take damage");
                 }
 
+                
+                // gunLine.SetPosition(1, shootHit.point);
+
                 // Set the second position of the line renderer to the point the raycast hit.
-                gunLine.SetPosition(1, shootHit.point);
+                // gunLine.SetPosition(1, shootHit.point);
             }
             // If the raycast didn't hit anything on the shootable layer...
             else

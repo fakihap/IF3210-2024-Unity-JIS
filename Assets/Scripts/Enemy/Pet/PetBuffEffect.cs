@@ -12,12 +12,12 @@ public class PetBuffEffect : MonoBehaviour
     void Start()
     {
         enemy = transform.parent.gameObject;
-        
-        if(enemy.GetComponent<JenderalAttack>() != null)
+        PetBuffHealth petBuffHealth = enemy.GetComponent<PetBuffHealth>();
+        if(enemy.GetComponent<JenderalAttack>() != null  && petBuffHealth != null)
         {
             enemy.GetComponent<JenderalAttack>().DoubleDamage();
         }
-        else if(enemy.GetComponent<RajaAttack>() != null)
+        else if(enemy.GetComponent<RajaAttack>() != null && petBuffHealth != null)
         {
             enemy.GetComponent<RajaAttack>().DoubleDamage();
         }

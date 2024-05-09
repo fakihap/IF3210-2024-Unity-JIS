@@ -27,7 +27,7 @@ public class PetBuffMovement : MonoBehaviour
         if ((enemy.transform.position - transform.position).magnitude >= 4.5)
         {
 
-            Debug.Log("Move to player");
+            // Debug.Log("Move to player");
             nav.SetDestination(enemy.transform.position);
             // Debug.Log(player.transform.position);
 
@@ -44,7 +44,7 @@ public class PetBuffMovement : MonoBehaviour
         }
         else
         {
-            
+
             nav.ResetPath();
         }
     }
