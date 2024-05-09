@@ -43,6 +43,7 @@ namespace Nightmare
                 {
                     if (Input.GetKeyDown(KeyCode.P))
                     {
+                        print("Save key is pressed");
                         SaveGame();
                     }
                 }
@@ -55,6 +56,7 @@ namespace Nightmare
 
         private void OnTriggerEnter(Collider other)
         {
+            print("Player collides with: " + other.name);
             if (other.gameObject == safeHouse)
             {
                 //print("I hit the safe house (player movement)");
@@ -66,18 +68,17 @@ namespace Nightmare
         private void SaveGame()
         {
             CurrStateData currData = CurrStateData.GetInstance();
-            print(currData.ToJson());
-
             string output;
             
-            if (FileManager.LoadFromFile("Slot1.dat", out output))
-            {
-                print(output);
-            }
+            // if (FileManager.LoadFromFile("Slot1.dat", out output))
+            // {
+            //     print(output);
+            // }
 
             if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
             {
                 print("Save successful");
+                // CurrStateData.currGameData.distanceTravelled = 0;
             }
 
         }

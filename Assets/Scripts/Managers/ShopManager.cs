@@ -47,8 +47,8 @@ void Update()
     shopBuildingClosedEffect = shopBuildingClosed.GetComponent<ShopBuildingClosedEffect>();
 
     // Debug logs to check player range detection
-    Debug.Log("Is Player in open shop range: " + shopBuildingEffect.isPlayerInShopRange);
-    Debug.Log("Is Player in closed shop range: " + shopBuildingClosedEffect.isPlayerInShopRange);
+    //Debug.Log("Is Player in open shop range: " + shopBuildingEffect.isPlayerInShopRange);
+    //Debug.Log("Is Player in closed shop range: " + shopBuildingClosedEffect.isPlayerInShopRange);
 
     // Check if the open shop is active
     if (shopBuilding.activeSelf)
