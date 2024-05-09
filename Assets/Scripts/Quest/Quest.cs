@@ -21,6 +21,10 @@ public abstract class Quest : DirectableObject
     public abstract string GetQuestMessage();
 
     public virtual bool UpdateQuest() {
+        if (Input.GetKeyDown(KeyCode.Y)) { // cehat code, delete this later
+            ProgressQuest();
+        }
+
         if (IsCompleted()) {
             return false;
         }
