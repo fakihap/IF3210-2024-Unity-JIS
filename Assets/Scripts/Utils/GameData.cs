@@ -19,4 +19,41 @@ public struct GameData
     public int enemyKilled;
     public float startTime;
     public float elapsedTime;
+
+    public Vector3 playerCoordinates;
+    public float playerHealth;
+
+    public List<KerocoState> kerocoList;
+    public List<KepalaKerocoState> kepalaKerocoList;
+    public List<JendralState> jendralList;
+    public List<RajaState> rajaList;
+
+}
+
+[System.Serializable]
+public struct KerocoState
+{
+    public Vector3 coordinate;
+    public float health;
+}
+
+[System.Serializable]
+public struct KepalaKerocoState
+{
+    public Vector3 coordinate;
+    public float health;
+}
+
+[System.Serializable]
+public struct JendralState
+{
+    public Vector3 coordinate;
+    public float health;
+}
+
+[System.Serializable]
+public struct RajaState
+{
+    public Vector3 coordinate;
+    public float health;
 }

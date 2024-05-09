@@ -42,10 +42,10 @@ public class PauseManager : MonoBehaviour
 		Lowpass();
 		if (isPaused) {
 			float currentTime = Time.time;
-			CurrStateData.elapsedTime += currentTime - CurrStateData.startTime; 
-			CurrStateData.startTime = 0;
+			CurrStateData.currGameData.elapsedTime += currentTime - CurrStateData.currGameData.startTime; 
+			CurrStateData.currGameData.startTime = 0;
 		} else {
-			CurrStateData.startTime = Time.time;
+			CurrStateData.currGameData.startTime = Time.time;
 		}
 		// print(CurrStateData.elapsedTime);
 	}

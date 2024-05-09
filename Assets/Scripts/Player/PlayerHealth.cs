@@ -70,7 +70,7 @@ namespace Nightmare
         {
             if (godMode)
                 return;
-            CurrStateData.damageTaken += amount;
+            CurrStateData.currGameData.damageTaken += amount;
 
             // Set the damaged flag so the screen will flash.
             damaged = true;

@@ -98,7 +98,7 @@ namespace Nightmare
 
             movement = movement.normalized * speed * Time.deltaTime;
             
-            CurrStateData.distanceTravelled += movement.magnitude;
+            CurrStateData.currGameData.distanceTravelled += movement.magnitude;
             // print("distance travelled: " + CurrStateData.distanceTravelled);
             playerRigidBody.MovePosition(transform.position + movement);
         }
