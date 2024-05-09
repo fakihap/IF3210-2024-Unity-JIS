@@ -20,7 +20,7 @@ namespace Nightmare
         public bool isDead;
         bool isSinking;
 
-        [SerializeField] private DefeatQuestNotifier defeatQuestNotifier;
+        [SerializeField] private EliminationQuestNotifier eliminationQuestNotifier;
 
         void Awake()
         {
@@ -33,7 +33,7 @@ namespace Nightmare
             currentHealth = startingHealth;
             // print("Enemy health is " + currentHealth);
 
-            defeatQuestNotifier = GetComponent<DefeatQuestNotifier>();
+            eliminationQuestNotifier = GetComponent<EliminationQuestNotifier>();
         }
 
         private void SetKinematics(bool isKinematic)
@@ -87,7 +87,7 @@ namespace Nightmare
             float random = Random.Range(0f, 1f);
             SpawnOrb();
             // set dead
-            defeatQuestNotifier.NotifyDefeat();
+            eliminationQuestNotifier.NotifyElimination();
 
             // i want to destroy the enemy
             Destroy(gameObject);
