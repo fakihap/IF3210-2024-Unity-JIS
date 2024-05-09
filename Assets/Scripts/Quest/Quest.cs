@@ -13,13 +13,21 @@ public abstract class Quest : DirectableObject
     
 # region Quest
     protected abstract void StartQuest();
-    public abstract void ProgressQuest();
+    public virtual bool ProgressQuest() {
+        if (!IsActive()) {
+            return false;
+        }
+
+        return true;
+    }
     public abstract string GetQuestMessage();
 
-    public virtual void UpdateQuest() {
+    public virtual bool UpdateQuest() {
         if (IsCompleted()) {
-            return;
+            return false;
         }
+
+        return true;
     }
 
     // public void Update() {
@@ -60,7 +68,7 @@ public abstract class Quest : DirectableObject
         return isCompleted;
     }    
     protected override void StartDirectable() {
-        Debug.LogWarning("STATING A QUEST");
+        // Debug.LogWarning("STATING A QUEST");
 
         // needs to recheck this
         // we refactor the scheme of subscribing pattern

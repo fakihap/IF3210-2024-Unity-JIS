@@ -8,9 +8,14 @@ public class TravelQuest : Quest
     protected override void StartQuest() {
         isCompleted = false;
     }
-    public override void ProgressQuest()
+    public override bool ProgressQuest()
     {
+        if (!base.ProgressQuest()) {
+            return false;
+        }
+
         isCompleted = true;
+        return true;
     }
     
     public override string GetQuestMessage()

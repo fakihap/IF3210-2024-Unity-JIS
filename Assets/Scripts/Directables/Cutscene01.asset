@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   precedingDirectables:
   - {fileID: 11400000, guid: 457ad877f42896745bd64396a03f7a8a, type: 2}
+  - {fileID: 11400000, guid: 44344c986cdb1cc4ea5850f28f9e6567, type: 2}
   dialogues:
   - name: est
     text: test
     camTransform:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
-  sceneName: Cutscene01
+  sceneName: Cutscene00

@@ -20,14 +20,20 @@ public class EliminationQuest : Quest
     {
         isCompleted = false;
     }
-    public override void ProgressQuest()
+    public override bool ProgressQuest()
     {
+        if (!base.ProgressQuest()) {
+            return false;
+        }
+
         currentCount += 1;
 
         Debug.Log("Quest Updated : " + GetQuestMessage());
 
         // need helepr
         QuestManager.Instance.UpdateUI();
+
+        return true;
     }
     
     public override string GetQuestMessage()
@@ -35,16 +41,17 @@ public class EliminationQuest : Quest
         return string.Format("Defeat enemies : {0} of {1}", currentCount, targetCount);
     }
 
-    public override void UpdateQuest()
+    public override bool UpdateQuest()
     {
-        base.UpdateQuest();
-        if (IsCompleted()) {
-            return;
+        if (!base.UpdateQuest()) {
+            return false;
         }
 
         if (currentCount >= targetCount) {
             isCompleted = true;
         }
+
+        return true;
     }
 
     public override void ResetDirectable()

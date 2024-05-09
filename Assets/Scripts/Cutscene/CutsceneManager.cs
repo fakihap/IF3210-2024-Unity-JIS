@@ -39,10 +39,33 @@ public class CutsceneManager : MonoBehaviour
         DontDestroyOnLoad(Instance);
     }
 
-    void Start()
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Debug.Log("OnSceneLoaded: " + scene.name);
+        
         mainCamera = Camera.main;
+
+        // these needs the name used to be the same
+        bgImage = GameObject.Find("DialogueBG").GetComponent<Image>();
+        nameText = GameObject.Find("DialogueName").GetComponent<TextMeshProUGUI>();
+        dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
+        
         DisableUI();
+
+        StartCutscene();
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void SetCurrentCutscene(Cutscene cutscene) {
+        currentCutscene = cutscene;
     }
 
     // void Update()
@@ -52,9 +75,7 @@ public class CutsceneManager : MonoBehaviour
     //     }
     // }
 
-    void StartCutscene(Cutscene cutscene) {
-        currentCutscene = cutscene;
-
+    public void StartCutscene() {
         isInCutscene = true;
         EnableUI();
 

@@ -10,9 +10,15 @@ public class SurviveQuest : Quest
     protected override void StartQuest() {
         isCompleted = false;
     }
-    public override void ProgressQuest()
+    public override bool ProgressQuest()
     {
+        if (!base.ProgressQuest()) {
+            return false;
+        }
+        
         isCompleted = true;
+
+        return true;
     }
     
     public override string GetQuestMessage()
@@ -29,9 +35,12 @@ public class SurviveQuest : Quest
     }
 
     // this called each update
-    public override void UpdateQuest()
+    public override bool UpdateQuest()
     {
-        base.UpdateQuest();
+        if (!base.UpdateQuest()) {
+            return false;
+        }
+        
         
         // we dont use notifier for this quest, we use internal update instead
         if (!IsCompleted() && IsActive()) {
@@ -41,8 +50,10 @@ public class SurviveQuest : Quest
         }
 
         if (currentSurviveDuration <= 0f) {
-            ProgressQuest();
+            return ProgressQuest(); // blum cek behavior ini
         }
+
+        return true;
     }
 
     public override void ResetDirectable()

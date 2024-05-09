@@ -23,7 +23,7 @@ public class TravelQuestNotifier : QuestNotifier
             }
             
             Subscribe(quest);
-            break;
+            // was putting break here, do we need to have single target only?
         }
     }
 }

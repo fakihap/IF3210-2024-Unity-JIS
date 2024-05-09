@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2402affcf3bca8a44acd3c799dc0c6b4, type: 3}
-  m_Name: Su_Quest_01
+  m_Script: {fileID: 11500000, guid: 2ea40935d9c92c84c9896237cdd94255, type: 3}
+  m_Name: Tr_Quest_01 1
   m_EditorClassIdentifier: 
   precedingDirectables:
-  - {fileID: 11400000, guid: 53559c32f5e17274fa034c1d6ad976c3, type: 2}
+  - {fileID: 11400000, guid: b66e745ea67d06a48bef02f3f6b5fa61, type: 2}
   isActive: 0
-  isCompleted: 1
-  surviveDuration: 10
+  isCompleted: 0
+  targetName: Default-Target-Name

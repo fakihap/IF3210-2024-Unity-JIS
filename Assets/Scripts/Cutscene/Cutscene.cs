@@ -22,7 +22,7 @@ public class Dialogue {
 public class Cutscene : DirectableObject
 {
     int currentIndex = -1; // -1 means not yet started
-    bool isCompleted = false;
+    bool isCompleted = false, isActive = false;
     string previousSceneName;
 
     [SerializeField]
@@ -54,7 +54,7 @@ public class Cutscene : DirectableObject
 
     public override bool IsActive()
     {
-        return currentIndex >= 0; // need better alternative
+        return isActive; // need better alternative
     }
 
     public override bool IsCompleted()
@@ -64,19 +64,27 @@ public class Cutscene : DirectableObject
 
     protected override void StartDirectable()
     {
-        // SceneManager.LoadScene(sceneName, LoadSceneMode.Additive); // may result in error missing scene name
+        isActive = true;
 
+        // add stop if in a cutscene
+
+        // SceneManager.LoadScene(sceneName, LoadSceneMode.Additive); // may result in error missing scene name
+        // Debug.LogAssertion("Starting cutscene");
         previousSceneName = SceneManager.GetActiveScene().name;
+
         SceneManager.LoadScene(sceneName); // may result in error missing scene name
+        CutsceneManager.Instance.SetCurrentCutscene(this);
     }
 
     protected override void EndDirectable() {
         // Debug.Log("SOMEHOWN ENDING THIS CTWSC");
+        isActive = false;
         SceneManager.LoadScene(previousSceneName);
     }
 
     public override void ResetDirectable()
     {
+        isActive = false;
         isCompleted = false;
 
         currentIndex = -1;

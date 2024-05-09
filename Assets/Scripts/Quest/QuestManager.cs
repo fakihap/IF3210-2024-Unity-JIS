@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
@@ -27,9 +28,28 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(Instance);
 
 
+        
+    }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Debug.Log("OnSceneLoaded: " + scene.name);
+        
         // quest UI
+        // idk wheteher to set it singleton or additive load + refer on load
         questUIManager = FindObjectOfType<QuestUIManager>(); // later change this into singleton
-        questUIManager.SetQuestList(activeQuests);
+        if (questUIManager != null) {
+            questUIManager.SetQuestList(activeQuests);   
+        }
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void Update() {
