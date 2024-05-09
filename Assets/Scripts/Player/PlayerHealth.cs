@@ -29,6 +29,7 @@ namespace Nightmare
             anim = GetComponent<Animator>();
             playerAudio = GetComponent<AudioSource>();
             playerMovement = GetComponent<PlayerMovement>();
+            godMode = false;
             // playerShooting = GetComponentInChildren<PlayerShooting>();
 
             ResetPlayer();
