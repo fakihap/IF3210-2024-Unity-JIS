@@ -79,12 +79,20 @@ namespace Nightmare
 
                 // Try and find an EnemyHealth script on the gameobject hit.
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+                PetBuffHealth petBuffHealth = shootHit.collider.GetComponent<PetBuffHealth>();
 
                 // If the EnemyHealth component exist...
                 if (enemyHealth != null)
                 {
                     // ... the enemy should take damage.
                     enemyHealth.TakeDamage((int)calculatedDamage, shootHit.point);
+                    CurrStateData.hitCount += 1;
+                    CurrStateData.damageDealt += (int)calculatedDamage;
+                }
+                else if(petBuffHealth != null)
+                {
+                    // ... the pet should take damage.
+                    petBuffHealth.TakeDamage((int)calculatedDamage);
                     CurrStateData.hitCount += 1;
                     CurrStateData.damageDealt += (int)calculatedDamage;
                 }

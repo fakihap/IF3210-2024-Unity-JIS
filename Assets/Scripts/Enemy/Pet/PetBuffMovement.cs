@@ -26,23 +26,25 @@ public class PetBuffMovement : MonoBehaviour
     {
         if ((enemy.transform.position - transform.position).magnitude >= 4.5)
         {
-            // Debug.Log("Move to player");
+
+            Debug.Log("Move to player");
             nav.SetDestination(enemy.transform.position);
             // Debug.Log(player.transform.position);
 
             // Calculate direction to the player
-            Vector3 directionToPlayer = (enemy.transform.position - transform.position).normalized;
-            directionToPlayer.y = 0f; // Ensure the pet doesn't tilt upwards or downwards
+            Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
+            directionToEnemy.y = 0f; // Ensure the pet doesn't tilt upwards or downwards
 
-            // Rotate the pet to face the player
-            if (directionToPlayer != Vector3.zero)
+            // Rotate the pet to face the Enemy
+            if (directionToEnemy != Vector3.zero)
             {
-                Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
             }
         }
         else
         {
+            
             nav.ResetPath();
         }
     }
