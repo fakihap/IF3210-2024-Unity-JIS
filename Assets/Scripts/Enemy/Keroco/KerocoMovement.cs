@@ -18,7 +18,7 @@ namespace Nightmare
 
         void Awake ()
         {
-            player = GameObject.FindGameObjectWithTag ("Player").transform;
+            player = GameObject.FindGameObjectWithTag("Player").transform;
             nav = GetComponent<NavMeshAgent>();
             enemyRigidbody = GetComponent<Rigidbody>();
             nav.speed= speed;
@@ -48,6 +48,7 @@ namespace Nightmare
             
             if (distanceToPlayer < distanceToHealer && distanceToPlayer < distanceToAttacker)
             {
+                // Debug.Log("Player Position: " + player.position);
                 nav.SetDestination(player.position);
             }
             else if (distanceToHealer < distanceToAttacker)
