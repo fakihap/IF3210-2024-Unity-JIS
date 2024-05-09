@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Nightmare
@@ -26,27 +27,46 @@ namespace Nightmare
             {
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                 PetBuffHealth petBuffHealth = enemy.GetComponent<PetBuffHealth>();
-                if (enemyHealth.currentHealth > 0)
+                if (!enemyHealth.IsUnityNull())
                 {
+                    if(enemyHealth.currentHealth <= 0){
+                        continue;
+                    }
+
                     // ... damage the player.
+                    print("darah enemy " + enemyHealth.currentHealth);
                     PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                     int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
                     if(playerMovement.DamageDecreaseByRaja){
                         damage = damage * 80 / 100;
                     }
                     CurrStateData.currGameData.damageDealt += damage;
+
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);     
+
                     enemyHealth.TakeDamage(damage, new Vector3(0f, 0.5f, 0f));
+                    print("darah now enemy " + enemyHealth.currentHealth);
                 }
-                else if (petBuffHealth.currHealth > 0)
+                else if (!petBuffHealth.IsUnityNull())
                 {
+                    if(petBuffHealth.currHealth <= 0){
+                        continue;
+                    }
                     // ... damage the pet.
+                    print("darah pet " + petBuffHealth.currHealth);
                     PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                     int damage = baseDamage+10*playerMovement.OrbIncreaseDamageCount;
                     if(playerMovement.DamageDecreaseByRaja){
                         damage = damage * 80 / 100;
                     }
                     CurrStateData.currGameData.damageDealt += damage;
+
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);     
+                                        
                     petBuffHealth.TakeDamage(damage);
+                    print("darah now pet " + petBuffHealth.currHealth);
                 }
             }
         }

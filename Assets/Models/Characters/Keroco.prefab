@@ -5054,6 +5054,7 @@ GameObject:
   - component: {fileID: 6092543607808579010}
   - component: {fileID: 817390837492609422}
   - component: {fileID: 4541587279053169938}
+  - component: {fileID: 4893798969517936117}
   m_Layer: 6
   m_Name: Keroco
   m_TagString: Enemy
@@ -5305,7 +5306,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
-  currentHealth: 0
+  currentHealth: 100
   orbs:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
@@ -5339,6 +5340,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &4893798969517936117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642746332030584112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 6092543607808579010}
+    fieldName: currentHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: e2f6b3135d39e644abe52b3ba0948d6f, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 10
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 1
+  healthInfoSize: 10
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
 --- !u!1 &4642746332030584114
 GameObject:
   m_ObjectHideFlags: 0

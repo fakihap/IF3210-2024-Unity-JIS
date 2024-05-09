@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
+    public static QuestManager Instance;
+
     [SerializeField]
-    private List<Quest> quests;
-    [SerializeField]
-    private List<Quest> activeQuests;
+    public List<Quest> activeQuests; // later set this private
 
     private QuestUIManager questUIManager;
 
@@ -17,40 +18,72 @@ public class QuestManager : MonoBehaviour
     }
 
     public void Awake() {
-        questUIManager = FindObjectOfType<QuestUIManager>();
-        questUIManager.SetQuestList(activeQuests);
+        // Instance 
+        if (Instance != null) {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+
+
+        
     }
 
-    public void Start() {
-        foreach (Quest quest in quests) {
-            quest.Subscribe(this);
-        }
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    public void Update()
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (Input.GetKeyDown(KeyCode.U) && quests.Count > 0) {
-            StartQuest(quests[0]);
+        // Debug.Log("OnSceneLoaded: " + scene.name);
+        
+        // quest UI
+        // idk wheteher to set it singleton or additive load + refer on load
+        questUIManager = FindObjectOfType<QuestUIManager>(); // later change this into singleton
+        if (questUIManager != null) {
+            questUIManager.SetQuestList(activeQuests);   
         }
-
-
     }
 
-    public void StartQuest(Quest quest) {
-        quests.Remove(quest);
-        activeQuests.Add(quest);
-
-        quest.ActivateQuest();
-
-        UpdateUI();
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+    public void Update() {
+        foreach(Quest quest in activeQuests) {
+            quest.UpdateQuest(); // quest reserved
+        }
+    }
+
+    // public void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.U) && quests.Count > 0) {
+    //         StartQuest(quests[0]);
+    //     }
+
+
+    // }
+
+    // public void StartQuest(Quest quest) {
+    //     quests.Remove(quest);
+    //     activeQuests.Add(quest);
+
+    //     quest.ActivateQuest();
+
+    //     UpdateUI();
+    // }
 
     public void FinishQuest(Quest quest) {
+        GameDirector.Instance.UpdateDirector();
         activeQuests.Remove(quest);
 
-        UpdateUI();
+        UpdateUI();       
     }
 
-    // must call this last
+    // only call this method on the very last
     public void UpdateUI() {
         questUIManager.UpdateUI();
     }
