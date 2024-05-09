@@ -47,14 +47,16 @@ namespace Nightmare
                 // Try and find an EnemyHealth script on the gameobject hit.
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
                 print(enemyHealth);
+                PetBuffHealth petBuffHealth = shootHit.collider.GetComponent<PetBuffHealth>();
+                print(petBuffHealth);
+
                 // If the EnemyHealth component exist...
                 print("this is enemny health " + enemyHealth);
+                // print("this is pet buff health " + petBuffHealth.currHealth);
                 if (enemyHealth != null)
                 {
-                    // ... the enemy should take damage.
                     print("Enemy is take damage " + baseDamage);
 
-                    // add orb
                     PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                     int damage = baseDamage + 10 * playerMovement.OrbIncreaseDamageCount;
                     if (playerMovement.DamageDecreaseByRaja)
@@ -65,14 +67,34 @@ namespace Nightmare
                     enemyHealth.TakeDamage(damage, shootHit.point);
                     CurrStateData.hitCount += 1;
                     CurrStateData.damageDealt += damage;
+                    gunLine.SetPosition(1, shootHit.point);
+                }
+                else if(petBuffHealth != null)
+                {
+                    PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                    int damage = baseDamage + 10 * playerMovement.OrbIncreaseDamageCount;
+                    if (playerMovement.DamageDecreaseByRaja)
+                    {
+                        print("Damage decrease by raja");
+                        damage = damage * 80 / 100;
+                    }
+                    
+                    petBuffHealth.TakeDamage(damage);
+                    print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
+                    CurrStateData.hitCount += 1;
+                    CurrStateData.damageDealt += damage;
+                    gunLine.SetPosition(1, shootHit.point);
                 }
                 else
                 {
                     print("Enemy is not take damage");
                 }
 
+                
+                // gunLine.SetPosition(1, shootHit.point);
+
                 // Set the second position of the line renderer to the point the raycast hit.
-                gunLine.SetPosition(1, shootHit.point);
+                // gunLine.SetPosition(1, shootHit.point);
             }
             // If the raycast didn't hit anything on the shootable layer...
             else
