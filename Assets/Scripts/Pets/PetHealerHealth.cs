@@ -12,7 +12,7 @@ public class PetHealerHealth : PetHealth, IDamageable
     private PetHealerMovement petHealerMovement;
     private PetHealerHeal petHealerHeal;
     private Animator _anim;
-    // public Slider healthSlider;
+    public Slider healthSlider;
     public float disappearTime = 2.5f;
     public bool isDead;
     public bool isDisappear;
@@ -23,6 +23,8 @@ public class PetHealerHealth : PetHealth, IDamageable
         isImmortal = false;
         spellEffect.SetActive(true);
         currHealth = startHealth;
+        healthSlider = GameObject.FindGameObjectWithTag("SliderPet").GetComponent<Slider>();
+        healthSlider.value = currHealth;
         CurrStateData.SetCurrentPetHealth(currHealth);
         _anim = GetComponent<Animator>();
         petHealerMovement = GetComponent<PetHealerMovement>();
@@ -61,7 +63,7 @@ public class PetHealerHealth : PetHealth, IDamageable
         if(isImmortal) return;
 
         currHealth -= amount;
-        // healthSlider.value = currHealth;
+        healthSlider.value = currHealth;
         CurrStateData.SetCurrentPetHealth(currHealth);
 
         if(currHealth <= 0 && !isDead)
