@@ -9953,6 +9953,7 @@ GameObject:
   - component: {fileID: 568569395478151473}
   - component: {fileID: 1743799982165599309}
   - component: {fileID: 6385365105683146320}
+  - component: {fileID: 332497901517952790}
   m_Layer: 6
   m_Name: KepalaKeroco
   m_TagString: Enemy
@@ -10205,7 +10206,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
-  currentHealth: 0
+  currentHealth: 100
   orbs:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
@@ -10252,6 +10253,43 @@ MonoBehaviour:
   enemy: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
   spawnTime: 20
   speed: 4
+--- !u!114 &332497901517952790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931769509966874563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 568569395478151473}
+    fieldName: currentHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: e2f6b3135d39e644abe52b3ba0948d6f, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 10
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 1
+  healthInfoSize: 10
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
 --- !u!1 &3171239212889721565
 GameObject:
   m_ObjectHideFlags: 0

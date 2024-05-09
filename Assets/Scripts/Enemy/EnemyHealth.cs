@@ -86,6 +86,8 @@ namespace Nightmare
             // set dead
             defeatQuestNotifier.NotifyDefeat();
 
+            // i want to destroy the enemy
+            Destroy(gameObject);
         }
 
         public void SpawnOrb()
