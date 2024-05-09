@@ -48,6 +48,19 @@ namespace Nightmare
                     }
                 }
             } 
+
+            // Check if player is in vicinity of the safeHouse
+            float distanceToSafeHouse = Vector3.Distance(transform.position, safeHouse.transform.position);
+            if (distanceToSafeHouse < 5)
+            {
+                // Kill all mobs
+                GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject mob in mobs)
+                {
+                    Destroy(mob);
+                }
+            }
+
             Move(h, v);
             Turning();
             Animating(h, v);
@@ -70,10 +83,12 @@ namespace Nightmare
             CurrStateData currData = CurrStateData.GetInstance();
             string output;
             
-            // if (FileManager.LoadFromFile("Slot1.dat", out output))
-            // {
-            //     print(output);
-            // }
+            CurrStateData.currGameData.playerCoordinates = transform.position;
+
+            if (FileManager.LoadFromFile("Slot1.dat", out output))
+            {
+                print(output);
+            }
 
             if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
             {

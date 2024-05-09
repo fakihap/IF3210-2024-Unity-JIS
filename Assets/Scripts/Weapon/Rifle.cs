@@ -67,7 +67,7 @@ namespace Nightmare
                     enemyHealth.TakeDamage(damage, shootHit.point);
                     CurrStateData.currGameData.hitCount += 1;
                     CurrStateData.currGameData.damageDealt += damage;
-                    gunLine.SetPosition(1, shootHit.point);
+                    // gunLine.SetPosition(1, shootHit.point);
                 }
                 else if(petBuffHealth != null)
                 {
@@ -83,7 +83,7 @@ namespace Nightmare
                     print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
                     CurrStateData.currGameData.hitCount += 1;
                     CurrStateData.currGameData.damageDealt += damage;
-                    gunLine.SetPosition(1, shootHit.point);
+                    // gunLine.SetPosition(1, shootHit.point);
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace Nightmare
                 }
 
                 
-                // gunLine.SetPosition(1, shootHit.point);
+                gunLine.SetPosition(1, shootHit.point);
 
                 // Set the second position of the line renderer to the point the raycast hit.
                 // gunLine.SetPosition(1, shootHit.point);
