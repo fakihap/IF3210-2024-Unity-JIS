@@ -40,6 +40,12 @@ namespace Nightmare
             shootRay.direction = gunBarrelEnd.transform.forward;
 
             CurrStateData.currGameData.shotCount += 1;
+            int savedShotCount = PlayerPrefs.GetInt("shotCount");
+            PlayerPrefs.SetInt("shotCount", savedShotCount + 1);
+
+            // int savedHitCou = PlayerPrefs.GetInt("hitCount");
+            // print("shot: " + savedShotCount + " hit: " + savedHitCou);            
+
             // print("shot count: " + CurrStateData.shotCount + " hit count: "+ CurrStateData.hitCount + " accuracy: "+ CurrStateData.GetShotAccuracy());
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
@@ -65,8 +71,17 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
+                    
+                    // hitcount 
                     CurrStateData.currGameData.hitCount += 1;
+                    int savedHitCount = PlayerPrefs.GetInt("hitCount");
+                    PlayerPrefs.SetInt("hitCount", savedHitCount + 1);  
+
+                    // damage dealt
                     CurrStateData.currGameData.damageDealt += damage;
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    // print(savedDamageDealt);
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);   
                     // gunLine.SetPosition(1, shootHit.point);
                 }
                 else if(petBuffHealth != null)
@@ -81,8 +96,15 @@ namespace Nightmare
                     
                     petBuffHealth.TakeDamage(damage);
                     print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
+                    // hitcount 
                     CurrStateData.currGameData.hitCount += 1;
+                    int savedHitCount = PlayerPrefs.GetInt("hitCount");
+                    PlayerPrefs.SetInt("hitCount", savedHitCount + 1);  
+
+                    // damage dealt
                     CurrStateData.currGameData.damageDealt += damage;
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);   
                     // gunLine.SetPosition(1, shootHit.point);
                 }
                 else
