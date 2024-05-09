@@ -43,20 +43,7 @@ public class SettingsManager : MonoBehaviour
     {
         Debug.Log("Difficulty dropdown index: " + difficultyDropdown.value);
         int difficultyIndex = difficultyDropdown.value;
-        string difficulty;
-        if(difficultyIndex == 0)
-        {
-            difficulty = "easy";
-        }
-        else if(difficultyIndex == 1)
-        {
-            difficulty = "medium";
-        }
-        else
-        {
-            difficulty = "hard";
-        }
-        CurrStateData.SetDifficultyLevel(difficulty);
+        CurrStateData.SetDifficultyLevel(difficultyIndex);
         Debug.Log("CurrState Difficulty: " + CurrStateData.GetDifficultyLevel());
     }
 }

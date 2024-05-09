@@ -199,9 +199,20 @@ public class CurrStateData
         currGameData.playerName = name;
     }
 
-    public static void SetDifficultyLevel(string difficulty)
+    public static void SetDifficultyLevel(int difficultyIndex)
     {
-        currGameData.difficultyLevel = difficulty;
+        if(difficultyIndex == 0)
+        {
+            currGameData.difficultyLevel = "easy";
+        }
+        else if(difficultyIndex == 1)
+        {
+            currGameData.difficultyLevel = "medium";
+        }
+        else
+        {
+            currGameData.difficultyLevel = "hard";
+        }
     }
 
     public static string GetStateDataDifficulty()
@@ -212,6 +223,22 @@ public class CurrStateData
     public static string GetDifficultyLevel()
     {
         return currGameData.difficultyLevel;
+    }
+
+    public static int GetDifficultyLevelIndex()
+    {
+        if(currGameData.difficultyLevel == "easy")
+        {
+            return 0;
+        }
+        else if(currGameData.difficultyLevel == "medium")
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
     }
 
     public static void UpdateStateData()
