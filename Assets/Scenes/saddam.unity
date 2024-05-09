@@ -314,10 +314,8 @@ PrefabInstance:
       value: Keroco
       objectReference: {fileID: 0}
     - target: {fileID: 3612059707763981864, guid: 6f257f410a4deb842a78100307914e13, type: 3}
-<<<<<<< HEAD
       propertyPath: m_IsActive
       value: 1
-=======
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -328,7 +326,6 @@ PrefabInstance:
     - target: {fileID: 3906228854687703631, guid: 6f257f410a4deb842a78100307914e13, type: 3}
       propertyPath: m_Layer
       value: 6
->>>>>>> 72bdf77d6b7516d56bf2d91b095f966f079533ff
       objectReference: {fileID: 0}
     - target: {fileID: 4702187430280806086, guid: 6f257f410a4deb842a78100307914e13, type: 3}
       propertyPath: scale
@@ -974,10 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8782a16fc95f2134a83b473192eb892f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
   activeQuests: []
->>>>>>> 72bdf77d6b7516d56bf2d91b095f966f079533ff
 --- !u!1 &507187761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,10 +1592,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5cfc035ac7aca742a1b90d08abba12b, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1175242672
 GameObject:
-=======
 --- !u!1001 &1085029673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1807,7 +1799,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ae2d0762b6da67a48a17bef643eab08a, type: 3}
 --- !u!1001 &1140904794
 PrefabInstance:
->>>>>>> 72bdf77d6b7516d56bf2d91b095f966f079533ff
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
@@ -3258,12 +3249,9 @@ SceneRoots:
   - {fileID: 630367531}
   - {fileID: 3031496103321620490}
   - {fileID: 279664130}
-<<<<<<< HEAD
-=======
   - {fileID: 1107250277}
   - {fileID: 1839516438}
   - {fileID: 340390851}
   - {fileID: 1099968528}
   - {fileID: 1085029673}
   - {fileID: 3434786682546460604}
->>>>>>> 72bdf77d6b7516d56bf2d91b095f966f079533ff
