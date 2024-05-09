@@ -1050,12 +1050,22 @@ MonoBehaviour:
     m_Height: 325
   - m_X: 0
     m_Y: 816
+    m_Y: 783
     m_Width: 1023
     m_Height: 207
   - m_X: 72
     m_Y: 782
     m_Width: 951
     m_Height: 241
+    m_Height: 240
+  - m_X: 45
+    m_Y: 614
+    m_Width: 978
+    m_Height: 85
+  - m_X: 83
+    m_Y: 614
+    m_Width: 940
+    m_Height: 409
   m_fontInfo:
     Name: 
     PointSize: 0

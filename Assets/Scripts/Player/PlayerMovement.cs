@@ -49,7 +49,19 @@ namespace Nightmare
                         SaveGame();
                     }
                 }
-            } 
+            }
+
+            float distanceToSafeHouse = Vector3.Distance(transform.position, safeHouse.transform.position);
+            if (distanceToSafeHouse < 5)
+            {
+                // Kill all mobs
+                GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject mob in mobs)
+                {
+                    Destroy(mob);
+                }
+            }
+
             Move(h, v);
             Turning();
             Animating(h, v);
