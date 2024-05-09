@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
+namespace Nightmare {
 public class EliminationQuestNotifier : QuestNotifier
 {
     [SerializeField] EnemyType enemyType;
@@ -16,12 +17,15 @@ public class EliminationQuestNotifier : QuestNotifier
 
     protected override void SetSubscriber(List<Quest> quests)
     {
-        foreach (EliminationQuest quest in quests.Where(x => x.GetType() == typeof(EliminationQuest)).Cast<EliminationQuest>().ToList()) {
-            if (quest.enemyType != enemyType) {
+        foreach (EliminationQuest quest in quests.Where(x => x.GetType() == typeof(EliminationQuest)).Cast<EliminationQuest>().ToList())
+        {
+            if (quest.enemyType != enemyType)
+            {
                 continue;
             }
-            
+
             Subscribe(quest);
         }
     }
+}
 }
