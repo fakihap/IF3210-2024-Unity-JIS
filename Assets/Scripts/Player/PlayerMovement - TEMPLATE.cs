@@ -59,29 +59,26 @@ namespace Nightmare
             print("Player collides with: " + other.name);
             if (other.gameObject == safeHouse)
             {
-                print(saveText.enabled);
                 //print("I hit the safe house (player movement)");
                 saveText.enabled = true;
                 canSave = true;
-                print(saveText.enabled);
             }
         }
 
         private void SaveGame()
         {
             CurrStateData currData = CurrStateData.GetInstance();
-            print(currData.ToJson());
-
             string output;
             
-            if (FileManager.LoadFromFile("Slot1.dat", out output))
-            {
-                print(output);
-            }
+            // if (FileManager.LoadFromFile("Slot1.dat", out output))
+            // {
+            //     print(output);
+            // }
 
             if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
             {
                 print("Save successful");
+                // CurrStateData.currGameData.distanceTravelled = 0;
             }
 
         }
