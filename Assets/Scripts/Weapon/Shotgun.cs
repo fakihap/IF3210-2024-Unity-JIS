@@ -54,6 +54,8 @@ namespace Nightmare
             shootRay.direction = gunBarrelEnd.transform.forward;
 
             CurrStateData.currGameData.shotCount += 1;
+            int savedShotCount = PlayerPrefs.GetInt("shotCount");
+            PlayerPrefs.SetInt("shotCount", savedShotCount + 1);             
             // print("shot accuracy: " + CurrStateData.GetShotAccuracy());
 
             // Perform the raycast against gameobjects on the shootable layer and if it hits something...
@@ -86,9 +88,22 @@ namespace Nightmare
                 {
                     // ... the enemy should take damage.
                     enemyHealth.TakeDamage((int)calculatedDamage, shootHit.point);
-                    CurrStateData.currGameData.hitCount += 1;
-                    CurrStateData.currGameData.damageDealt += (int)calculatedDamage;
 
+                    // hitcount 
+                    CurrStateData.currGameData.hitCount += 1;
+                    int savedHitCount = PlayerPrefs.GetInt("hitCount");
+                    PlayerPrefs.SetInt("hitCount", savedHitCount + 1);  
+
+                    // damage dealt
+                    CurrStateData.currGameData.damageDealt += damage;
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + (int)calculatedDamage);         
+
+                    // gunLine0.SetPosition(1, shootHit.point);
+                    // gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
+                    // gunLine2.SetPosition(1, shootRay.origin + Quaternion.Euler(bulletAngle, 0f, 0f) * shootRay.direction * range);
+                    // gunLine3.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, bulletAngle, 0f) * shootRay.direction * range);
+                    // gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);
                     // gunLine0.SetPosition(1, shootHit.point);
                     // gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
                     // gunLine2.SetPosition(1, shootRay.origin + Quaternion.Euler(bulletAngle, 0f, 0f) * shootRay.direction * range);
@@ -101,9 +116,16 @@ namespace Nightmare
                     // ... the pet should take damage.
                     print("Pet is take damage " + calculatedDamage + " current health: " + petBuffHealth.currHealth);
                     petBuffHealth.TakeDamage((int)calculatedDamage);
+                    
+                    // hitcount 
                     CurrStateData.currGameData.hitCount += 1;
-                    CurrStateData.currGameData.damageDealt += (int)calculatedDamage;
-                    print("darah habisa tembak" + petBuffHealth.currHealth);
+                    int savedHitCount = PlayerPrefs.GetInt("hitCount");
+                    PlayerPrefs.SetInt("hitCount", savedHitCount + 1);  
+
+                    // damage dealt
+                    CurrStateData.currGameData.damageDealt += damage;
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + (int)calculatedDamage);                 
                     
                     // gunLine0.SetPosition(1, shootHit.point);
                     // gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);

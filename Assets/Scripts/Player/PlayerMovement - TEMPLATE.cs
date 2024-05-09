@@ -100,6 +100,11 @@ namespace Nightmare
             movement = movement.normalized * speed * Time.deltaTime;
             
             CurrStateData.currGameData.distanceTravelled += movement.magnitude;
+            
+            float savedDistanceTravelled = PlayerPrefs.GetFloat("distanceTravelled");
+            // print(savedDistanceTravelled);
+            PlayerPrefs.SetFloat("distanceTravelled", savedDistanceTravelled + movement.magnitude);            
+
             // print("distance travelled: " + CurrStateData.distanceTravelled);
             playerRigidBody.MovePosition(transform.position + movement);
         }

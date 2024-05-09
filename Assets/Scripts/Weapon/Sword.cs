@@ -41,6 +41,10 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     CurrStateData.currGameData.damageDealt += damage;
+
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);     
+
                     enemyHealth.TakeDamage(damage, new Vector3(0f, 0.5f, 0f));
                     print("darah now enemy " + enemyHealth.currentHealth);
                 }
@@ -57,6 +61,10 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     CurrStateData.currGameData.damageDealt += damage;
+
+                    int savedDamageDealt = PlayerPrefs.GetInt("damageDealt");
+                    PlayerPrefs.SetInt("damageDealt", savedDamageDealt + damage);     
+                                        
                     petBuffHealth.TakeDamage(damage);
                     print("darah now pet " + petBuffHealth.currHealth);
                 }
