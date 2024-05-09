@@ -1040,9 +1040,10 @@ GameObject:
   - component: {fileID: 1636666872551453798}
   - component: {fileID: -6244740309673976917}
   - component: {fileID: 6144965261041819695}
-  - component: {fileID: 1786275460089949068}
   - component: {fileID: 8690104491114103594}
+  - component: {fileID: 1786275460089949068}
   - component: {fileID: -1112136652019146177}
+  - component: {fileID: 9175340797513482317}
   m_Layer: 0
   m_Name: PetBuffer
   m_TagString: Untagged
@@ -1183,21 +1184,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1786275460089949068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0360dda4104829747a67a9bd7450a649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  healDelay: 2
-  healAmount: 10
 --- !u!114 &8690104491114103594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,12 +1199,21 @@ MonoBehaviour:
   startHealth: 100
   currHealth: 100
   startHealthReduced: 0
-  spellEffect: {fileID: 0}
-  deathClip: {fileID: 0}
   disappearTime: 2.5
   isDead: 0
-  isImmortal: 0
   isDisappear: 0
+--- !u!114 &1786275460089949068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0360dda4104829747a67a9bd7450a649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1112136652019146177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1226,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e4ff474e877d344bbeb0ecbee569e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+--- !u!114 &9175340797513482317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 8690104491114103594}
+    fieldName: currHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: e2f6b3135d39e644abe52b3ba0948d6f, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 10
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 1
+  healthInfoSize: 10
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
 --- !u!1 &167614
 GameObject:
   m_ObjectHideFlags: 0

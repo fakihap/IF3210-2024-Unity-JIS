@@ -39,6 +39,7 @@ public class PetBuffHealth : PetHealth, IDamageable
     {
         isDead = true;
         petBuffMovement.enabled = false;
+        Destroy(gameObject);
     }
 
     public void TakeDamage(int amount)

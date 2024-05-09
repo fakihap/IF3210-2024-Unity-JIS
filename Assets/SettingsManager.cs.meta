@@ -1,11 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/SettingsManager.cs.meta
 guid: 779f769e5f05fbd40b5f58115e6d9ad8
+=======
+guid: 9b2268f9c7df8764aa2e92dbf55b5ae1
+>>>>>>> 72bdf77d6b7516d56bf2d91b095f966f079533ff:Assets/Scripts/Player/PlayerMovement.cs.meta
 MonoImporter:
-  externalObjects: {}
   serializedVersion: 2
   defaultReferences: []
-  executionOrder: 0
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 

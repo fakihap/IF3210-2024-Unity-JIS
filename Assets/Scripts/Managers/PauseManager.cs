@@ -40,14 +40,18 @@ public class PauseManager : MonoBehaviour
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		isPaused = Time.timeScale == 0;
 		Lowpass();
-		// if (isPaused) {
-		// 	float currentTime = Time.time;
-		// 	CurrStateData.elapsedTime += currentTime - CurrStateData.startTime; 
-		// 	CurrStateData.startTime = 0;
-		// } else {
-		// 	CurrStateData.startTime = Time.time;
-		// }
-		// print(CurrStateData.elapsedTime);
+		if (isPaused) {
+			float currentTime = Time.time;
+			float elapsedTimePaused = currentTime - CurrStateData.currGameData.startTime;
+			CurrStateData.currGameData.elapsedTime += elapsedTimePaused; 
+			CurrStateData.currGameData.startTime = 0;
+
+			float savedElapsedTime = PlayerPrefs.GetFloat("elapsedTime");
+      // print(savedElapsedTime);
+      PlayerPrefs.SetFloat("elapsedTime", savedElapsedTime + elapsedTimePaused);
+		} else {
+			CurrStateData.currGameData.startTime = Time.time;
+		}
 	}
 
 	public static void StaticPauseOrUnPause()

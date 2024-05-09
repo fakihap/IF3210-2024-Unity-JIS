@@ -29,6 +29,7 @@ namespace Nightmare
             anim = GetComponent<Animator>();
             playerAudio = GetComponent<AudioSource>();
             playerMovement = GetComponent<PlayerMovement>();
+            godMode = false;
             // playerShooting = GetComponentInChildren<PlayerShooting>();
 
             ResetPlayer();
@@ -71,6 +72,10 @@ namespace Nightmare
             if (godMode)
                 return;
             CurrStateData.currGameData.damageTaken += amount;
+            
+            int savedDamageTaken = PlayerPrefs.GetInt("damageTaken");
+            // print(savedDamageTaken);
+            PlayerPrefs.SetInt("damageTaken", savedDamageTaken + amount);            
 
             // Set the damaged flag so the screen will flash.
             damaged = true;
@@ -128,6 +133,10 @@ namespace Nightmare
         public void OrbRestoreHealth()
         {
             AddHealth(currentHealth/5);
+        }
+
+        public void setNoDmg() {
+            godMode = !godMode;
         }
     }
 }

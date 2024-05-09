@@ -57,7 +57,7 @@ public class CurrStateData
 
     public void LoadFromJson(string json)
     {
-        JsonUtility.FromJsonOverwrite(json, this);
+        JsonUtility.FromJsonOverwrite(json, currGameData);
     }
 
     public static void LoadStateData()
