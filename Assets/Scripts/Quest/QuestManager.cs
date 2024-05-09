@@ -57,7 +57,6 @@ public class QuestManager : MonoBehaviour
     // }
 
     public void FinishQuest(Quest quest) {
-        Debug.Log("harusnya masuk sini" + quest.name);
         GameDirector.Instance.UpdateDirector();
         activeQuests.Remove(quest);
 

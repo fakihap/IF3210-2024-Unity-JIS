@@ -36,7 +36,7 @@ public class GameDirector : MonoBehaviour
         // }
     }
     public void UpdateDirector() {
-        Debug.Log("Updating director");
+        // Debug.Log("Updating director");
 
         foreach(DirectableObject directable in directables) {
             // if (!directable.IsActive()) {
@@ -46,8 +46,8 @@ public class GameDirector : MonoBehaviour
     }
 
     public List<Quest> GetQuests() {
-        Debug.Log(directables);
-         Debug.Log(directables.Count);
+        // Debug.Log(directables);
+        //  Debug.Log(directables.Count);
         // filter quest
         return directables.Where(x => x is Quest).Cast<Quest>().ToList();
     }

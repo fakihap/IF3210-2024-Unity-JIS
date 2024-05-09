@@ -52,7 +52,7 @@ public abstract class DirectableObject : ScriptableObject
             }
         }
 
-        Debug.Log("CALLING SD OPN THIS DIRECTABLE");
+        // Debug.Log("CALLING SD OPN THIS DIRECTABLE");
         StartDirectable();
         return true;
     }

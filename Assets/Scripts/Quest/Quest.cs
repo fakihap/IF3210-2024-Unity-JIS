@@ -43,7 +43,7 @@ public abstract class Quest : DirectableObject
     private void FinishQuest(){
         isActive = false;
 
-        Debug.Log("Task Finished : " + GetQuestMessage());
+        Debug.Log("Quest Finished : " + GetQuestMessage());
 
         QuestManager.Instance.FinishQuest(this);
         // UnsubscribeFromNotifiers();
@@ -73,7 +73,6 @@ public abstract class Quest : DirectableObject
 
     protected override void EndDirectable()
     {
-        Debug.Log("end dirre");
         FinishQuest();
         QuestManager.Instance.UpdateUI();
     }

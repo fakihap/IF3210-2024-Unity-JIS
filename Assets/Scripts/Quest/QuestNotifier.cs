@@ -14,7 +14,6 @@ public abstract class QuestNotifier : MonoBehaviour {
     }
 
     void Start() {
-        Debug.Log("NOTIFA " + GameDirector.Instance.GetQuests().Count);
         SetSubscriber(GameDirector.Instance.GetQuests());
     }
 

@@ -25,7 +25,6 @@ public class EliminationQuest : Quest
         currentCount += 1;
 
         Debug.Log("Quest Updated : " + GetQuestMessage());
-        
 
         // need helepr
         QuestManager.Instance.UpdateUI();

@@ -71,7 +71,7 @@ public class Cutscene : DirectableObject
     }
 
     protected override void EndDirectable() {
-        Debug.Log("SOMEHOWN ENDING THIS CTWSC");
+        // Debug.Log("SOMEHOWN ENDING THIS CTWSC");
         SceneManager.LoadScene(previousSceneName);
     }
 

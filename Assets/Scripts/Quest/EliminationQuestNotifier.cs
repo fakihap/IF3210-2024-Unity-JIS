@@ -16,7 +16,6 @@ public class EliminationQuestNotifier : QuestNotifier
 
     protected override void SetSubscriber(List<Quest> quests)
     {
-        Debug.Log("SETTING SUBSAFBASDLJ");
         foreach (EliminationQuest quest in quests.Where(x => x.GetType() == typeof(EliminationQuest)).Cast<EliminationQuest>().ToList()) {
             if (quest.enemyType != enemyType) {
                 continue;
