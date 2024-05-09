@@ -133,5 +133,9 @@ namespace Nightmare
         {
             AddHealth(currentHealth/5);
         }
+
+        public void setNoDmg() {
+            godMode = !godMode;
+        }
     }
 }

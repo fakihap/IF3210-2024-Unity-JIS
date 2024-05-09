@@ -8,13 +8,11 @@ public class PlayerCheatMotherlode : MonoBehaviour
 
     public string[] cheatMotherlode = new string[] { "m", "o", "t", "h", "e", "r" };
     private int index;
-    private bool isOn;
 
     // Start is called before the first frame update
     void Start()
     {
         index = 0;
-        isOn = false;
     }
 
     // Update is called once per frame
@@ -35,9 +33,8 @@ public class PlayerCheatMotherlode : MonoBehaviour
 
         if (index == cheatMotherlode.Length)
         {
-            isOn = !isOn;
             index = 0;
-            if (isOn)
+            if (!CurrStateData.currGameData.motherlode)
             {
                 print("Motherlode on");
                 CurrStateData.currGameData.motherlode = true;
