@@ -754,6 +754,7 @@ MonoBehaviour:
   gunParticles: {fileID: 950089460772298822}
   gunBarrelEnd: {fileID: 2884904307103509807}
   bulletAngle: 3
+  playerHealth: {fileID: 345591742771806209}
 --- !u!1 &7996464875960511905
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +957,7 @@ MonoBehaviour:
   attackSpeed: 0.6
   range: 4
   attackSound: {fileID: 5481334971434064590}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!135 &1457380882465851091
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1830,6 +1832,7 @@ MonoBehaviour:
   gunLight: {fileID: 3932823814029953583}
   gunParticles: {fileID: 950089460772298822}
   gunBarrelEnd: {fileID: 2884904307103509807}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!82 &6299669464029412201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7079,6 +7082,7 @@ MonoBehaviour:
   - {fileID: 1092956512825928575}
   - {fileID: 441146631463676931}
   - {fileID: 2682546380177682136}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!1 &2884904307103509863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}

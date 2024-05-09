@@ -15,6 +15,7 @@ namespace Nightmare
         //public float grenadeSpeed = 200f;
         //public float grenadeFireDelay = 0.5f;
         public List<Weapon> weapons;
+        public PlayerHealth playerHealth;
 
         int currentWeaponIndex = 0;
 
@@ -134,32 +135,32 @@ namespace Nightmare
             //{
             //    DisableEffects();
             //}
+            if (!playerHealth.IsDead()) {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    SwitchWeapon(0);
+                    gunLight.intensity = 1;
+                    gunLine.startWidth = 0.05f;
+                    gunLine.endWidth = 0.05f;
+                    gunParticles.startSize = 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    SwitchWeapon(1);
+                    gunLight.intensity = 1;
+                    gunLine.startWidth = 0.05f;
+                    gunLine.endWidth = 0.05f;
+                    gunParticles.startSize = 3;
+                }
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                SwitchWeapon(0);
-                gunLight.intensity = 1;
-                gunLine.startWidth = 0.05f;
-                gunLine.endWidth = 0.05f;
-                gunParticles.startSize = 1;
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    SwitchWeapon(2);
+                    gunLight.intensity = 0;
+                    gunParticles.startSize = 2;
+                }
+                weapons[currentWeaponIndex].UpdateAttack();
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                SwitchWeapon(1);
-                gunLight.intensity = 1;
-                gunLine.startWidth = 0.05f;
-                gunLine.endWidth = 0.05f;
-                gunParticles.startSize = 3;
-            }
-
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                SwitchWeapon(2);
-                gunLight.intensity = 0;
-                gunParticles.startSize = 2;
-            }
-
-            weapons[currentWeaponIndex].UpdateAttack();
         }
 
         //public void DisableEffects()

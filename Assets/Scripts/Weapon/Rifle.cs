@@ -11,6 +11,7 @@ namespace Nightmare
         public Light gunLight;
         public ParticleSystem gunParticles;
         public GameObject gunBarrelEnd;
+        public PlayerHealth playerHealth;
 
         float timer;
         Ray shootRay;
@@ -145,7 +146,7 @@ namespace Nightmare
             timer += Time.deltaTime;
             //print("Mouse Pressed");
 
-            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused())
+            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused() && !playerHealth.IsDead())
             {
                 //print("Mouse Pressed");
                 Attack();

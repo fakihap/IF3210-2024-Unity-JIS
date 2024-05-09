@@ -138,5 +138,9 @@ namespace Nightmare
         public void setNoDmg() {
             godMode = !godMode;
         }
+
+        public bool IsDead() {
+            return isDead;
+        }
     }
 }
