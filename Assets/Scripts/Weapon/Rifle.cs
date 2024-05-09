@@ -39,7 +39,7 @@ namespace Nightmare
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
-            CurrStateData.shotCount += 1;
+            CurrStateData.currGameData.shotCount += 1;
             // print("shot count: " + CurrStateData.shotCount + " hit count: "+ CurrStateData.hitCount + " accuracy: "+ CurrStateData.GetShotAccuracy());
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
@@ -65,8 +65,8 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
-                    CurrStateData.hitCount += 1;
-                    CurrStateData.damageDealt += damage;
+                    CurrStateData.currGameData.hitCount += 1;
+                    CurrStateData.currGameData.damageDealt += damage;
                     gunLine.SetPosition(1, shootHit.point);
                 }
                 else if(petBuffHealth != null)
@@ -81,8 +81,8 @@ namespace Nightmare
                     
                     petBuffHealth.TakeDamage(damage);
                     print("this is pet enemy healt after attack "+petBuffHealth.currHealth);
-                    CurrStateData.hitCount += 1;
-                    CurrStateData.damageDealt += damage;
+                    CurrStateData.currGameData.hitCount += 1;
+                    CurrStateData.currGameData.damageDealt += damage;
                     gunLine.SetPosition(1, shootHit.point);
                 }
                 else

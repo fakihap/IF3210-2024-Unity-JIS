@@ -45,7 +45,7 @@ namespace Nightmare
                     if(playerMovement.DamageDecreaseByRaja){
                         damage = damage * 80 / 100;
                     }
-                    CurrStateData.damageDealt += damage;
+                    CurrStateData.currGameData.damageDealt += damage;
                     petBuffHealth.TakeDamage(damage);
                 }
             }

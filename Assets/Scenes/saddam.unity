@@ -883,6 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8782a16fc95f2134a83b473192eb892f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quests: []
+  activeQuests: []
 --- !u!1 &507187761
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +929,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.25
+  m_VoxelSize: 0.5
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 6382552d70a51634d96816b780729b25, type: 2}
   m_BuildHeightMesh: 0
@@ -1452,6 +1454,10 @@ PrefabInstance:
     - target: {fileID: 5378225673768922307, guid: f5cfc035ac7aca742a1b90d08abba12b, type: 3}
       propertyPath: m_Name
       value: ShopBuildingClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378225673768922307, guid: f5cfc035ac7aca742a1b90d08abba12b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5378225673768922308, guid: f5cfc035ac7aca742a1b90d08abba12b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2199,6 +2205,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6913519759959517050, guid: e2cc5ef0ece9c8043a01606ef1043c56, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913519759959517050, guid: e2cc5ef0ece9c8043a01606ef1043c56, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913519759959517050, guid: e2cc5ef0ece9c8043a01606ef1043c56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913519759959517050, guid: e2cc5ef0ece9c8043a01606ef1043c56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -316.1496
+      objectReference: {fileID: 0}
     - target: {fileID: 6913519761462070064, guid: e2cc5ef0ece9c8043a01606ef1043c56, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -2520,6 +2542,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5976551078928683776, guid: 38b9b32326b10744c8f17730844dcb0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182373951551086198, guid: 38b9b32326b10744c8f17730844dcb0b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

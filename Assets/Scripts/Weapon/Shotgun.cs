@@ -53,7 +53,7 @@ namespace Nightmare
             shootRay.origin = gunBarrelEnd.transform.position;
             shootRay.direction = gunBarrelEnd.transform.forward;
 
-            CurrStateData.shotCount += 1;
+            CurrStateData.currGameData.shotCount += 1;
             // print("shot accuracy: " + CurrStateData.GetShotAccuracy());
 
             // Perform the raycast against gameobjects on the shootable layer and if it hits something...
@@ -86,8 +86,8 @@ namespace Nightmare
                 {
                     // ... the enemy should take damage.
                     enemyHealth.TakeDamage((int)calculatedDamage, shootHit.point);
-                    CurrStateData.hitCount += 1;
-                    CurrStateData.damageDealt += (int)calculatedDamage;
+                    CurrStateData.currGameData.hitCount += 1;
+                    CurrStateData.currGameData.damageDealt += (int)calculatedDamage;
 
                     gunLine0.SetPosition(1, shootHit.point);
                     gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
@@ -100,8 +100,8 @@ namespace Nightmare
                 {
                     // ... the pet should take damage.
                     petBuffHealth.TakeDamage((int)calculatedDamage);
-                    CurrStateData.hitCount += 1;
-                    CurrStateData.damageDealt += (int)calculatedDamage;
+                    CurrStateData.currGameData.hitCount += 1;
+                    CurrStateData.currGameData.damageDealt += (int)calculatedDamage;
                     
                     gunLine0.SetPosition(1, shootHit.point);
                     gunLine1.SetPosition(1, shootRay.origin + Quaternion.Euler(-bulletAngle, 0f, 0f) * shootRay.direction * range);
