@@ -1044,6 +1044,7 @@ GameObject:
   - component: {fileID: 1786275460089949068}
   - component: {fileID: -1112136652019146177}
   - component: {fileID: 9175340797513482317}
+  - component: {fileID: 8319766282753935521}
   m_Layer: 0
   m_Name: PetBuffer
   m_TagString: Untagged
@@ -1199,6 +1200,7 @@ MonoBehaviour:
   startHealth: 100
   currHealth: 100
   startHealthReduced: 0
+  isEnemy: 0
   disappearTime: 2.5
   isDead: 0
   isDisappear: 0
@@ -1263,6 +1265,27 @@ MonoBehaviour:
       onHitAlpha: 1
       duration: 1
   canvas: {fileID: 0}
+--- !u!114 &8319766282753935521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041dbb47c6136fa40b3c6f71e5df9311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheatCodePetKill:
+  - p
+  - e
+  - t
+  - k
+  - i
+  - l
+  - l
+  petEnemyHealth: {fileID: 8690104491114103594}
 --- !u!1 &167614
 GameObject:
   m_ObjectHideFlags: 0

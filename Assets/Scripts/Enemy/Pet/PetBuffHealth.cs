@@ -19,6 +19,7 @@ public class PetBuffHealth : PetHealth, IDamageable
         isImmortal = false;
         currHealth = startHealth;
         petBuffMovement = GetComponent<PetBuffMovement>();
+        isEnemy = true;
     }
 
     private void Update()

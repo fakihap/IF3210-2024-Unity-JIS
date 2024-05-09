@@ -29,6 +29,7 @@ public class PetHealerHealth : PetHealth, IDamageable
         _anim = GetComponent<Animator>();
         petHealerMovement = GetComponent<PetHealerMovement>();
         petHealerHeal = GetComponent<PetHealerHeal>();
+        isEnemy = false;
     }
 
     private void Update()

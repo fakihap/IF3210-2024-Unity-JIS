@@ -25,6 +25,10 @@ namespace Nightmare
 
             foreach (GameObject enemy in enemiesInsideCollider)
             {
+                if (enemy.Equals(null)) {
+                    enemiesInsideCollider.Remove(enemy);
+                    continue;
+                } 
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                 PetBuffHealth petBuffHealth = enemy.GetComponent<PetBuffHealth>();
                 if (!enemyHealth.IsUnityNull())
@@ -67,7 +71,8 @@ namespace Nightmare
                                         
                     petBuffHealth.TakeDamage(damage);
                     print("darah now pet " + petBuffHealth.currHealth);
-                }
+                }   
+            
             }
         }
 
