@@ -72,10 +72,10 @@ namespace Nightmare
             CurrStateData currData = CurrStateData.GetInstance();
             string output;
             
-            // if (FileManager.LoadFromFile("Slot1.dat", out output))
-            // {
-            //     print(output);
-            // }
+            if (FileManager.LoadFromFile("Slot1.dat", out output))
+            {
+                print("Slot 1 output" + output);
+            }
 
             if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
             {

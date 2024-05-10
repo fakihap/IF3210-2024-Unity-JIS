@@ -37,14 +37,20 @@ public class PetBuffHealth : PetHealth, IDamageable
 
     private void Death()
     {
+        print("matii kau petttt");
         isDead = true;
         petBuffMovement.enabled = false;
-        Destroy(gameObject);
+        GameObject parent = transform.parent.gameObject;
+        if(parent.GetComponent<JenderalAttack>() != null){
+            parent.GetComponent<JenderalAttack>().ResetDamage();
+        }
+        else if(parent.GetComponent<RajaAttack>() != null){
+            parent.GetComponent<RajaAttack>().ResetDamage();
+        }
     }
 
     public void TakeDamage(int amount)
     {
-        print("pet buff take damage " + amount);
         if(isImmortal) return;
 
         currHealth -= amount;
@@ -66,15 +72,7 @@ public class PetBuffHealth : PetHealth, IDamageable
         {
             manager.SpawnNextPet(transform);
         }
-        GameObject enemy = transform.parent.gameObject;
-        if(enemy.GetComponent<JenderalAttack>() != null)
-        {
-            enemy.GetComponent<JenderalAttack>().ResetDamage();
-        }
-        else if(enemy.GetComponent<RajaAttack>() != null)
-        {
-            enemy.GetComponent<RajaAttack>().ResetDamage();
-        }
+        print("pet buff disappear");
         Destroy(gameObject, 2f);
     }
 

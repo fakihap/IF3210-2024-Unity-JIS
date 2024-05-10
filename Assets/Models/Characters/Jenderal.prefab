@@ -258,6 +258,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 426240, guid: 389a2abfc43444c49a249150e6908a78, type: 3}
   m_PrefabInstance: {fileID: 889474959574689413}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &889474959574789929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 166316, guid: 389a2abfc43444c49a249150e6908a78, type: 3}
+  m_PrefabInstance: {fileID: 889474959574689413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5123624015402786436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,14 +600,15 @@ MonoBehaviour:
   startingHealth: 100
   sinkSpeed: 2.5
   scoreValue: 10
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
   currentHealth: 100
   orbs:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
   - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
+  petBuffer: {fileID: 889474959574789929}
   isDead: 0
-  defeatQuestNotifier: {fileID: 0}
+  eliminationQuestNotifier: {fileID: 0}
 --- !u!114 &8759247469298852745
 MonoBehaviour:
   m_ObjectHideFlags: 0

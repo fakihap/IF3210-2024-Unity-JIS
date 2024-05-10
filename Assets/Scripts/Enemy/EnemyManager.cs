@@ -30,24 +30,17 @@ public class EnemyManager : MonoBehaviour
             spawnKepalaKeroco = 20 - gameLevel*2;
             spawnJenderal = 30 - gameLevel*3;
         }
+
+        // spawnJenderal = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("game level " + gameLevel);
-        print("spawn keroco " + spawnKeroco);
-        print("spawn kepala keroco " + spawnKepalaKeroco);
-        print("spawn jenderal " + spawnJenderal);
-        // i want spawn keroco, kepalakeroco and jenderal based on game level
-        // if game level is 1, spawn 6 keroco, 12 kepala keroco, 18 jenderal
-        // if game level is 2, spawn 5 keroco, 10 kepala keroco, 15 jenderal
-        // if game level is 3, spawn 4 keroco, 8 kepala keroco, 12 jenderal
-
         spawnKerocoTimer += Time.deltaTime;
         if (spawnKerocoTimer >= spawnKeroco)
         {
-            print("spawn kerocoooook");
+            // print("spawn kerocoooook");
             Spawn(1);
             spawnKerocoTimer = 0f;
         }
@@ -55,16 +48,15 @@ public class EnemyManager : MonoBehaviour
         spawnKepalaKerocoTimer += Time.deltaTime;
         if (spawnKepalaKerocoTimer >= spawnKepalaKeroco)
         {
-            print("spawn kerocoooook");
+            // print("spawn kerocoooook");
             Spawn(2);
             spawnKepalaKerocoTimer = 0f;
         }
 
-        // print("spawn jenderal timer " + spawnJenderalTimer + " spawn jenderal: " + spawnJenderal);
+        print("spawn jenderal timer " + spawnJenderalTimer + " spawn jenderal: " + spawnJenderal);
         spawnJenderalTimer += Time.deltaTime;
         if (spawnJenderalTimer >= spawnJenderal)
         {
-            print("spawn kerocoooook");
             Spawn(3);
             spawnJenderalTimer = 0f;
         }
@@ -72,11 +64,6 @@ public class EnemyManager : MonoBehaviour
     }
 
     void Spawn(int type){
-        // i want spawn keroco kepala keroco and jenderal based on list position (x,0,z)
-        // if type is 1, spawn keroco
-        // if type is 2, spawn kepala keroco
-        // if type is 3, spawn jenderal
-        
         Vector3 enemyPosition = listPosition[Random.Range(0, listPosition.Count)];
 
         Quaternion rotation = Quaternion.Euler(0, 0, 0);            
