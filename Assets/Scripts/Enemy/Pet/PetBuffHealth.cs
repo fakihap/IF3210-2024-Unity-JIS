@@ -48,6 +48,9 @@ public class PetBuffHealth : PetHealth, IDamageable
         else if(parent.GetComponent<RajaAttack>() != null){
             parent.GetComponent<RajaAttack>().ResetDamage();
         }
+        HealthBar healthBar = GetComponent<HealthBar>();
+        healthBar.DisableHealthBar();
+
         Destroy(gameObject);
     }
 

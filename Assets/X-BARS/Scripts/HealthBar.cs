@@ -198,6 +198,11 @@ public class HealthBar : MonoBehaviour {
     {
         return healthLink.Value;
     }
+
+	public void DisableHealthBar()
+	{
+		canvasGroup.alpha = 0;
+	}
 }
 
 [System.Serializable]
