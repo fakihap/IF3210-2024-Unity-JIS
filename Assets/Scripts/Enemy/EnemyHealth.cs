@@ -75,6 +75,9 @@ namespace Nightmare
             enemyAudio.Play();
 
             currentHealth -= amount;
+            if (hitParticles.Equals(null))  {
+                hitParticles = GetComponentInChildren<ParticleSystem>();
+            }
 
             hitParticles.transform.position = hitPoint;
             hitParticles.Play();
@@ -150,8 +153,8 @@ namespace Nightmare
                 petBuffer.GetComponent<PetBuffHealth>().TakeDamage(100);
             }
             else if(gameObject.name=="Raja"){
-                petBufferRaja1.GetComponent<PetBuffHealth>().TakeDamage(100);
-                petBufferRaja2.GetComponent<PetBuffHealth>().TakeDamage(100);
+                if (!petBufferRaja1.Equals(null)) petBufferRaja1.GetComponent<PetBuffHealth>().TakeDamage(100);
+                if (!petBufferRaja2.Equals(null)) petBufferRaja2.GetComponent<PetBuffHealth>().TakeDamage(100);                
                 // if(!petBufferRaja1.IsUnityNull()){
                 // }
                 // if(!petBufferRaja2.IsUnityNull()){
