@@ -72,6 +72,7 @@ namespace Nightmare
                         damage = damage * 80 / 100;
                     }
                     enemyHealth.TakeDamage(damage, shootHit.point);
+                    print("this is enemy health after attack "+enemyHealth.currentHealth);
                     
                     // hitcount 
                     CurrStateData.currGameData.hitCount += 1;

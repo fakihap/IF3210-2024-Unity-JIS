@@ -213,6 +213,10 @@ public class CurrStateData
         {
             currGameData.difficultyLevel = "hard";
         }
+
+        //change enemy manager
+        EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+        enemyManager.ChangeLevel(difficultyIndex);
     }
 
     public static string GetStateDataDifficulty()

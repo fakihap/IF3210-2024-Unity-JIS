@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public enum EnemyType {
+    Any,
     Keroco,
     KepalaKeroco,
     Jenderal,
@@ -12,13 +13,15 @@ public class EliminationQuest : Quest
 {
     
 
-    int currentCount = 0;
+    int currentCount = 0, currentTargetCount = 1;
     [SerializeField] int targetCount = 1; // get this from SO data
     public EnemyType enemyType;
 
     protected override void StartQuest()
     {
         isCompleted = false;
+        currentCount = 0;
+        currentTargetCount = targetCount;
     }
     public override bool ProgressQuest()
     {
@@ -38,7 +41,7 @@ public class EliminationQuest : Quest
     
     public override string GetQuestMessage()
     {
-        return string.Format("Defeat enemies : {0} of {1}", currentCount, targetCount);
+        return string.Format("Defeat enemies : {0} of {1}", currentCount, currentTargetCount);
     }
 
     public override bool UpdateQuest()
@@ -47,7 +50,7 @@ public class EliminationQuest : Quest
             return false;
         }
 
-        if (currentCount >= targetCount) {
+        if (currentCount >= currentTargetCount) {
             isCompleted = true;
         }
 
@@ -61,6 +64,6 @@ public class EliminationQuest : Quest
 
         // resetting to default values
         currentCount = 0;
-        targetCount = 1; // get this from SO data
+        currentTargetCount = 1; // get this from SO data
     }
 }

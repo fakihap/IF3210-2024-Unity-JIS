@@ -20,6 +20,6 @@ public class TravelQuest : Quest
     
     public override string GetQuestMessage()
     {
-        return string.Format("Go to somewhere {0}", targetName);
+        return string.Format("Go to {0}", targetName);
     }
 }

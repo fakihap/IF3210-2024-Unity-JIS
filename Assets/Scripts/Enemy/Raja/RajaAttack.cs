@@ -6,19 +6,15 @@ namespace Nightmare
     {
         private float attackTimer;
         public float attackTime ;
-        public float spawnTimer;
         public float dpsTimer;
-        public float timeBetweenAttacks = 0.5f;
         public int attackDamage = 5;
         public int DPSDamage = 2;
         public float rangeDPS = 10f;
-        public GameObject enemy;
 
         Animator anim;
         GameObject player;
         PlayerHealth playerHealth;
         float timerDPS;
-        float timerSpawn;
         bool isSlow;
         bool isDecreaseDamage;
 
@@ -62,13 +58,6 @@ namespace Nightmare
                 {
                     DPS();
                     timerDPS = dpsTimer;
-                }
-
-                timerSpawn -= Time.deltaTime;
-                if (timerSpawn <= 0f)
-                {
-                    Spawn();
-                    timerSpawn = spawnTimer;
                 }
 
                 if (!isSlow)
@@ -260,7 +249,7 @@ namespace Nightmare
 
         void DPS()
         {
-            print("ini player healt before dps "+ playerHealth.currentHealth);
+            print("ini player healt before dps "+ playerHealth.currentHealth +" damage sebesar "+ DPSDamage);
             if (playerHealth.currentHealth > 0)
             {
                 playerHealth.TakeDamage(DPSDamage);
@@ -286,12 +275,7 @@ namespace Nightmare
             playerMovement.ChangeDamageDecreaseByRaja();
         }
 
-        void Spawn()
-        {
-            Vector3 enemyPosition = transform.position;
-            Quaternion rotation = Quaternion.identity;
-            Instantiate(enemy, enemyPosition, rotation);
-        }
+        
         public void DoubleDamage()
         {
             attackDamage *= 2;

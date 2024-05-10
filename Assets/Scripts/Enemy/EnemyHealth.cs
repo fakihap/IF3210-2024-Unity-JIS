@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Nightmare
 {
@@ -10,6 +11,9 @@ namespace Nightmare
         public AudioClip deathClip;
         public int currentHealth;
         public GameObject[] orbs;
+        public GameObject petBuffer;
+        public GameObject petBufferRaja1;
+        public GameObject petBufferRaja2;
 
         Animator anim;
         AudioSource enemyAudio;
@@ -36,17 +40,26 @@ namespace Nightmare
             eliminationQuestNotifier = GetComponent<EliminationQuestNotifier>();
         }
 
-        private void SetKinematics(bool isKinematic)
-        {
-            capsuleCollider.isTrigger = isKinematic;
-            capsuleCollider.attachedRigidbody.isKinematic = isKinematic;
-        }
+        // private void SetKinematics(bool isKinematic)
+        // {
+        //     capsuleCollider.isTrigger = isKinematic;
+        //     capsuleCollider.attachedRigidbody.isKinematic = isKinematic;
+        // }
 
         void Update()
         {
             if (isSinking)
             {
                 transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
+            }
+
+            if (currentHealth <= 0) {
+                print("ini nama agme object "+gameObject.name);
+                if(gameObject.name=="Jenderal(Clone)") {
+                    print("masuk jenderal pabskuyt");
+                    PetBuffHealth petBuffHealth = GameObject.FindGameObjectWithTag("PetBuffer").GetComponent<PetBuffHealth>();
+                    print("ini darah pet buff "+ petBuffHealth.currHealth);
+                }
             }
         }
 
@@ -62,6 +75,9 @@ namespace Nightmare
             enemyAudio.Play();
 
             currentHealth -= amount;
+            if (hitParticles.Equals(null))  {
+                hitParticles = GetComponentInChildren<ParticleSystem>();
+            }
 
             hitParticles.transform.position = hitPoint;
             hitParticles.Play();
@@ -90,7 +106,16 @@ namespace Nightmare
             eliminationQuestNotifier.NotifyElimination();
 
             // i want to destroy the enemy
-            Destroy(gameObject);
+            JenderalMovement jenderalMovement = GameObject.FindGameObjectWithTag("Enemy").GetComponent<JenderalMovement>();
+            // if(!jenderalMovement.IsUnityNull()) {
+            //     print("Jenderal is not null");
+            // }
+            StartSinking();
+            print("this is enemy namaaa "+ gameObject.name);
+            if(gameObject.GetType().Name == "Jenderal") {
+                print("masuk jenderall lalalala");
+            }
+            // Destroy(gameObject, 2f);
         }
 
         public void SpawnOrb()
@@ -119,7 +144,24 @@ namespace Nightmare
 
             isSinking = true;
 
-            Destroy(gameObject, 2f);
+            if(gameObject.name=="Keroco(Clone)"){
+                CurrStateData.AddCoin(100);
+            } else if(gameObject.name=="KepalaKeroco(Clone)") {
+                CurrStateData.AddCoin(150);
+            } else if(gameObject.name=="Jenderal(Clone)") {
+                CurrStateData.AddCoin(200);
+                petBuffer.GetComponent<PetBuffHealth>().TakeDamage(100);
+            }
+            else if(gameObject.name=="Raja"){
+                if (!petBufferRaja1.Equals(null)) petBufferRaja1.GetComponent<PetBuffHealth>().TakeDamage(100);
+                if (!petBufferRaja2.Equals(null)) petBufferRaja2.GetComponent<PetBuffHealth>().TakeDamage(100);                
+                // if(!petBufferRaja1.IsUnityNull()){
+                // }
+                // if(!petBufferRaja2.IsUnityNull()){
+                // }
+            }
+
+            Destroy(gameObject, 1f);
 
             ScoreManager.score += scoreValue;
         }

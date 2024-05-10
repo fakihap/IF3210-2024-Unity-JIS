@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,11 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     // Start is called before the first frame update
+
     public GameObject keroco;
     public GameObject kepalaKeroco;
     public GameObject jenderal;
-    public int gameLevel;
+    private int levelType;
     public List<Vector3> listPosition;
     private float spawnKeroco;
     private int spawnKepalaKeroco;
@@ -18,36 +20,47 @@ public class EnemyManager : MonoBehaviour
     private float spawnJenderalTimer;
     void Start()
     {
+        print("ini level berapa adik adick "+ CurrStateData.GetDifficultyLevel()); 
+        if(CurrStateData.GetDifficultyLevel() == null){
+            CurrStateData.SetDifficultyLevel(0);
+            ChangeLevel(1);
+        } 
+        else{
+            ChangeLevel(CurrStateData.GetDifficultyLevelIndex());
+        }
+    }
 
-        // print("game level " + gameLevel);
-        if(gameLevel>5){
+    public void ChangeLevel(int type){
+        levelType = type;
+        print("ini ganti level berapa adik adick "+ CurrStateData.GetDifficultyLevel());  
+        spawnKepalaKerocoTimer = 0f;
+        spawnKerocoTimer = 0f;
+        spawnJenderalTimer = 0f;
+        if(type==1 || CurrStateData.GetDifficultyLevel()==null){
+
+            spawnKeroco = 10;
+            spawnKepalaKeroco = 20;
+            spawnJenderal = 30;
+        }
+        else if(type==2){
             spawnKeroco = 5;
             spawnKepalaKeroco = 10;
             spawnJenderal = 15;
         }
         else{
-            spawnKeroco = 10 - gameLevel;
-            spawnKepalaKeroco = 20 - gameLevel*2;
-            spawnJenderal = 30 - gameLevel*3;
+            spawnKeroco = 3;
+            spawnKepalaKeroco = 6;
+            spawnJenderal = 9;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("game level " + gameLevel);
-        print("spawn keroco " + spawnKeroco);
-        print("spawn kepala keroco " + spawnKepalaKeroco);
-        print("spawn jenderal " + spawnJenderal);
-        // i want spawn keroco, kepalakeroco and jenderal based on game level
-        // if game level is 1, spawn 6 keroco, 12 kepala keroco, 18 jenderal
-        // if game level is 2, spawn 5 keroco, 10 kepala keroco, 15 jenderal
-        // if game level is 3, spawn 4 keroco, 8 kepala keroco, 12 jenderal
-
         spawnKerocoTimer += Time.deltaTime;
         if (spawnKerocoTimer >= spawnKeroco)
         {
-            print("spawn kerocoooook");
+            // print("spawn kerocoooook");
             Spawn(1);
             spawnKerocoTimer = 0f;
         }
@@ -55,16 +68,15 @@ public class EnemyManager : MonoBehaviour
         spawnKepalaKerocoTimer += Time.deltaTime;
         if (spawnKepalaKerocoTimer >= spawnKepalaKeroco)
         {
-            print("spawn kerocoooook");
+            // print("spawn kerocoooook");
             Spawn(2);
             spawnKepalaKerocoTimer = 0f;
         }
 
-        // print("spawn jenderal timer " + spawnJenderalTimer + " spawn jenderal: " + spawnJenderal);
+        print("spawn jenderal timer " + spawnJenderalTimer + " spawn jenderal: " + spawnJenderal);
         spawnJenderalTimer += Time.deltaTime;
         if (spawnJenderalTimer >= spawnJenderal)
         {
-            print("spawn kerocoooook");
             Spawn(3);
             spawnJenderalTimer = 0f;
         }
@@ -72,12 +84,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     void Spawn(int type){
-        // i want spawn keroco kepala keroco and jenderal based on list position (x,0,z)
-        // if type is 1, spawn keroco
-        // if type is 2, spawn kepala keroco
-        // if type is 3, spawn jenderal
-        
-        Vector3 enemyPosition = listPosition[Random.Range(0, listPosition.Count)];
+        Vector3 enemyPosition = listPosition[UnityEngine.Random.Range(0, listPosition.Count)];
 
         Quaternion rotation = Quaternion.Euler(0, 0, 0);            
         

@@ -5311,8 +5311,9 @@ MonoBehaviour:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
   - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
+  petBuffer: {fileID: 0}
   isDead: 0
-  defeatQuestNotifier: {fileID: 0}
+  eliminationQuestNotifier: {fileID: 0}
 --- !u!114 &817390837492609422
 MonoBehaviour:
   m_ObjectHideFlags: 0
