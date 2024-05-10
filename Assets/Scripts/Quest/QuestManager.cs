@@ -80,8 +80,6 @@ public class QuestManager : MonoBehaviour
         // its support for multiple UI instance when we just load a new scene
         // though maybe less efficient performance-wise
         questUIManager.SetQuestList(activeQuests); 
-        Debug.Log(questUIManager);
-        Debug.Log(questUIManagers);
         questUIManagers.Add(questUIManager);
     }
 
