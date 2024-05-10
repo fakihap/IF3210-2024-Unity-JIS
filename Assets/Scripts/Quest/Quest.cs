@@ -94,7 +94,12 @@ public abstract class Quest : DirectableObject
     #endregion
 
 
-
+#region CurrStateData
+    public override void SetCompletion(bool completion)
+    {
+        isCompleted = completion;
+    }
+#endregion
 
     // skema nya diganti
     // void SubscribeToNotifiers() {

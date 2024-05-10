@@ -31,24 +31,29 @@ public class GameDirector : MonoBehaviour
     }
 
     void Update() {
-        // if (Input.GetKeyDown(KeyCode.U)) {
-            UpdateDirector();
-        // }
+        UpdateDirector();
     }
     public void UpdateDirector() {
-        // Debug.Log("Updating director");
 
         foreach(DirectableObject directable in directables) {
-            // if (!directable.IsActive()) {
-                directable.UpdateDirectable();
-            // }
+            directable.UpdateDirectable();
         }
     }
 
     public List<Quest> GetQuests() {
-        // Debug.Log(directables);
-        //  Debug.Log(directables.Count);
         // filter quest
         return directables.Where(x => x is Quest).Cast<Quest>().ToList();
     }
+
+# region Saving Directables State
+    // TODO : make it supports saving to certain save slot
+    // WARNING : UNTESTED
+    public void SaveDirectables() {
+        CurrStateData.SaveGameProgress(directables);
+    }
+
+    public void LoadDirectables() {
+        CurrStateData.LoadGameProgress(ref directables);
+    }
+# endregion
 }

@@ -56,4 +56,8 @@ public abstract class DirectableObject : ScriptableObject
         StartDirectable();
         return true;
     }
+
+# region CurrStateData
+    public abstract void SetCompletion(bool completion);
+# endregion
 }

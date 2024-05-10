@@ -89,6 +89,13 @@ public class Cutscene : DirectableObject
 
         currentIndex = -1;
     }
+
+#region CurrStateData
+    public override void SetCompletion(bool completion)
+    {
+        isCompleted = completion;
+    }
+#endregion
 }
 
 

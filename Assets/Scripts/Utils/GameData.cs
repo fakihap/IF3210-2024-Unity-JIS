@@ -31,6 +31,10 @@ public struct GameData
     public List<JendralState> jendralList;
     public List<RajaState> rajaList;
 
+# region GameDirector
+    public bool[] directablesCompletion;
+# endregion
+
 }
 
 [System.Serializable]

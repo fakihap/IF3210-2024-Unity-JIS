@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Nightmare;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -251,4 +252,26 @@ public class CurrStateData
     //     stateData.volume = currGameData.volume;
     //     stateData.difficulty = currGameData.difficultyLevel;
     // }
+
+# region GameDirector
+    public static void SaveGameProgress(List<DirectableObject> directables) {
+        currGameData.directablesCompletion = directables.Select((directable, _) => directable.IsCompleted()).ToArray();
+    }
+
+    public static void LoadGameProgress(ref List<DirectableObject> directables) {
+        // check if they have the same length of data
+        // error may occur if we change quests data
+        // TODO : have it make an assumption, 
+        //        ensuring it always works even though with unexpected behavior
+        if (directables.Count != currGameData.directablesCompletion.Length) {
+            Debug.LogError("CurrStateData : difference length of directables list and gamedata completion array");
+        }
+
+        // update completion for each directables
+        for (int i = 0; i < directables.Count; i++) {
+            directables[i].SetCompletion(currGameData.directablesCompletion[i]);
+        }   
+    }
+# endregion
+
 }
