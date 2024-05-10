@@ -49,6 +49,11 @@ namespace Nightmare
 
         void Update()
         {
+            // i dont think damageImage is used
+            // this prevent annoying error exceptions
+            damaged = false;
+            return;
+
             // If the player has just been damaged...
             if (damaged)
             {

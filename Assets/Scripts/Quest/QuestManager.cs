@@ -10,7 +10,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     public List<Quest> activeQuests; // later set this private
 
-    private QuestUIManager questUIManager;
+    private List<QuestUIManager> questUIManagers = new List<QuestUIManager>();
 
     [SerializeField]
     private bool IsInQuest() {
@@ -26,9 +26,6 @@ public class QuestManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(Instance);
-
-
-        
     }
 
     void OnEnable() {
@@ -42,30 +39,23 @@ public class QuestManager : MonoBehaviour
         
         // quest UI
         // idk wheteher to set it singleton or additive load + refer on load
-        questUIManager = FindObjectOfType<QuestUIManager>(); // later change this into singleton
-        if (questUIManager != null) {
-            questUIManager.SetQuestList(activeQuests);   
-        }
+       
+       // now re-moved into subscriber pattern on the very bottom part of this script
     }
 
     void OnDisable() {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void Update() {
+    void Start() {
+        
+    }
+
+    void Update() {
         foreach(Quest quest in activeQuests) {
             quest.UpdateQuest(); // quest reserved
         }
     }
-
-    // public void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.U) && quests.Count > 0) {
-    //         StartQuest(quests[0]);
-    //     }
-
-
-    // }
 
     // public void StartQuest(Quest quest) {
     //     quests.Remove(quest);
@@ -83,8 +73,28 @@ public class QuestManager : MonoBehaviour
         UpdateUI();       
     }
 
+# region QuestUIManager
+    // realistically should only have one subscriber
+    public void Subscribe(QuestUIManager questUIManager) {
+        // but subscriber-notifier pattern is used in favor of 
+        // its support for multiple UI instance when we just load a new scene
+        // though maybe less efficient performance-wise
+        questUIManager.SetQuestList(activeQuests); 
+        Debug.Log(questUIManager);
+        Debug.Log(questUIManagers);
+        questUIManagers.Add(questUIManager);
+    }
+
+    public void Unsubscribe(QuestUIManager questUIManager) {
+        questUIManagers.Remove(questUIManager);
+    }
+
     // only call this method on the very last
     public void UpdateUI() {
-        questUIManager.UpdateUI();
+        foreach (QuestUIManager questUIManager in questUIManagers) {
+            questUIManager.UpdateUI();
+        } 
     }
+
+# endregion
 }

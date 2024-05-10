@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -43,6 +44,10 @@ public class MainMenuManager : MonoBehaviour
 #endif
 		Application.Quit();
 	}
+
+    public void NewGame() {
+        SceneManager.LoadScene("Stage01");
+    }
 
     void ShowLoadGame()
     {

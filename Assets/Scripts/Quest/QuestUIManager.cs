@@ -13,7 +13,12 @@ public class QuestUIManager : MonoBehaviour
         activeQuests = quests;
     }
 
+    void OnEnable() {
+        // QuestManager.Instance.Subscribe(this);
+    }
+
     public void Start() {
+        QuestManager.Instance.Subscribe(this);
         questText = GetComponent<TextMeshProUGUI>();
 
         UpdateDisplay();
@@ -36,5 +41,9 @@ public class QuestUIManager : MonoBehaviour
         }
 
         questText.text = text;
+    }
+
+    void OnDisable() {
+        // QuestManager.Instance.Unsubscribe(this);
     }
 }

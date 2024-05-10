@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -51,13 +52,20 @@ public class CutsceneManager : MonoBehaviour
         mainCamera = Camera.main;
 
         // these needs the name used to be the same
-        bgImage = GameObject.Find("DialogueBG").GetComponent<Image>();
-        nameText = GameObject.Find("DialogueName").GetComponent<TextMeshProUGUI>();
-        dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
-        
-        DisableUI();
+        try 
+        {
+            bgImage = GameObject.Find("DialogueBG").GetComponent<Image>();
+            nameText = GameObject.Find("DialogueName").GetComponent<TextMeshProUGUI>();
+            dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
 
-        StartCutscene();
+            DisableUI();
+
+            StartCutscene();
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("CutsceneManager error : " + e.Message);
+        }        
     }
 
     void OnDisable() {
