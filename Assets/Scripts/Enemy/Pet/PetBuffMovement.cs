@@ -16,6 +16,18 @@ public class PetBuffMovement : MonoBehaviour
         enemy = transform.parent.gameObject;
         nav = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        
+        //cek kecepatan
+        JenderalMovement jenderalMovement = transform.parent.gameObject.GetComponent<JenderalMovement>();
+        RajaMovement rajaMovement = transform.parent.gameObject.GetComponent<RajaMovement>();
+
+        if(jenderalMovement != null) {
+            nav.speed = jenderalMovement.speed;
+        } else if(rajaMovement != null) {
+            nav.speed = rajaMovement.speed;
+        } else {
+            nav.speed = 3.5f;
+        }
     }
 
     // Update is called once per frame
