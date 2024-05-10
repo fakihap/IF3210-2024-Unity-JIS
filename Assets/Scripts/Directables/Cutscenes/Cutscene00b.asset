@@ -18,34 +18,34 @@ MonoBehaviour:
   - name: Sleep-walker
     text: you come back quick. scary, to think that you cried for help minutes ago.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -16.69, y: 2.03, z: -1.57}
+      rotation: {x: 6.634749, y: 279.7184, z: -0.00384124}
   - name: You
     text: tch
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -3.634972, y: 5.89875, z: -13.38796}
+      rotation: {x: 11.44759, y: 300.5165, z: -0.003255747}
   - name: Sleep-walker
     text: anyway here is the thing that i promised you (*gives gold*). you can use
       this to have me let you have my pets. now, don't hold on.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -0.336544, y: 5.489607, z: 0.7847873}
+      rotation: {x: 10.41627, y: 267.858, z: -0.003405475}
   - name: You
     text: cool.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -2.019876, y: 7.453211, z: 4.190953}
+      rotation: {x: 15.91666, y: 256.857, z: -0.002638574}
   - name: Sleep-walker
-    text: oh, and lastly, if you want to finish this nightmare, you can just take
-      the boss out. he'll be in The Dancing Riverie. i will clear out the passageway
+    text: oh, and last, if you want to finish this nightmare, you can just take the
+      boss out. he'll be in The Dancing Riverie. i will clear out the passageway
       so you can go there.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -20.3, y: 1.42, z: -0.24}
+      rotation: {x: 3.540776, y: 277.9995, z: -0.004316381}
   - name: You
     text: alright, i'm going.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -5.853626, y: 6.14783, z: 14.17922}
+      rotation: {x: 12.30703, y: 231.9333, z: -0.002958874}
   sceneName: Cutscene00b
