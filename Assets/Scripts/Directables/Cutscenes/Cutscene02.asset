@@ -18,32 +18,32 @@ MonoBehaviour:
   - name: You
     text: w-wh-wh are you here?
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: 21.04, y: 1, z: 12.95373}
+      rotation: {x: 355.03, y: 245.30002, z: -0.0030041984}
   - name: Sleep-walker
     text: 'ho, i haven''t tell you yet, haven''t i? '
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: 14.342, y: 1.972, z: 11.471}
+      rotation: {x: 357.1809, y: 240.4516, z: -0.003804324}
   - name: Beg'-gadanh
     text: right, i'm the boss. name is Beg'-gadanh. you need to take me down if you
       want this nightmare to ends.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: 8.53, y: 3.24, z: -2.01}
+      rotation: {x: 3.025062, y: 298.8929, z: -0.002971217}
   - name: You
     text: i knew it. tch, the story can't be more cliche that this.
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -7.249651, y: 3.74814, z: 2.623623}
+      rotation: {x: 6.634695, y: 67.63662, z: -0.001086016}
   - name: You
     text: i hate you so much. go taste my arsenal of weapon Beg'-gadanh!
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: 14.45, y: 1.39, z: 9.1}
+      rotation: {x: 11.44754, y: 29.47742, z: -0.001791858}
   - name: Beg'-gadanh
     text: that's spirit! come, our fight will be legendary
     camTransform:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
+      position: {x: -8.583, y: 3.766, z: 0.793}
+      rotation: {x: 6.200002, y: 65.20004, z: -0.0030038562}
   sceneName: Cutscene02
