@@ -11,39 +11,43 @@ public class SettingsManager : MonoBehaviour
     public TMP_Dropdown difficultyDropdown;
     void Start()
     {
-        playerName.text = CurrStateData.GetPlayerName();
-        volumeInfo.text = CurrStateData.GetVolume() + "%";
-        AudioListener.volume = (float)CurrStateData.GetVolume() / 100;
-        difficultyDropdown.value = CurrStateData.GetDifficultyLevelIndex();
+        playerName.text = PlayerPrefs.GetString("playerName");
+        
+        int volume = PlayerPrefs.GetInt("volume");
+        volumeInfo.text = volume.ToString() + "%";
+        AudioListener.volume = (float)volume / 100;
+        difficultyDropdown.value = PlayerPrefs.GetInt("difficultyLevelIndex");
     }
 
     public void VolumeUp()
     {
-        CurrStateData.ChangeVolume(5);
-        AudioListener.volume = (float) CurrStateData.GetVolume() / 100;
-        Debug.Log("Volume Up: " + CurrStateData.GetVolume());
-        volumeInfo.text = CurrStateData.GetVolume() + "%";
+        int volume = PlayerPrefs.GetInt("volume");
+        volume += 5;
+        PlayerPrefs.SetInt("volume", volume);
+        AudioListener.volume = (float) volume / 100;
+        Debug.Log("Volume Up: " + volume);
+        volumeInfo.text = volume.ToString() + "%";
     }
 
     public void VolumeDown()
     {
-        CurrStateData.ChangeVolume(-5);
-        AudioListener.volume = (float) CurrStateData.GetVolume() / 100;
-        Debug.Log("Volume Down: " + CurrStateData.GetVolume());
-        volumeInfo.text = CurrStateData.GetVolume() + "%";
+        int volume = PlayerPrefs.GetInt("volume");
+        volume -= 5;
+        PlayerPrefs.SetInt("volume", volume);
+        Debug.Log("Volume Up: " + volume);
+        volumeInfo.text = volume.ToString() + "%";
     }
 
     public void ChangeName()
     {
-        CurrStateData.ChangePlayerName(playerName.text);
-        Debug.Log("Ganti nama: " + CurrStateData.GetPlayerName());
+        PlayerPrefs.SetString("playerName", playerName.text);
+        Debug.Log("Ganti nama: " + playerName.text);
     }
 
     public void ChangeDifficulty()
     {
         Debug.Log("Difficulty dropdown index: " + difficultyDropdown.value);
         int difficultyIndex = difficultyDropdown.value;
-        CurrStateData.SetDifficultyLevel(difficultyIndex);
-        Debug.Log("CurrState Difficulty: " + CurrStateData.GetDifficultyLevel());
+        PlayerPrefs.SetInt("difficultyLevelIndex", difficultyIndex);
     }
 }

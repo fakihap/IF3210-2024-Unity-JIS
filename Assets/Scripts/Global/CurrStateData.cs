@@ -21,16 +21,16 @@ public class CurrStateData
 
     //public static float startTime = 0;
     //public static float elapsedTime = 0;
-    public static StateData stateData;
+
     public static CurrStateData currStateData;
 
 
     public CurrStateData()
     {
         currGameData = new GameData();
-        stateData = new StateData();
-        currGameData.playerName = stateData.playerName;
-        currGameData.volume= stateData.volume;
+        // stateData = new StateData();
+        // currGameData.playerName = stateData.playerName;
+        // currGameData.volume= stateData.volume;
         currGameData.motherlode = false;
         currGameData.hitCount = 0;
         currGameData.shotCount = 0;
@@ -178,16 +178,16 @@ public class CurrStateData
         return Mathf.FloorToInt(currGameData.elapsedTime / 3600f);
     }
 
-    public static int GetVolume()
-    {
-        return stateData.volume;
-    }
+    // public static int GetVolume()
+    // {
+    //     return stateData.volume;
+    // }
 
-    public static void ChangeVolume(int amount)
-    {
-        stateData.volume += amount;
-        stateData.volume = Math.Min(Math.Max(stateData.volume, 0), 100);
-    }
+    // public static void ChangeVolume(int amount)
+    // {
+    //     stateData.volume += amount;
+    //     stateData.volume = Math.Min(Math.Max(stateData.volume, 0), 100);
+    // }
 
     public static string GetPlayerName()
     {
@@ -219,10 +219,10 @@ public class CurrStateData
         enemyManager.ChangeLevel(difficultyIndex);
     }
 
-    public static string GetStateDataDifficulty()
-    {
-        return stateData.difficulty;
-    }
+    // public static string GetStateDataDifficulty()
+    // {
+    //     return stateData.difficulty;
+    // }
 
     public static string GetDifficultyLevel()
     {
@@ -245,10 +245,10 @@ public class CurrStateData
         }
     }
 
-    public static void UpdateStateData()
-    {
-        stateData.playerName = currGameData.playerName;
-        stateData.volume = currGameData.volume;
-        stateData.difficulty = currGameData.difficultyLevel;
-    }
+    // public static void UpdateStateData()
+    // {
+    //     stateData.playerName = currGameData.playerName;
+    //     stateData.volume = currGameData.volume;
+    //     stateData.difficulty = currGameData.difficultyLevel;
+    // }
 }
