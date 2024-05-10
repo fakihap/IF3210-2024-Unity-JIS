@@ -8,12 +8,14 @@ public class PetBuffMovement : MonoBehaviour
 {
     GameObject enemy;
     NavMeshAgent nav;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         enemy = transform.parent.gameObject;
         nav = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -24,28 +26,15 @@ public class PetBuffMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((enemy.transform.position - transform.position).magnitude >= 4.5)
-        {
+        Vector3 directionToPlayer = (player.transform.position - enemy.transform.position).normalized;
+        directionToPlayer.y = 0f; // Ensure the pet doesn't tilt upwards or downwards
 
-            // Debug.Log("Move to player");
-            nav.SetDestination(enemy.transform.position);
-            // Debug.Log(player.transform.position);
+        // Rotate the pet to face away from the player
+        Quaternion lookRotation = Quaternion.LookRotation(-directionToPlayer);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
 
-            // Calculate direction to the player
-            Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
-            directionToEnemy.y = 0f; // Ensure the pet doesn't tilt upwards or downwards
-
-            // Rotate the pet to face the Enemy
-            if (directionToEnemy != Vector3.zero)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
-            }
-        }
-        else
-        {
-
-            nav.ResetPath();
-        }
+        // Move the pet away from the player along the enemy's path
+        Vector3 destination = enemy.transform.position + (enemy.transform.position - player.transform.position).normalized * 4.5f;
+        nav.SetDestination(destination);
     }
 }

@@ -36,13 +36,13 @@ public class EnemyManager : MonoBehaviour
         spawnKepalaKerocoTimer = 0f;
         spawnKerocoTimer = 0f;
         spawnJenderalTimer = 0f;
-        if(type==1 || CurrStateData.GetDifficultyLevel()==null){
+        if(type==0 || CurrStateData.GetDifficultyLevel()==null){
 
             spawnKeroco = 10;
             spawnKepalaKeroco = 20;
             spawnJenderal = 30;
         }
-        else if(type==2){
+        else if(type==1){
             spawnKeroco = 5;
             spawnKepalaKeroco = 10;
             spawnJenderal = 15;
