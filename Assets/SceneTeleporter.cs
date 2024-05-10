@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTeleporter : MonoBehaviour
 {
     [SerializeField] string targetSceneName = "Stage01";
+    public Transform spawner;
     private void OnTriggerEnter(Collider other)
     {
         print("Teleporter collides with: " + other.name);
@@ -13,5 +14,9 @@ public class SceneTeleporter : MonoBehaviour
         {
             SceneManager.LoadScene(targetSceneName);
         }
+    }
+
+    public string GetTargetSceneName() {
+        return targetSceneName;
     }
 }

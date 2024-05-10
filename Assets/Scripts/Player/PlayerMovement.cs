@@ -113,7 +113,6 @@ namespace Nightmare
 
         void Move(float h, float v)
         {
-            Debug.Log("movbe harusnya");
             movement = new Vector3(h, 0, v);;
 
             movement = movement.normalized * speed * Time.deltaTime;
