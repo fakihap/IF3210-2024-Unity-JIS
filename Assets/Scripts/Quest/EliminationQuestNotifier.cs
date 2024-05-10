@@ -19,7 +19,8 @@ public class EliminationQuestNotifier : QuestNotifier
     {
         foreach (EliminationQuest quest in quests.Where(x => x.GetType() == typeof(EliminationQuest)).Cast<EliminationQuest>().ToList())
         {
-            if (quest.enemyType != enemyType)
+            // check enemy type eligibility
+            if (quest.enemyType != enemyType && quest.enemyType != EnemyType.Any)
             {
                 continue;
             }

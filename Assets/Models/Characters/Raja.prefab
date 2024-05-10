@@ -15701,6 +15701,7 @@ GameObject:
   - component: {fileID: 537039457960505170}
   - component: {fileID: 2008960935835100214}
   - component: {fileID: -6967066031994972172}
+  - component: {fileID: -1879946799565702355}
   m_Layer: 6
   m_Name: Raja
   m_TagString: Enemy
@@ -15975,7 +15976,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -16005,7 +16006,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!114 &537039457960505170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16069,6 +16070,20 @@ MonoBehaviour:
       onHitAlpha: 1
       duration: 1
   canvas: {fileID: 0}
+--- !u!114 &-1879946799565702355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277330263938654123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c263f41bb72cc4ab3e3d9de7445de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscribers: []
+  enemyType: 4
 --- !u!1 &9133687730967589851
 GameObject:
   m_ObjectHideFlags: 0

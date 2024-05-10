@@ -9954,6 +9954,7 @@ GameObject:
   - component: {fileID: 1743799982165599309}
   - component: {fileID: 6385365105683146320}
   - component: {fileID: 332497901517952790}
+  - component: {fileID: 269359609041050035}
   m_Layer: 6
   m_Name: KepalaKeroco
   m_TagString: Enemy
@@ -10293,6 +10294,20 @@ MonoBehaviour:
       onHitAlpha: 1
       duration: 1
   canvas: {fileID: 0}
+--- !u!114 &269359609041050035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931769509966874563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c263f41bb72cc4ab3e3d9de7445de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscribers: []
+  enemyType: 2
 --- !u!1 &3171239212889721565
 GameObject:
   m_ObjectHideFlags: 0

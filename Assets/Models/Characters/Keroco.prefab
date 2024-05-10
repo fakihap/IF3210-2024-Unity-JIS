@@ -5055,6 +5055,7 @@ GameObject:
   - component: {fileID: 817390837492609422}
   - component: {fileID: 4541587279053169938}
   - component: {fileID: 4893798969517936117}
+  - component: {fileID: 8829802305861657111}
   m_Layer: 6
   m_Name: Keroco
   m_TagString: Enemy
@@ -5380,6 +5381,20 @@ MonoBehaviour:
       onHitAlpha: 1
       duration: 1
   canvas: {fileID: 0}
+--- !u!114 &8829802305861657111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642746332030584112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c263f41bb72cc4ab3e3d9de7445de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscribers: []
+  enemyType: 1
 --- !u!1 &4642746332030584114
 GameObject:
   m_ObjectHideFlags: 0

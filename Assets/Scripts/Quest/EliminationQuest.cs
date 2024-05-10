@@ -41,7 +41,8 @@ public class EliminationQuest : Quest
     
     public override string GetQuestMessage()
     {
-        return string.Format("Defeat enemies : {0} of {1}", currentCount, currentTargetCount);
+        string enemyDesc = enemyType == EnemyType.Any ? "any enemies" : enemyType.ToString();
+        return string.Format("Defeat {2} : {0} of {1}", currentCount, currentTargetCount, enemyDesc);
     }
 
     public override bool UpdateQuest()
