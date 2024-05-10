@@ -1,98 +1,94 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    public GameObject keroco;
-    public GameObject kepalaKeroco;
-    public GameObject jenderal;
+    public GameObject kerocoPrefab;
+    public GameObject kepalaKerocoPrefab;
+    public GameObject jenderalPrefab;
+    
     private int levelType;
+    private int levelBefore;
+    
     public List<Vector3> listPosition;
-    private float spawnKeroco;
-    private int spawnKepalaKeroco;
-    private int spawnJenderal;
+    
+    private float spawnKerocoInterval;
+    private float spawnKepalaKerocoInterval;
+    private float spawnJenderalInterval;
+    
     private float spawnKerocoTimer;
     private float spawnKepalaKerocoTimer;
     private float spawnJenderalTimer;
+    
     void Start()
     {
-        print("ini level berapa adik adick "+ CurrStateData.GetDifficultyLevel()); 
-        if(CurrStateData.GetDifficultyLevel() == null){
-            CurrStateData.SetDifficultyLevel(0);
-            ChangeLevel(1);
-        } 
-        else{
-            ChangeLevel(CurrStateData.GetDifficultyLevelIndex());
-        }
+        levelType = 0;
+        levelBefore = -1;
+        ChangeLevel(PlayerPrefs.GetInt("difficultyLevelIndex"));
     }
 
-    public void ChangeLevel(int type){
+    public void ChangeLevel(int type)
+    {
+        if (levelBefore == type)
+        {
+            return;
+        }
+        
         levelType = type;
-        print("ini ganti level berapa adik adick "+ CurrStateData.GetDifficultyLevel());  
+        levelBefore = type;
+        
         spawnKepalaKerocoTimer = 0f;
         spawnKerocoTimer = 0f;
         spawnJenderalTimer = 0f;
-        if(type==0 || CurrStateData.GetDifficultyLevel()==null){
-
-            spawnKeroco = 10;
-            spawnKepalaKeroco = 20;
-            spawnJenderal = 30;
+        
+        switch (type)
+        {
+            case 0:
+                spawnKerocoInterval = 10f;
+                spawnKepalaKerocoInterval = 20f;
+                spawnJenderalInterval = 30f;
+                break;
+            case 1:
+                spawnKerocoInterval = 5f;
+                spawnKepalaKerocoInterval = 10f;
+                spawnJenderalInterval = 15f;
+                break;
+            default:
+                spawnKerocoInterval = 3f;
+                spawnKepalaKerocoInterval = 6f;
+                spawnJenderalInterval = 9f;
+                break;
         }
-        else if(type==1){
-            spawnKeroco = 5;
-            spawnKepalaKeroco = 10;
-            spawnJenderal = 15;
-        }
-        else{
-            spawnKeroco = 3;
-            spawnKepalaKeroco = 6;
-            spawnJenderal = 9;
-        }
+        print("spawwnn "+spawnKerocoInterval+" "+spawnKepalaKerocoInterval+" "+spawnJenderalInterval);
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnKerocoTimer += Time.deltaTime;
-        if (spawnKerocoTimer >= spawnKeroco)
+        if (spawnKerocoTimer >= spawnKerocoInterval)
         {
-            // print("spawn kerocoooook");
-            Spawn(1);
+            SpawnEnemy(kerocoPrefab);
             spawnKerocoTimer = 0f;
         }
 
         spawnKepalaKerocoTimer += Time.deltaTime;
-        if (spawnKepalaKerocoTimer >= spawnKepalaKeroco)
+        if (spawnKepalaKerocoTimer >= spawnKepalaKerocoInterval)
         {
-            // print("spawn kerocoooook");
-            Spawn(2);
+            SpawnEnemy(kepalaKerocoPrefab);
             spawnKepalaKerocoTimer = 0f;
         }
 
-        print("spawn jenderal timer " + spawnJenderalTimer + " spawn jenderal: " + spawnJenderal);
         spawnJenderalTimer += Time.deltaTime;
-        if (spawnJenderalTimer >= spawnJenderal)
+        if (spawnJenderalTimer >= spawnJenderalInterval)
         {
-            Spawn(3);
+            SpawnEnemy(jenderalPrefab);
             spawnJenderalTimer = 0f;
         }
-
     }
 
-    void Spawn(int type){
-        Vector3 enemyPosition = listPosition[UnityEngine.Random.Range(0, listPosition.Count)];
-
-        Quaternion rotation = Quaternion.Euler(0, 0, 0);            
-        
-        if(type == 1)
-            Instantiate (keroco, enemyPosition, rotation);
-        else if(type == 2)
-            Instantiate (kepalaKeroco, enemyPosition, rotation);
-        else if(type == 3)
-            Instantiate (jenderal, enemyPosition, rotation);
+    void SpawnEnemy(GameObject enemyPrefab)
+    {
+        Vector3 enemyPosition = listPosition[Random.Range(0, listPosition.Count)];
+        Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
     }
 }
