@@ -7,5 +7,7 @@ using UnityEngine;
 [Serializable]
 public class StateData
 {
-    
+    public string playerName;
+    public int volume = 100;
+    public string difficulty = "easy";
 }

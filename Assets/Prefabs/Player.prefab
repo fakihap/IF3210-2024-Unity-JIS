@@ -754,6 +754,7 @@ MonoBehaviour:
   gunParticles: {fileID: 950089460772298822}
   gunBarrelEnd: {fileID: 2884904307103509807}
   bulletAngle: 3
+  playerHealth: {fileID: 345591742771806209}
 --- !u!1 &7996464875960511905
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +957,7 @@ MonoBehaviour:
   attackSpeed: 0.6
   range: 4
   attackSound: {fileID: 5481334971434064590}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!135 &1457380882465851091
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1744,9 +1746,6 @@ PrefabInstance:
       addedObject: {fileID: 345591742771806209}
     - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2883502623161188918}
-    - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 728054550856329800}
     - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
@@ -1757,6 +1756,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1078670418425374403}
+    - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3281458907856731139}
+    - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6941597116729907466}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1092956512825928575}
@@ -1827,6 +1832,7 @@ MonoBehaviour:
   gunLight: {fileID: 3932823814029953583}
   gunParticles: {fileID: 950089460772298822}
   gunBarrelEnd: {fileID: 2884904307103509807}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!82 &6299669464029412201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7076,6 +7082,7 @@ MonoBehaviour:
   - {fileID: 1092956512825928575}
   - {fileID: 441146631463676931}
   - {fileID: 2682546380177682136}
+  playerHealth: {fileID: 345591742771806209}
 --- !u!1 &2884904307103509863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
@@ -7247,23 +7254,6 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   godMode: 0
---- !u!114 &2883502623161188918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2884904307103509863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b2268f9c7df8764aa2e92dbf55b5ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  OrbIncreaseDamageCount: 0
-  DamageDecreaseByRaja: 0
-  saveText: {fileID: 0}
-  isFlash: 0
 --- !u!114 &728054550856329800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7341,3 +7331,43 @@ MonoBehaviour:
   - e
   - e
   - d
+--- !u!114 &3281458907856731139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884904307103509863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a2987849f2a4c4f9e9fa8afb68294f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  OrbIncreaseDamageCount: 0
+  DamageDecreaseByRaja: 0
+  saveText: {fileID: 0}
+  isFlash: 0
+--- !u!114 &-6941597116729907466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884904307103509863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55a29cd9fe3204e82ac91865cfbac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheatCodeOrbs:
+  - o
+  - r
+  - b
+  - p
+  - l
+  - s
+  orbs:
+  - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
+  - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
+  - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}

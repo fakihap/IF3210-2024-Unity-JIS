@@ -12,6 +12,7 @@ namespace Nightmare
         GameObject player;
         private List<GameObject> enemiesInsideCollider;
         Animator playerAnimator;
+        public PlayerHealth playerHealth;        
         void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -25,6 +26,10 @@ namespace Nightmare
 
             foreach (GameObject enemy in enemiesInsideCollider)
             {
+                if (enemy.Equals(null)) {
+                    enemiesInsideCollider.Remove(enemy);
+                    continue;
+                } 
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                 PetBuffHealth petBuffHealth = enemy.GetComponent<PetBuffHealth>();
                 if (!enemyHealth.IsUnityNull())
@@ -67,7 +72,8 @@ namespace Nightmare
                                         
                     petBuffHealth.TakeDamage(damage);
                     print("darah now pet " + petBuffHealth.currHealth);
-                }
+                }   
+            
             }
         }
 
@@ -76,7 +82,7 @@ namespace Nightmare
             timer += Time.deltaTime;
             // Debug.Log("Number of enemies inside the collider: " + enemiesInsideCollider.Count);
 
-            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused())
+            if (Input.GetButton("Fire1") && timer >= attackSpeed && !PauseManager.IsPaused() && !playerHealth.IsDead())
             {
                 playerAnimator.SetBool("IsSwordAttack", true);
                 if (enemiesInsideCollider.Count > 0)

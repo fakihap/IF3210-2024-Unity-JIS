@@ -10212,7 +10212,7 @@ MonoBehaviour:
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
   - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
   isDead: 0
-  defeatQuestNotifier: {fileID: 0}
+  eliminationQuestNotifier: {fileID: 0}
 --- !u!114 &1743799982165599309
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,9 +6,7 @@ using Unity.VisualScripting;
 [Serializable]
 public abstract class Quest : DirectableObject
 {
-    [SerializeField]
     protected bool isActive = false; // might delete this later as its purpose was only to tell us whether the quest is active or not
-    [SerializeField]
     protected bool isCompleted = false;
     
 # region Quest
@@ -23,6 +21,10 @@ public abstract class Quest : DirectableObject
     public abstract string GetQuestMessage();
 
     public virtual bool UpdateQuest() {
+        if (Input.GetKeyDown(KeyCode.Y)) { // cehat code, delete this later
+            ProgressQuest();
+        }
+
         if (IsCompleted()) {
             return false;
         }

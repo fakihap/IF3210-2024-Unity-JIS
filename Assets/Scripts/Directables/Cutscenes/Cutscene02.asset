@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2439633a04f911045963481b5b597c10, type: 3}
+  m_Name: Cutscene02
+  m_EditorClassIdentifier: 
+  precedingDirectables:
+  - {fileID: 11400000, guid: 7d923e4a0f3f7c247bf4c67efefa19c3, type: 2}
+  dialogues:
+  - name: You
+    text: w-wh-wh are you here?
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Sleep-walker
+    text: 'ho, i haven''t tell you yet, haven''t i? '
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Beg'-gadanh
+    text: right, i'm the boss. name is Beg'-gadanh. you need to take me down if you
+      want this nightmare to ends.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: i knew it. tch, the story can't be more cliche that this.
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: You
+    text: i hate you so much. go taste my arsenal of weapon Beg'-gadanh!
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  - name: Beg'-gadanh
+    text: that's spirit! come, our fight will be legendary
+    camTransform:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+  sceneName: Cutscene02

@@ -21,11 +21,16 @@ public class CurrStateData
 
     //public static float startTime = 0;
     //public static float elapsedTime = 0;
-    static CurrStateData currStateData;
+    public static StateData stateData;
+    public static CurrStateData currStateData;
+
 
     public CurrStateData()
     {
         currGameData = new GameData();
+        stateData = new StateData();
+        currGameData.playerName = stateData.playerName;
+        currGameData.volume= stateData.volume;
         currGameData.motherlode = false;
         currGameData.hitCount = 0;
         currGameData.shotCount = 0;
@@ -171,5 +176,75 @@ public class CurrStateData
     public static int getHoursPlaying()
     {
         return Mathf.FloorToInt(currGameData.elapsedTime / 3600f);
+    }
+
+    public static int GetVolume()
+    {
+        return stateData.volume;
+    }
+
+    public static void ChangeVolume(int amount)
+    {
+        stateData.volume += amount;
+        stateData.volume = Math.Min(Math.Max(stateData.volume, 0), 100);
+    }
+
+    public static string GetPlayerName()
+    {
+        return currGameData.playerName;
+    }
+
+    public static void ChangePlayerName(string name)
+    {
+        currGameData.playerName = name;
+    }
+
+    public static void SetDifficultyLevel(int difficultyIndex)
+    {
+        if(difficultyIndex == 0)
+        {
+            currGameData.difficultyLevel = "easy";
+        }
+        else if(difficultyIndex == 1)
+        {
+            currGameData.difficultyLevel = "medium";
+        }
+        else
+        {
+            currGameData.difficultyLevel = "hard";
+        }
+    }
+
+    public static string GetStateDataDifficulty()
+    {
+        return stateData.difficulty;
+    }
+
+    public static string GetDifficultyLevel()
+    {
+        return currGameData.difficultyLevel;
+    }
+
+    public static int GetDifficultyLevelIndex()
+    {
+        if(currGameData.difficultyLevel == "easy")
+        {
+            return 0;
+        }
+        else if(currGameData.difficultyLevel == "medium")
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
+
+    public static void UpdateStateData()
+    {
+        stateData.playerName = currGameData.playerName;
+        stateData.volume = currGameData.volume;
+        stateData.difficulty = currGameData.difficultyLevel;
     }
 }
