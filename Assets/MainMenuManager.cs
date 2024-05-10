@@ -10,7 +10,7 @@ public class MainMenuManager : MonoBehaviour
     public Button exitButton;
     public Button statsButton;
     public Button settingsButton;
-    public StatsManager statsManager;
+    public StatsManagerMainMenu statsManager;
     public SettingsManager settingsManager;
     public Button closeSettingsButton;
     public Button closeStatisticButton;
