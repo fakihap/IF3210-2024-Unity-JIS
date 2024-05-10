@@ -201,6 +201,7 @@ public class HealthBar : MonoBehaviour {
 
 	public void DisableHealthBar()
 	{
+		Destroy(HealthbarPrefab.gameObject);
 		canvasGroup.alpha = 0;
 	}
 }

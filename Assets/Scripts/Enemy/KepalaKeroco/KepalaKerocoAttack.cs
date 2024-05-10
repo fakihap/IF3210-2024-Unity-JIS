@@ -48,7 +48,6 @@ namespace Nightmare
             {
                 print("attack kepalakeroco");
                 Attack();
-                attackTimer = 0f;
             }
         }
 
@@ -87,7 +86,6 @@ namespace Nightmare
         }
 
         public void AttackComponent(int type){
-            attackTimer = 0f;
 
             shootRay.origin = transform.position;
             shootRay.direction = transform.forward;
@@ -107,6 +105,7 @@ namespace Nightmare
 
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
+                attackTimer = 0f;
                 attackSound.Play();
 
                 gunLight.enabled = true;

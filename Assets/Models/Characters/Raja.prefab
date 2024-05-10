@@ -15855,11 +15855,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa10cc87aff30c04dbe0aa648f5b6adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 500
+  startingHealth: 2000
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 0}
-  currentHealth: 500
+  currentHealth: 2000
   orbs: []
   petBuffer: {fileID: 0}
   petBufferRaja1: {fileID: 2851803939846499471}

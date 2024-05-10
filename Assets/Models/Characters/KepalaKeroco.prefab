@@ -9970,7 +9970,7 @@ Transform:
   m_GameObject: {fileID: 2931769509966874563}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10202,15 +10202,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa10cc87aff30c04dbe0aa648f5b6adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 500
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
-  currentHealth: 100
+  currentHealth: 500
   orbs:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
   - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
+  petBuffer: {fileID: 0}
+  petBufferRaja1: {fileID: 0}
+  petBufferRaja2: {fileID: 0}
   isDead: 0
   eliminationQuestNotifier: {fileID: 0}
 --- !u!114 &1743799982165599309

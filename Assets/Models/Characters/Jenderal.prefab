@@ -5430,16 +5430,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa10cc87aff30c04dbe0aa648f5b6adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 1000
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
-  currentHealth: 100
+  currentHealth: 1000
   orbs:
   - {fileID: 8186544323179993974, guid: 4cf5b84d8c772e44daf185f708cddb36, type: 3}
   - {fileID: 8186544323179993974, guid: ffecabbf629397f42b11f586eb845946, type: 3}
   - {fileID: 8186544323179993974, guid: dcfd611633bd3a74db6d387ebe2006d3, type: 3}
   petBuffer: {fileID: 889474959574789929}
+  petBufferRaja1: {fileID: 0}
+  petBufferRaja2: {fileID: 0}
   isDead: 0
   eliminationQuestNotifier: {fileID: 0}
 --- !u!114 &8759247469298852745
