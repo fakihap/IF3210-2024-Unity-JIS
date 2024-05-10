@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
         print("ini level berapa adik adick "+ CurrStateData.GetDifficultyLevel()); 
         if(CurrStateData.GetDifficultyLevel() == null){
             CurrStateData.SetDifficultyLevel(0);
-            ChangeLevel(0);
+            ChangeLevel(1);
         } 
         else{
             ChangeLevel(CurrStateData.GetDifficultyLevelIndex());
