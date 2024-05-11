@@ -40,6 +40,14 @@ public class GameDirector : MonoBehaviour
 
     void Update() {
         UpdateDirector();
+
+        foreach(DirectableObject directable in directables) {
+            if (!directable.IsCompleted()) {
+                return;
+            }
+        }
+
+        Application.Quit();
     }
     public void UpdateDirector() {
         if (!isDirecting) {
