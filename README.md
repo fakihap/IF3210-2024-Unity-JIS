@@ -55,7 +55,7 @@ Pada proses pengerjaannya, kami menggunakan beberapa library yang dapat membantu
 ## Screenshots Aplikasi
 Berikut adalah beberapa tampilan dari aplikasi _Sharp Shooter_:
 <p>
-  <img src="/screenshots/SS1.png/">
+  <!-- <img src="/screenshots/SS1.png/">
   <p>Gambar 1. Main Menu</p>
   <nl>
   <img src="/screenshots/SS2.png/">
@@ -66,7 +66,7 @@ Berikut adalah beberapa tampilan dari aplikasi _Sharp Shooter_:
   <nl>
   <img src="/screenshots/SS4.png/">
   <p>Gambar 4. Game Play</p>
-  <nl>
+  <nl> -->
   <img src="/screenshots/SS5.png/">
   <p>Gambar 5. Load Game</p>
   <nl>
