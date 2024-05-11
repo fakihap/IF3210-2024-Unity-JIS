@@ -61,6 +61,7 @@ public class MainMenuManager : MonoBehaviour
         if (FileManager.LoadFromFile("Slot1.dat", out output))
         {
             print("Slot 1 output" + output);
+            CurrStateData.currGameData.directablesCompletion = new List<int>();
             CurrStateData.LoadFromJson(output);
             CurrStateData.currGameData.currentSlot = 1;
         } else
@@ -76,6 +77,7 @@ public class MainMenuManager : MonoBehaviour
         if (FileManager.LoadFromFile("Slot2.dat", out output))
         {
             print("Slot 2 output" + output);
+            CurrStateData.currGameData.directablesCompletion = new List<int>();
             CurrStateData.LoadFromJson(output);
             CurrStateData.currGameData.currentSlot = 2;
         } else
@@ -91,6 +93,7 @@ public class MainMenuManager : MonoBehaviour
         if (FileManager.LoadFromFile("Slot3.dat", out output))
         {
             print("Slot 3 output" + output);
+            CurrStateData.currGameData.directablesCompletion = new List<int>();
             CurrStateData.LoadFromJson(output);
             CurrStateData.currGameData.currentSlot = 3;
         } else
