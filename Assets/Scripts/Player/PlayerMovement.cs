@@ -102,6 +102,8 @@ namespace Nightmare
 
             currFileName += CurrStateData.currGameData.currentSlot.ToString() + ".dat";
 
+            CurrStateData.currGameData.playerCoordinates = transform.position;
+
             print("Current slot: " + CurrStateData.currGameData.currentSlot.ToString());
             print("Current file name: " + currFileName);
 
