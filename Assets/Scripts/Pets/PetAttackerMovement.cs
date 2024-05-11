@@ -35,6 +35,17 @@ public class PetAttackerMovement : MonoBehaviour
     void Update()
     {
         move = false;
+        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if(distanceToPlayer > 15)
+        {
+            LookAt(player.transform);
+            move = true;
+            _anim.SetBool("IsMoving", move);
+            nav.SetDestination(player.transform.position);
+            return;
+        }
 
         if(Damageables.Count > 0)
         {

@@ -32,36 +32,24 @@ namespace Nightmare
             StopPausible();
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            // If the entering collider is the player...
-            if (other.gameObject == player)
-            {
-                // ... the player is in range.
-                playerInRange = true;
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            // If the exiting collider is the player...
-            if (other.gameObject == player)
-            {
-                // ... the player is no longer in range.
-                playerInRange = false;
-            }
-        }
-
         void Update()
         {
             if (isPaused)
                 return;
 
-            timer += Time.deltaTime;
 
-            if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+            Attack();
+
+            if (playerHealth.currentHealth <= 0)
             {
-                // ... attack.
+                anim.SetTrigger("PlayerDead");
+            }
+        }
+
+        void Attack(){
+            timer += Time.deltaTime;
+            if (timer >= timeBetweenAttacks && PlayerInRange() && enemyHealth.currentHealth > 0)
+            {
                 AttackPlayer();
             }
             if(timer >= timeBetweenAttacks && PetHealerInRange() && enemyHealth.currentHealth > 0)
@@ -72,51 +60,30 @@ namespace Nightmare
             {
                 AttackAttacker();
             }
-
-            // If the player has zero or less health...
-            if (playerHealth.currentHealth <= 0)
-            {
-                // ... tell the animator the player is dead.
-                anim.SetTrigger("PlayerDead");
-            }
         }
 
         void AttackPlayer()
         {
-            // Reset the timer.
             timer = 0f;
-
-            // If the player has health to lose...
-            if (playerHealth.currentHealth > 0)
-            {
-                // ... damage the player.
-                playerHealth.TakeDamage(attackDamage);
-            }
+            playerHealth.TakeDamage(attackDamage);
         }
         void AttackHelaer()
         {
-            // Reset the timer.
             timer = 0f;
 
-            // If the player has health to lose...
             PetHealerHealth petHealerHealth = GameObject.FindGameObjectWithTag("PetHealer").GetComponent<PetHealerHealth>();
             if (petHealerHealth.currHealth > 0)
             {
-                // ... damage the player.
-                print("attack healer take damage"+ petHealerHealth.currHealth +" "+attackDamage);
                 petHealerHealth.TakeDamage(attackDamage);
             }
         }
         void AttackAttacker()
         {
-            // Reset the timer.
             timer = 0f;
 
-            // If the player has health to lose...
-            PetAttackerHealth petAttackerHealth = player.GetComponent<PetAttackerHealth>().GetComponent<PetAttackerHealth>();
+            PetAttackerHealth petAttackerHealth = GameObject.FindGameObjectWithTag("PetAttacker").GetComponent<PetAttackerHealth>();
             if (petAttackerHealth.currHealth > 0)
             {
-                // ... damage the player.
                 petAttackerHealth.TakeDamage(attackDamage);
             }
         }

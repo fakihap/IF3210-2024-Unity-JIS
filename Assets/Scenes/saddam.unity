@@ -662,6 +662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jenderal
       objectReference: {fileID: 0}
+    - target: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8290378236680808136, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1628,7 +1632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5960281513326329832, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
       propertyPath: speed
@@ -2417,6 +2421,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 673485056}
+    - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
+      propertyPath: startingHealth
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 2884904307103215961, guid: c253978afeb03a947a5e94c90565af49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -2742,6 +2750,18 @@ PrefabInstance:
       objectReference: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
     - target: {fileID: 5477680429658147910, guid: 865ea5b1ba30d1a409ed5a0a867aa4fb, type: 3}
       propertyPath: kepalaKeroco
+      value: 
+      objectReference: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
+    - target: {fileID: 5477680429658147910, guid: 865ea5b1ba30d1a409ed5a0a867aa4fb, type: 3}
+      propertyPath: kerocoPrefab
+      value: 
+      objectReference: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
+    - target: {fileID: 5477680429658147910, guid: 865ea5b1ba30d1a409ed5a0a867aa4fb, type: 3}
+      propertyPath: jenderalPrefab
+      value: 
+      objectReference: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
+    - target: {fileID: 5477680429658147910, guid: 865ea5b1ba30d1a409ed5a0a867aa4fb, type: 3}
+      propertyPath: kepalaKerocoPrefab
       value: 
       objectReference: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
     m_RemovedComponents: []
