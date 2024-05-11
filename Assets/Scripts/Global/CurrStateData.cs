@@ -165,7 +165,7 @@ public class CurrStateData
 
     public static int GetNextPet()
     {
-        GetInstance();
+        // GetInstance();
         if(currGameData.pets.Count > 1)
         {
             return currGameData.pets[1];
@@ -178,7 +178,7 @@ public class CurrStateData
 
     public static int GetPetAtIndex(int i)
     {
-        GetInstance();
+        // GetInstance();
         if(i >= 0 && i < currGameData.pets.Count)
         {
             return currGameData.pets[i];
