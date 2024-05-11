@@ -23,6 +23,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI dialogueText;
 
+    private Vector3 previousPlayerPosition;
+    private bool dueToRepositioning = false;
+
 
     [Header("Dialogues")]
     
@@ -50,6 +53,12 @@ public class CutsceneManager : MonoBehaviour
         // Debug.Log("OnSceneLoaded: " + scene.name);
         
         mainCamera = Camera.main;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && dueToRepositioning) {
+            player.transform.position = previousPlayerPosition;
+            dueToRepositioning = false;
+        }
 
         // these needs the name used to be the same
         try 
@@ -134,6 +143,11 @@ public class CutsceneManager : MonoBehaviour
 
         nameText.enabled = false;
         dialogueText.enabled = false;
+    }
+    
+    public void SetPreviousPosition(Vector3 pos) {
+        previousPlayerPosition = pos;
+        dueToRepositioning = true;
     }
 }
  

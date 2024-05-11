@@ -72,13 +72,19 @@ public class Cutscene : DirectableObject
         // Debug.LogAssertion("Starting cutscene");
         previousSceneName = SceneManager.GetActiveScene().name;
 
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) {
+            CutsceneManager.Instance.SetPreviousPosition(player.transform.position);
+        }
+        
+
         SceneManager.LoadScene(sceneName); // may result in error missing scene name
         CutsceneManager.Instance.SetCurrentCutscene(this);
     }
 
     protected override void EndDirectable() {
-        // Debug.Log("SOMEHOWN ENDING THIS CTWSC");
         isActive = false;
+
         SceneManager.LoadScene(previousSceneName);
     }
 
