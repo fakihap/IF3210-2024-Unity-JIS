@@ -30,10 +30,7 @@ public class PetManager : MonoBehaviour
             SpawnCurrPet();
             isSpawnNewPet = false;
         }
-    }
 
-    public void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("Ganti Pet");
@@ -41,8 +38,15 @@ public class PetManager : MonoBehaviour
         } 
     }
 
+    public void FixedUpdate()
+    {
+
+    }
+
     public void SpawnCurrPet()
     {
+        print("pets:" +  CurrStateData.currGameData.pets[0] + " "+ CurrStateData.currGameData.pets[1] );
+        print("pets health:" +CurrStateData.currGameData.petHealth[0] + " "+ CurrStateData.currGameData.petHealth[1]);
         int petId = CurrStateData.GetCurrentPet();
         Debug.Log("Curr PetID: " + petId);
         if(petId != -1)

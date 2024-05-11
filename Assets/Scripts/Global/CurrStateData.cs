@@ -67,6 +67,7 @@ public class CurrStateData
         GetInstance();
         currGameData.coin = 30000;
         currGameData.pets = new List<int>();
+        currGameData.petHealth = new List<int>();
         currGameData.currPetHealth = -1;
     }
 
@@ -104,6 +105,7 @@ public class CurrStateData
     {
         GetInstance();
         currGameData.pets = new List<int>();
+        currGameData.petHealth = new List<int>();
     }
 
     public static bool HasPetAttacker(){
@@ -201,10 +203,8 @@ public class CurrStateData
             currGameData.pets[0] = currGameData.pets[1];
             currGameData.pets[1] = temp;
 
-            currGameData.petHealth[0] = currGameData.currPetHealth; 
-            int tempPetHealth = currGameData.petHealth[0];
             currGameData.petHealth[0] = currGameData.petHealth[1];
-            currGameData.petHealth[1] = tempPetHealth; 
+            currGameData.petHealth[1] = currGameData.currPetHealth; 
             currGameData.currPetHealth = currGameData.petHealth[0];
         }
         else
