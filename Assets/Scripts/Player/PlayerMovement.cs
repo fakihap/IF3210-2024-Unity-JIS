@@ -39,6 +39,7 @@ namespace Nightmare
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
 
+            print("kecepatan palyer "+speed);
 
             if (canSave)
             {
@@ -178,7 +179,7 @@ namespace Nightmare
         {
             speed = originalSpeed * multiplier; // meningkatkan kecepatan sesuai multiplier
             yield return new WaitForSeconds(duration);
-            speed /= multiplier; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
+            speed = originalSpeed; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
         }
         public void AddOrbIncreseDamage(){
             OrbIncreaseDamageCount++;
