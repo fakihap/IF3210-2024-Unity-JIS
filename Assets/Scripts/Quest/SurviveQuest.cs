@@ -65,8 +65,8 @@ public class SurviveQuest : Quest
 
     public override void ResetProgress()
     {
-        base.ResetProgress();
-
         currentSurviveDuration = surviveDuration;
+        
+        base.ResetProgress();
     }
 }

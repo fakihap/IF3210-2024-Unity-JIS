@@ -95,7 +95,8 @@ public abstract class Quest : DirectableObject
     public override void ResetProgress()
     {
         // shud also have nothing
-        // only eliminationQuest will override it
+        // only eliminationQuest and surviveQuest will override it
+        QuestManager.Instance.UpdateUI(); // shud be called last
     }
     #endregion
 

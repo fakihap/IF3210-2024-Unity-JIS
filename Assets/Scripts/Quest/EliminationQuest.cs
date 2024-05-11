@@ -72,8 +72,8 @@ public class EliminationQuest : Quest
     // need to recheck this
     public override void ResetProgress()
     {
-        base.ResetProgress();
-
         currentCount = 0;
+        
+        base.ResetProgress();
     }
 }
