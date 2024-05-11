@@ -141,7 +141,7 @@ namespace Nightmare
 
         public void OrbRestoreHealth()
         {
-            AddHealth(currentHealth/5);
+            AddHealth(startingHealth/5);
         }
 
         public void setNoDmg() {
