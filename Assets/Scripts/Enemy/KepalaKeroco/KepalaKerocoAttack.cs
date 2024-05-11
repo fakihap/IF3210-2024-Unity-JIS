@@ -48,10 +48,6 @@ namespace Nightmare
                 print("attack kepalakeroco");
                 Attack();
             }
-            {
-                print("attack kepalakeroco");
-                Attack();
-            }
         }
 
         public void Attack()
@@ -176,7 +172,7 @@ namespace Nightmare
                 gunLine3.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, bulletAngle, 0f) * shootRay.direction * range);
                 gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);
 
-                Invoke("DisableGunLine", 0.5f);
+                Invoke("DisableGunLine", 0.1f);
             }
             else
             {
