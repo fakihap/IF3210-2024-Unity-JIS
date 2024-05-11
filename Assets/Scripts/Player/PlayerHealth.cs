@@ -15,6 +15,7 @@ namespace Nightmare
         public float flashSpeed = 5f;
         public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
         public bool godMode = false;
+        public GameObject deathCanvas;
 
         Animator anim;
         AudioSource playerAudio;
@@ -128,6 +129,8 @@ namespace Nightmare
             // Turn off the movement and shooting scripts.
             playerMovement.enabled = false;
             // playerShooting.enabled = false;
+
+            deathCanvas.SetActive(true);
         }
 
         public void RestartLevel()
