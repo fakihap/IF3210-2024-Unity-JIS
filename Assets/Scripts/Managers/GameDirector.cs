@@ -31,6 +31,7 @@ public class GameDirector : MonoBehaviour
         }
 
         // we start directing
+        Instance.LoadDirectables();
         isDirecting = true;
     }
 

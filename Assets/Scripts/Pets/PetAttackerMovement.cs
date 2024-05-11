@@ -45,6 +45,7 @@ public class PetAttackerMovement : MonoBehaviour
             move = true;
             _anim.SetBool("IsMoving", move);
             nav.SetDestination(player.transform.position);
+            closestDamageable =   null;
             return;
         }
 

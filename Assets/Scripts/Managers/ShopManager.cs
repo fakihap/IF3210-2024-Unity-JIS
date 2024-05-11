@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour
     public GameObject shopCanvas;
     // public GameObject enemyManager;
     private float startTime;
-    public float timeLimit;
+    public float timeLimit=30;
     private static readonly int BuyClick = Animator.StringToHash("BuyClick");
     private static readonly int BuyErrorClick = Animator.StringToHash("BuyErrorClick");
 

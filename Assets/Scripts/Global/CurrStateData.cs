@@ -30,6 +30,8 @@ public class CurrStateData
         currGameData.enemyKilled = 0;
         currGameData.startTime = 0;
 
+        currGameData.directablesCompletion = new List<int>();
+
         Debug.Log("I'm changing the slot number to " + slotNumber);
         currGameData.currentSlot = slotNumber;
         currGameData.elapsedTime = 0;
@@ -54,6 +56,10 @@ public class CurrStateData
         {
             currStateData = new CurrStateData(3);
             Debug.Log("Creating slot 3");
+        } else
+        {
+            currStateData = new CurrStateData(1);
+            Debug.Log("Overwriting slot 1");
         }
 
         return currStateData;
@@ -85,6 +91,7 @@ public class CurrStateData
         currGameData.pets = new List<int>();
         currGameData.petHealth = new List<int>();
         currGameData.currPetHealth = -1;
+        currGameData.directablesCompletion = new List<int>();
     }
 
     public static int GetCurrentCoin()
@@ -346,7 +353,7 @@ public class CurrStateData
 
 # region GameDirector
     public static void SaveGameProgress(List<DirectableObject> directables) {
-        currGameData.directablesCompletion = directables.Select((directable, _) => directable.IsCompleted()).ToArray();
+        currGameData.directablesCompletion = directables.Select((directable, _) => directable.IsCompleted() ? 1 : 0).ToList();
     }
 
     public static void LoadGameProgress(ref List<DirectableObject> directables) {
@@ -354,13 +361,13 @@ public class CurrStateData
         // error may occur if we change quests data
         // TODO : have it make an assumption, 
         //        ensuring it always works even though with unexpected behavior
-        if (directables.Count != currGameData.directablesCompletion.Length) {
+        if (directables.Count != currGameData.directablesCompletion.Count) {
             Debug.LogError("CurrStateData : difference length of directables list and gamedata completion array");
         }
 
         // update completion for each directables
         for (int i = 0; i < directables.Count; i++) {
-            directables[i].SetCompletion(currGameData.directablesCompletion[i]);
+            directables[i].SetCompletion(currGameData.directablesCompletion[i] == 1 ? true : false);
         }   
     }
 # endregion

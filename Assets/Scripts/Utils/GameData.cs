@@ -34,7 +34,7 @@ public struct GameData
     public List<RajaState> rajaList;
 
 # region GameDirector
-    public bool[] directablesCompletion;
+    public List<int> directablesCompletion;
 # endregion
 
 }

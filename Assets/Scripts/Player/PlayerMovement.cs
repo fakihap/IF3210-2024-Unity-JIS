@@ -111,6 +111,9 @@ namespace Nightmare
 
             CurrStateData.currGameData.playerCoordinates = transform.position;
 
+            // save progress
+            GameDirector.Instance.SaveDirectables();
+
             print("Current slot: " + CurrStateData.currGameData.currentSlot.ToString());
             print("Current file name: " + currFileName);
 
@@ -120,8 +123,6 @@ namespace Nightmare
                 print("Save successful to " + currFileName);
                 // CurrStateData.currGameData.distanceTravelled = 0;
             }
-            
-
         }
 
         private void OnTriggerExit(Collider other)

@@ -88,17 +88,17 @@ namespace Nightmare
 
             shootRay.origin = transform.position;
             shootRay.direction = transform.forward;
-
+            
             if(type==0){
                 shootableMask = LayerMask.GetMask("Player");
                 print("masuk player");
             }
             else if(type==1){
-                shootableMask = LayerMask.GetMask("Environment");
+                shootableMask = LayerMask.GetMask("Shootable");
                 print("masuk healer");
             }
             else if(type==2){
-                shootableMask = LayerMask.GetMask("Environment");
+                shootableMask = LayerMask.GetMask("Shootable");
                 print("masuk attacker");
             }
 
