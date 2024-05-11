@@ -54,6 +54,10 @@ public class CurrStateData
         {
             currStateData = new CurrStateData(3);
             Debug.Log("Creating slot 3");
+        } else
+        {
+            currStateData = new CurrStateData(1);
+            Debug.Log("Overwriting slot 1");
         }
 
         return currStateData;
