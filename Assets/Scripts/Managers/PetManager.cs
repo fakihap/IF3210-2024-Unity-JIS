@@ -24,14 +24,7 @@ public class PetManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isSpawnNewPet)
-        {
-            Debug.Log("Spawn New Pet");
-            SpawnCurrPet();
-            isSpawnNewPet = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && (CurrStateData.currGameData.pets.Count > 1))
         {
             Debug.Log("Ganti Pet");
             SwitchPet();
@@ -40,13 +33,18 @@ public class PetManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-
+        if(isSpawnNewPet)
+        {
+            Debug.Log("Spawn New Pet");
+            SpawnCurrPet();
+            isSpawnNewPet = false;
+        }
     }
 
     public void SpawnCurrPet()
     {
-        print("pets:" +  CurrStateData.currGameData.pets[0] + " "+ CurrStateData.currGameData.pets[1] );
-        print("pets health:" +CurrStateData.currGameData.petHealth[0] + " "+ CurrStateData.currGameData.petHealth[1]);
+        print("pets:" +  CurrStateData.currGameData.pets[0] + " ");
+        print("pets health:" +CurrStateData.currGameData.petHealth[0] + " ");
         int petId = CurrStateData.GetCurrentPet();
         Debug.Log("Curr PetID: " + petId);
         if(petId != -1)
