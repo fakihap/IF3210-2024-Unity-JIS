@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
     private float spawnKerocoTimer;
     private float spawnKepalaKerocoTimer;
     private float spawnJenderalTimer;
+
+    [SerializeField] private EnemyType enemyType;
     
     void Start()
     {
@@ -64,11 +66,28 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        // will only spawn desired enemy type
+        SpawnKeroco();
+        SpawnKepalaKeroco();
+        SpawnJenderal();
+    }
+
+    void SpawnKeroco() {
+        if (enemyType != EnemyType.Keroco && enemyType != EnemyType.Any) {
+            return;
+        }
+
         spawnKerocoTimer += Time.deltaTime;
         if (spawnKerocoTimer >= spawnKerocoInterval)
         {
             SpawnEnemy(kerocoPrefab);
             spawnKerocoTimer = 0f;
+        }
+    }
+
+    void SpawnKepalaKeroco() {
+        if (enemyType != EnemyType.KepalaKeroco && enemyType != EnemyType.Any) {
+            return;
         }
 
         spawnKepalaKerocoTimer += Time.deltaTime;
@@ -76,6 +95,12 @@ public class EnemyManager : MonoBehaviour
         {
             SpawnEnemy(kepalaKerocoPrefab);
             spawnKepalaKerocoTimer = 0f;
+        }
+    }
+
+    void SpawnJenderal() {
+        if (enemyType != EnemyType.Jenderal && enemyType != EnemyType.Any) {
+            return;
         }
 
         spawnJenderalTimer += Time.deltaTime;
