@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2439633a04f911045963481b5b597c10, type: 3}
+  m_Name: Cutscene02_Win
+  m_EditorClassIdentifier: 
+  precedingDirectables:
+  - {fileID: 11400000, guid: 360032d5bccbfd347a09fa43c2730fc1, type: 2}
+  dialogues:
+  - name: Beg'-gadanh
+    text: as i thought, you will always best me
+    camTransform:
+      position: {x: 21.04, y: 1, z: 12.95373}
+      rotation: {x: 355.03, y: 245.30002, z: -0.0030041984}
+  - name: You
+    text: stand proud, Beg'-gadanh
+    camTransform:
+      position: {x: 14.342, y: 1.972, z: 11.471}
+      rotation: {x: 357.1809, y: 240.4516, z: -0.003804324}
+  - name: You
+    text: you are strong
+    camTransform:
+      position: {x: 8.53, y: 3.24, z: -2.01}
+      rotation: {x: 3.025062, y: 298.8929, z: -0.002971217}
+  - name: You
+    text: i shall never forget you as long as i live
+    camTransform:
+      position: {x: -7.249651, y: 3.74814, z: 2.623623}
+      rotation: {x: 6.634695, y: 67.63662, z: -0.001086016}
+  - name: Beg'-gadanh
+    text: see you, good night(mare).
+    camTransform:
+      position: {x: 14.45, y: 1.39, z: 9.1}
+      rotation: {x: 11.44754, y: 29.47742, z: -0.001791858}
+  sceneName: Cutscene02

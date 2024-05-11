@@ -60,7 +60,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d923e4a0f3f7c247bf4c67efefa19c3, type: 2}
   - {fileID: 11400000, guid: 360032d5bccbfd347a09fa43c2730fc1, type: 2}
   - {fileID: 11400000, guid: 743b959b96aceb74fad9f726ea0ca5bf, type: 2}
+  - {fileID: 11400000, guid: e680995c40d429b4fa43a99f7ff8ea20, type: 2}
   isDirecting: 0
+  isBossReady: 0
 --- !u!114 &5073501291064953386
 MonoBehaviour:
   m_ObjectHideFlags: 0
