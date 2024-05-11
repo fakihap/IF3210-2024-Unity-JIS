@@ -24,6 +24,15 @@ public class PetManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P) && (CurrStateData.currGameData.pets.Count > 1))
+        {
+            Debug.Log("Ganti Pet");
+            SwitchPet();
+        } 
+    }
+
+    public void FixedUpdate()
+    {
         if(isSpawnNewPet)
         {
             Debug.Log("Spawn New Pet");
@@ -34,6 +43,8 @@ public class PetManager : MonoBehaviour
 
     public void SpawnCurrPet()
     {
+        print("pets:" +  CurrStateData.currGameData.pets[0] + " ");
+        print("pets health:" +CurrStateData.currGameData.petHealth[0] + " ");
         int petId = CurrStateData.GetCurrentPet();
         Debug.Log("Curr PetID: " + petId);
         if(petId != -1)
@@ -63,6 +74,7 @@ public class PetManager : MonoBehaviour
                     var petHealth = pet.GetComponent<PetHealth>();
                     if (petHealth != null)
                     {
+                        petHealth.currHealth = CurrStateData.currGameData.currPetHealth;
                         petHealth.SetManager(this);
                     }
                     else
@@ -87,6 +99,7 @@ public class PetManager : MonoBehaviour
                 var petHealth = pet.GetComponent<PetHealth>();
                 if (petHealth != null)
                 {
+                    petHealth.currHealth = CurrStateData.currGameData.currPetHealth;                       
                     petHealth.SetManager(this);
                 }
                 else
@@ -115,8 +128,35 @@ public class PetManager : MonoBehaviour
             var petHealth = pet.GetComponent<PetHealth>();
             if (petHealth != null)
             {
+                petHealth.currHealth = CurrStateData.currGameData.petHealth[0];                
                 petHealth.SetManager(this);
             }
+        }
+    }
+
+    private void SwitchPet()
+    { 
+        DestroyCurrentPet();
+        CurrStateData.SwitchPets();
+        SpawnCurrPet();
+    }
+
+    private void DestroyCurrentPet()
+    {
+        GameObject currentPet;
+        if(CurrStateData.GetCurrentPet() == 0)
+        {
+            Debug.Log("Remove Pet Attacker");
+            currentPet = GameObject.FindGameObjectWithTag("PetAttacker");
+        }
+        else
+        {
+            Debug.Log("Remove Pet Healer");
+            currentPet = GameObject.FindGameObjectWithTag("PetHealer");
+        }
+        if (currentPet != null)
+        {
+            Destroy(currentPet);
         }
     }
 }

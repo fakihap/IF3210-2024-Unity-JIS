@@ -55,16 +55,16 @@ Pada proses pengerjaannya, kami menggunakan beberapa library yang dapat membantu
 ## Screenshots Aplikasi
 Berikut adalah beberapa tampilan dari aplikasi _Sharp Shooter_:
 <p>
-  <img src="/screenshots/1.png/">
+  <img src="/screenshots/ss1.png/">
   <p>Gambar 1. Main Menu</p>
   <nl>
-  <img src="/screenshots/2.png/">
+  <img src="/screenshots/ss2.png/">
   <p>Gambar 2. Settings</p>
   <nl>
-  <img src="/screenshots/3.png/">
+  <img src="/screenshots/ss3.png/">
   <p>Gambar 3. Statistics</p>
   <nl>
-  <img src="/screenshots/4.png/">
+  <img src="/screenshots/ss4.png/">
   <p>Gambar 4. Load Page</p>
   <nl>
 </p>

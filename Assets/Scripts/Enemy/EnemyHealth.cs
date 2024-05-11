@@ -105,24 +105,20 @@ namespace Nightmare
             // set dead
             eliminationQuestNotifier.NotifyElimination();
 
-            // i want to destroy the enemy
             JenderalMovement jenderalMovement = GameObject.FindGameObjectWithTag("Enemy").GetComponent<JenderalMovement>();
-            // if(!jenderalMovement.IsUnityNull()) {
-            //     print("Jenderal is not null");
-            // }
+
             StartSinking();
             print("this is enemy namaaa "+ gameObject.name);
             if(gameObject.GetType().Name == "Jenderal") {
                 print("masuk jenderall lalalala");
             }
-            // Destroy(gameObject, 2f);
         }
 
         public void SpawnOrb()
         {
             print("Spawn orb");
             float random = Random.Range(0f, 1f);
-            if(random>0.5f)
+            if(random>0.8f)
             {
                 return;
             }
@@ -155,10 +151,7 @@ namespace Nightmare
             else if(gameObject.name=="Raja"){
                 if (!petBufferRaja1.Equals(null)) petBufferRaja1.GetComponent<PetBuffHealth>().TakeDamage(100);
                 if (!petBufferRaja2.Equals(null)) petBufferRaja2.GetComponent<PetBuffHealth>().TakeDamage(100);                
-                // if(!petBufferRaja1.IsUnityNull()){
-                // }
-                // if(!petBufferRaja2.IsUnityNull()){
-                // }
+
             }
 
             Destroy(gameObject, 1f);

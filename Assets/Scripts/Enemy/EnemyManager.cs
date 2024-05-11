@@ -26,17 +26,21 @@ public class EnemyManager : MonoBehaviour
     
     void Start()
     {
-        levelType = 0;
+        levelType = PlayerPrefs.GetInt("difficultyLevelIndex");
         levelBefore = -1;
         ChangeLevel(PlayerPrefs.GetInt("difficultyLevelIndex"));
     }
 
     public void ChangeLevel(int type)
     {
+
+        print("type "+type+" levelBefore "+levelBefore);
         if (levelBefore == type)
         {
             return;
         }
+
+        print("masuk change level");
         
         levelType = type;
         levelBefore = type;
@@ -69,15 +73,21 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         // will only spawn desired enemy type
+        ChangeLevel(PlayerPrefs.GetInt("difficultyLevelIndex"));
+
         SpawnKeroco();
-        SpawnKepalaKeroco();
-        SpawnJenderal();
+        if(kepalaKerocoPrefab != null){
+            SpawnKepalaKeroco();
+        }
+        if(jenderalPrefab != null){
+            SpawnJenderal();
+        }
     }
 
     void SpawnKeroco() {
-        if (enemyType != EnemyType.Keroco && enemyType != EnemyType.Any) {
-            return;
-        }
+        // if (enemyType != EnemyType.Keroco && enemyType != EnemyType.Any) {
+        //     return;
+        // }
 
         spawnKerocoTimer += Time.deltaTime;
         if (spawnKerocoTimer >= spawnKerocoInterval)
@@ -88,9 +98,9 @@ public class EnemyManager : MonoBehaviour
     }
 
     void SpawnKepalaKeroco() {
-        if (enemyType != EnemyType.KepalaKeroco && enemyType != EnemyType.Any) {
-            return;
-        }
+        // if (enemyType != EnemyType.KepalaKeroco && enemyType != EnemyType.Any) {
+        //     return;
+        // }
 
         spawnKepalaKerocoTimer += Time.deltaTime;
         if (spawnKepalaKerocoTimer >= spawnKepalaKerocoInterval)
@@ -101,9 +111,9 @@ public class EnemyManager : MonoBehaviour
     }
 
     void SpawnJenderal() {
-        if (enemyType != EnemyType.Jenderal && enemyType != EnemyType.Any) {
-            return;
-        }
+        // if (enemyType != EnemyType.Jenderal && enemyType != EnemyType.Any) {
+        //     return;
+        // }
 
         spawnJenderalTimer += Time.deltaTime;
         if (spawnJenderalTimer >= spawnJenderalInterval)

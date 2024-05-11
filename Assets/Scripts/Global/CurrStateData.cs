@@ -67,6 +67,7 @@ public class CurrStateData
         GetInstance();
         currGameData.coin = 30000;
         currGameData.pets = new List<int>();
+        currGameData.petHealth = new List<int>();
         currGameData.currPetHealth = -1;
     }
 
@@ -104,6 +105,29 @@ public class CurrStateData
     {
         GetInstance();
         currGameData.pets = new List<int>();
+        currGameData.petHealth = new List<int>();
+    }
+
+    public static bool HasPetAttacker(){
+        for(int i = 0; i < CurrStateData.GetPetsLength(); i++)
+        {
+            if(currGameData.pets[i] == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static bool HasPetHealer(){
+        for(int i = 0; i < CurrStateData.GetPetsLength(); i++)
+        {
+            if(currGameData.pets[i] == 1)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static int GetCurrentPet()
@@ -119,12 +143,44 @@ public class CurrStateData
         }
     }
 
+    public static int GetNextPet()
+    {
+        GetInstance();
+        if(currGameData.pets.Count > 1)
+        {
+            return currGameData.pets[1];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public static int GetPetAtIndex(int i)
+    {
+        GetInstance();
+        if(i >= 0 && i < currGameData.pets.Count)
+        {
+            return currGameData.pets[i];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
     public static void RemoveCurrentPet()
     {
         GetInstance();
         if (currGameData.pets.Count > 0)
         {
             currGameData.pets.RemoveAt(0);
+            currGameData.petHealth.RemoveAt(0);
+            if (currGameData.petHealth.Count > 0) {
+                currGameData.currPetHealth = currGameData.petHealth[0];
+            } else  {
+                currGameData.currPetHealth = -1;
+            }
         }
         else
         {
@@ -135,7 +191,26 @@ public class CurrStateData
     public static void AddPet(int pet)
     {
         GetInstance();
+        currGameData.petHealth.Add(100);
         currGameData.pets.Add(pet);
+    }
+
+    public static void SwitchPets()
+    {
+        if (currGameData.pets.Count >= 2)
+        {
+            int temp = currGameData.pets[0];
+            currGameData.pets[0] = currGameData.pets[1];
+            currGameData.pets[1] = temp;
+
+            currGameData.petHealth[0] = currGameData.petHealth[1];
+            currGameData.petHealth[1] = currGameData.currPetHealth; 
+            currGameData.currPetHealth = currGameData.petHealth[0];
+        }
+        else
+        {
+            Debug.LogError("Not enough pets to switch.");
+        }
     }
 
     public static int GetPetsLength()

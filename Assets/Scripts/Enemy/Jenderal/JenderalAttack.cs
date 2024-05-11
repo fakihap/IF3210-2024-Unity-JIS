@@ -35,32 +35,11 @@ namespace Nightmare
             StopPausible();
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            // If the entering collider is the player...
-            if (other.gameObject == player)
-            {
-                // ... the player is in range.
-                playerInRange = true;
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            // If the exiting collider is the player...
-            if (other.gameObject == player)
-            {
-                // ... the player is no longer in range.
-                playerInRange = false;
-            }
-        }
-
         void Update()
         {
             if (isPaused)
                 return;
 
-            // Add the time since Update was last called to the timer.
             timer += Time.deltaTime;
 
             if(PlayerInRangeDamage())
@@ -73,30 +52,52 @@ namespace Nightmare
                 }
             }
 
-            // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-            if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
-            {
-                // ... attack.
-                Attack();
-            }
+            Attack();
 
-            // If the player has zero or less health...
             if (playerHealth.currentHealth <= 0)
             {
-                // ... tell the animator the player is dead.
-                anim.SetTrigger("PlayerDead");
+               anim.SetTrigger("PlayerDead");
             }
         }
 
-        void Attack()
+        void Attack(){
+            timer += Time.deltaTime;
+            if (timer >= timeBetweenAttacks && PlayerInRange() && enemyHealth.currentHealth > 0)
+            {
+                AttackPlayer();
+            }
+            if(timer >= timeBetweenAttacks && PetHealerInRange() && enemyHealth.currentHealth > 0)
+            {
+                AttackHelaer();
+            }
+            if(timer >= timeBetweenAttacks && PetAttackerInRange() && enemyHealth.currentHealth > 0)
+            {
+                AttackAttacker();
+            }
+        }
+        void AttackPlayer()
         {
-            // Reset the timer.
+            timer = 0f;
+            playerHealth.TakeDamage(attackDamage);
+        }
+        void AttackHelaer()
+        {
             timer = 0f;
 
-            if (playerHealth.currentHealth > 0)
+            PetHealerHealth petHealerHealth = GameObject.FindGameObjectWithTag("PetHealer").GetComponent<PetHealerHealth>();
+            if (petHealerHealth.currHealth > 0)
             {
-                print("kena mele "+attackDamage);
-                playerHealth.TakeDamage(attackDamage);
+                petHealerHealth.TakeDamage(attackDamage);
+            }
+        }
+        void AttackAttacker()
+        {
+            timer = 0f;
+
+            PetAttackerHealth petAttackerHealth = GameObject.FindGameObjectWithTag("PetAttacker").GetComponent<PetAttackerHealth>();
+            if (petAttackerHealth.currHealth > 0)
+            {
+                petAttackerHealth.TakeDamage(attackDamage);
             }
         }
 
@@ -109,12 +110,26 @@ namespace Nightmare
         }
 
         void DPS(){
-            print("kena dps "+DPSDamage);
             if (playerHealth.currentHealth > 0)
             {
                 playerHealth.TakeDamage(DPSDamage);
             }
+            if(GameObject.FindGameObjectWithTag("PetHealer") != null){
+                PetHealerHealth petHealerHealth = GameObject.FindGameObjectWithTag("PetHealer").GetComponent<PetHealerHealth>();
+                if (petHealerHealth.currHealth > 0)
+                {
+                    petHealerHealth.TakeDamage(DPSDamage);
+                }
+            }
+            if(GameObject.FindGameObjectWithTag("PetAttacker") != null){
+                PetAttackerHealth petAttackerHealth = GameObject.FindGameObjectWithTag("PetAttacker").GetComponent<PetAttackerHealth>();
+                if (petAttackerHealth.currHealth > 0)
+                {
+                    petAttackerHealth.TakeDamage(DPSDamage);
+                }
+            }
         }
+
 
         public void DoubleDamage(){
             attackDamage *= 2;
@@ -123,6 +138,23 @@ namespace Nightmare
         public void ResetDamage(){
             attackDamage /= 2;
             DPSDamage /= 2;
+        }
+
+        bool PlayerInRange(){
+            return (player.transform.position - transform.position).magnitude <= 1.5;
+        }
+        bool PetHealerInRange(){
+            if(GameObject.FindGameObjectWithTag("PetHealer") == null){
+                return false;
+            }
+            return (GameObject.FindGameObjectWithTag("PetHealer").transform.position - transform.position).magnitude <= 1.5;
+        }
+        bool PetAttackerInRange()
+        {
+            if(GameObject.FindGameObjectWithTag("PetAttacker") == null){
+                return false;
+            }
+            return (GameObject.FindGameObjectWithTag("PetAttacker").transform.position - transform.position).magnitude <= 1.5;
         }
     }
 }
