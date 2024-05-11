@@ -22,6 +22,12 @@ public class EliminationQuest : Quest
         isCompleted = false;
         currentCount = 0;
         currentTargetCount = targetCount;
+
+        // WARNING : this dirty code will only works on this edge case
+        //           we do it this way since we are short on time KWWKKWWKKWKWKW
+        if (enemyType == EnemyType.Raja) {
+            GameDirector.Instance.isBossReady = true;
+        }
     }
     public override bool ProgressQuest()
     {

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   precedingDirectables:
   - {fileID: 11400000, guid: 457ad877f42896745bd64396a03f7a8a, type: 2}
-  targetCount: 5
-  enemyType: 1
+  targetCount: 15
+  enemyType: 0

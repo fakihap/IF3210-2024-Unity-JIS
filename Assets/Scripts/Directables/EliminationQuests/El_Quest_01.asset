@@ -15,4 +15,4 @@ MonoBehaviour:
   precedingDirectables:
   - {fileID: 11400000, guid: b66e745ea67d06a48bef02f3f6b5fa61, type: 2}
   targetCount: 5
-  enemyType: 0
+  enemyType: 1

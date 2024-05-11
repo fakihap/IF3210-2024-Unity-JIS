@@ -15,6 +15,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField] List<DirectableObject> directables;
     [SerializeField] bool isDirecting = false;
 
+    [Header("Game States")]
+    public bool isBossReady = false;
+
     void Awake() {
         if (Instance != null) {
             Destroy(this);
