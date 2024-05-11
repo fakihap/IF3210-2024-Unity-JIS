@@ -53,6 +53,10 @@ public class PetAttackerHealth : PetHealth, IDamageable
         petAttackerMovement.enabled = false;
         petAttackerAttack.enabled = false;
         _anim.SetTrigger("Dead");
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(gameObject, 2f);
+        // Disappear();
     }
 
     public void TakeDamage(int amount)
