@@ -67,4 +67,13 @@ public class EliminationQuest : Quest
         currentCount = 0;
         currentTargetCount = 1; // get this from SO data
     }
+
+    // the only directable who needs this method
+    // need to recheck this
+    public override void ResetProgress()
+    {
+        base.ResetProgress();
+
+        currentCount = 0;
+    }
 }

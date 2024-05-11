@@ -91,15 +91,21 @@ public abstract class Quest : DirectableObject
         isActive = false;
         isCompleted = false;
     }
+
+    public override void ResetProgress()
+    {
+        // shud also have nothing
+        // only eliminationQuest will override it
+    }
     #endregion
 
 
-#region CurrStateData
+    #region CurrStateData
     public override void SetCompletion(bool completion)
     {
         isCompleted = completion;
     }
-#endregion
+    #endregion
 
     // skema nya diganti
     // void SubscribeToNotifiers() {
