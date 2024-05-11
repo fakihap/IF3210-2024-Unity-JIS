@@ -52,8 +52,8 @@ namespace Nightmare
         {
             // i dont think damageImage is used
             // this prevent annoying error exceptions
-            damaged = false;
-            return;
+            // damaged = false;
+            // return;
 
             // If the player has just been damaged...
             if (damaged)
@@ -75,8 +75,9 @@ namespace Nightmare
 
         public void TakeDamage(int amount)
         {
-            if (godMode)
+            if (godMode || isDead)
                 return;
+
             CurrStateData.currGameData.damageTaken += amount;
             
             int savedDamageTaken = PlayerPrefs.GetInt("damageTaken");
