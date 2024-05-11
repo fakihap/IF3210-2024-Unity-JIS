@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 72602951814630346}
   - component: {fileID: 248082509574225700}
   - component: {fileID: 3132342229544845679}
-  - component: {fileID: 8045632104785400527}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -118,25 +117,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petAttacker: {fileID: 3878630058993967848, guid: 88992ae95f5e3074fbf50fced5aada28, type: 3}
   petHealer: {fileID: 107872, guid: 7add1d5b90ab7234d92b5feb2d77c953, type: 3}
---- !u!114 &8045632104785400527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570307742035191462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66058d73fd7f31e458c1528dba18d558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kerocoPrefab: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
-  kepalaKerocoPrefab: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
-  jenderalPrefab: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
-  listPosition:
-  - {x: -2.34, y: 0, z: -4.43}
-  - {x: -0.52, y: 0, z: -5.47}
-  - {x: -4.48, y: 0, z: -11.27}
-  - {x: 14.75, y: 0, z: -7.07}
-  - {x: 2.9, y: 0, z: 15.72}
-  enemyType: 1
