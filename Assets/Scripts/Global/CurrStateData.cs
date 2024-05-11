@@ -173,6 +173,12 @@ public class CurrStateData
         if (currGameData.pets.Count > 0)
         {
             currGameData.pets.RemoveAt(0);
+            currGameData.petHealth.RemoveAt(0);
+            if (currGameData.petHealth.Count > 0) {
+                currGameData.currPetHealth = currGameData.petHealth[0];
+            } else  {
+                currGameData.currPetHealth = -1;
+            }
         }
         else
         {
@@ -183,6 +189,7 @@ public class CurrStateData
     public static void AddPet(int pet)
     {
         GetInstance();
+        currGameData.petHealth.Add(100);
         currGameData.pets.Add(pet);
     }
 
@@ -193,6 +200,12 @@ public class CurrStateData
             int temp = currGameData.pets[0];
             currGameData.pets[0] = currGameData.pets[1];
             currGameData.pets[1] = temp;
+
+            currGameData.petHealth[0] = currGameData.currPetHealth; 
+            int tempPetHealth = currGameData.petHealth[0];
+            currGameData.petHealth[0] = currGameData.petHealth[1];
+            currGameData.petHealth[1] = tempPetHealth; 
+            currGameData.currPetHealth = currGameData.petHealth[0];
         }
         else
         {

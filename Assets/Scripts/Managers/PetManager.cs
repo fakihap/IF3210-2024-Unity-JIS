@@ -72,6 +72,7 @@ public class PetManager : MonoBehaviour
                     var petHealth = pet.GetComponent<PetHealth>();
                     if (petHealth != null)
                     {
+                        petHealth.currHealth = CurrStateData.currGameData.currPetHealth;
                         petHealth.SetManager(this);
                     }
                     else
@@ -96,6 +97,7 @@ public class PetManager : MonoBehaviour
                 var petHealth = pet.GetComponent<PetHealth>();
                 if (petHealth != null)
                 {
+                    petHealth.currHealth = CurrStateData.currGameData.currPetHealth;                       
                     petHealth.SetManager(this);
                 }
                 else
@@ -124,6 +126,7 @@ public class PetManager : MonoBehaviour
             var petHealth = pet.GetComponent<PetHealth>();
             if (petHealth != null)
             {
+                petHealth.currHealth = CurrStateData.currGameData.petHealth[0];                
                 petHealth.SetManager(this);
             }
         }

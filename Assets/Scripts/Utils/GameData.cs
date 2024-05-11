@@ -13,6 +13,7 @@ public struct GameData
     public int coin;
     public List<int> pets;
     public int currPetHealth;
+    public List<int> petHealth;
     public bool motherlode;
     public float hitCount;
     public float shotCount;
