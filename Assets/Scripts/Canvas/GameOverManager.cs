@@ -16,6 +16,17 @@ public class GameOverManager : MonoBehaviour
 
     public void GoToCheckpoint()
     {
+        string currFileName = "Slot";
+        currFileName += CurrStateData.currGameData.currentSlot.ToString() + ".dat";
 
+        string output;
+        if (FileManager.LoadFromFile(currFileName, out output))
+        {
+            print(currFileName + " output: " + output);
+            CurrStateData.LoadFromJson(output);
+            CurrStateData.currGameData.currentSlot = 1;
+        }
+
+        SceneManager.LoadScene("Stage01");
     }
 }

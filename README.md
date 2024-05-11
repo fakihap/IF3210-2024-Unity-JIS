@@ -73,6 +73,9 @@ Berikut adalah beberapa tampilan dari aplikasi _Sharp Shooter_:
   <img src="/screenshots/SS6.png/">
   <p>Gambar 6. Statistic</p>
   <nl>
+  <img src="/screenshots/SS7.png/">
+  <p>Gambar 7. Shop</p>
+  <nl>
 </p>
 
 <a name="pembagian-kerja"></a>
