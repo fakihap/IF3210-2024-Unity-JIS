@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Nightmare;
 using Unity.VisualScripting;
@@ -10,23 +11,11 @@ using UnityEngine;
 public class CurrStateData
 {
     public static GameData currGameData;
-    //public static bool motherlode = false;
-
-    // for statistics 
-    //public static float hitCount = 0;
-    //public static float shotCount = 0;
-    //public static float distanceTravelled = 0;
-    //public static int damageDealt = 0;
-    //public static int damageTaken = 0;
-    //public static int enemyKilled = 0;
-
-    //public static float startTime = 0;
-    //public static float elapsedTime = 0;
 
     public static CurrStateData currStateData;
 
 
-    public CurrStateData()
+    public CurrStateData(int slotNumber)
     {
         currGameData = new GameData();
         // stateData = new StateData();
@@ -40,31 +29,58 @@ public class CurrStateData
         currGameData.damageTaken = 0;
         currGameData.enemyKilled = 0;
         currGameData.startTime = 0;
+
+        Debug.Log("I'm changing the slot number to " + slotNumber);
+        currGameData.currentSlot = slotNumber;
         currGameData.elapsedTime = 0;
+    }
+
+    public static CurrStateData InstantiateNewData()
+    {
+        // Check if slot 1, slot 2, and slot 3 exists, if all exists overwrite slot 1
+        var slot1Path = Path.Combine(Application.persistentDataPath, "Slot1.dat");
+        var slot2Path = Path.Combine(Application.persistentDataPath, "Slot2.dat");
+        var slot3Path = Path.Combine(Application.persistentDataPath, "Slot3.dat");
+
+        if (!File.Exists(slot1Path))
+        {
+            currStateData = new CurrStateData(1);
+            Debug.Log("Creating slot 1");
+        } else if (!File.Exists(slot2Path))
+        {
+            currStateData = new CurrStateData(2);
+            Debug.Log("Creating slot 2");
+        } else if (!File.Exists(slot3Path))
+        {
+            currStateData = new CurrStateData(3);
+            Debug.Log("Creating slot 3");
+        }
+
+        return currStateData;
     }
 
     public static CurrStateData GetInstance()
     {
         if (currStateData == null)
         {
-            currStateData = new CurrStateData();
+            currStateData = new CurrStateData(1);
         }
         return currStateData;
     }
 
-    public string ToJson()
+    public static string ToJson()
     {
         return JsonUtility.ToJson(currGameData);
     }
 
-    public void LoadFromJson(string json)
+    public static void LoadFromJson(string json)
     {
         JsonUtility.FromJsonOverwrite(json, currGameData);
     }
 
     public static void LoadStateData()
     {
-        GetInstance();
+        //GetInstance();
         currGameData.coin = 30000;
         currGameData.pets = new List<int>();
         currGameData.petHealth = new List<int>();
@@ -73,25 +89,25 @@ public class CurrStateData
 
     public static int GetCurrentCoin()
     {
-        GetInstance();
+        //GetInstance();
         return currGameData.coin;
     }
 
     public static void SetCurrentCoin(int coin)
     {
-        GetInstance();
+        //GetInstance();
         currGameData.coin = coin;
     }
 
     public static void AddCoin(int coin)
     {
-        GetInstance();
+        //GetInstance();
         currGameData.coin += coin;
     }
 
     public static bool SubstractCoin(int coin)
     {
-        GetInstance();
+        //GetInstance();
         if (currGameData.motherlode) return true;
         if (currGameData.coin < coin)
         {
@@ -103,7 +119,7 @@ public class CurrStateData
 
     public static void InitCurrentPets()
     {
-        GetInstance();
+        //GetInstance();
         currGameData.pets = new List<int>();
         currGameData.petHealth = new List<int>();
     }
@@ -132,7 +148,7 @@ public class CurrStateData
 
     public static int GetCurrentPet()
     {
-        GetInstance();
+        //GetInstance();
         if (currGameData.pets.Count > 0)
         {
             return currGameData.pets[0];
@@ -171,7 +187,7 @@ public class CurrStateData
 
     public static void RemoveCurrentPet()
     {
-        GetInstance();
+        //GetInstance();
         if (currGameData.pets.Count > 0)
         {
             currGameData.pets.RemoveAt(0);
@@ -190,7 +206,7 @@ public class CurrStateData
 
     public static void AddPet(int pet)
     {
-        GetInstance();
+        //GetInstance();
         currGameData.petHealth.Add(100);
         currGameData.pets.Add(pet);
     }
@@ -215,24 +231,24 @@ public class CurrStateData
 
     public static int GetPetsLength()
     {
-        GetInstance();
+        //GetInstance();
         return currGameData.pets.Count;
     }
 
     public static int GetCurrentPetHealth()
     {
-        GetInstance();
+        //GetInstance();
         return currGameData.currPetHealth;
     }
 
     public static void SetCurrentPetHealth(int amount)
     {
-        GetInstance();
+        //GetInstance();
         currGameData.currPetHealth = amount;
     }
     public static float GetShotAccuracy()
     {
-        GetInstance();
+        //GetInstance();
         Debug.Log("shot count: " + CurrStateData.currGameData.shotCount + " hit count: " + CurrStateData.currGameData.hitCount);
         if (CurrStateData.currGameData.shotCount > 0)
             return CurrStateData.currGameData.hitCount / CurrStateData.currGameData.shotCount;

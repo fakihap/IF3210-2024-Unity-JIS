@@ -48,10 +48,6 @@ namespace Nightmare
                 print("attack kepalakeroco");
                 Attack();
             }
-            {
-                print("attack kepalakeroco");
-                Attack();
-            }
         }
 
         public void Attack()
@@ -191,6 +187,7 @@ namespace Nightmare
             gunLine2.enabled = false;
             gunLine3.enabled = false;
             gunLine4.enabled = false;
+            gunLight.enabled = false;
         }
 
     }

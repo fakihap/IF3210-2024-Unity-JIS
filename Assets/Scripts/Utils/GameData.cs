@@ -23,6 +23,7 @@ public struct GameData
     public int enemyKilled;
     public float startTime;
     public float elapsedTime;
+    public int currentSlot;
 
     public Vector3 playerCoordinates;
     public float playerHealth;
