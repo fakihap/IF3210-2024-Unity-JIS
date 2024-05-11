@@ -55,8 +55,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
         _anim.SetTrigger("Dead");
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
-        Destroy(gameObject, 2f);
-        // Disappear();
+        Disappear();
     }
 
     public void TakeDamage(int amount)
@@ -76,6 +75,7 @@ public class PetAttackerHealth : PetHealth, IDamageable
 
     public void Disappear()
     {
+        CurrStateData.RemoveCurrentPet();
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isDisappear = true;
