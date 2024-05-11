@@ -68,11 +68,16 @@ namespace Nightmare
                         }
                         Destroy(mob);
                     }
-                    GameDirector.Instance.PauseDirector();
+                    if (GameDirector.Instance != null) {
+                        GameDirector.Instance.PauseDirector();
+                    } 
                 }
                 else
                 {
-                    GameDirector.Instance.UnpauseDirector();
+                    if (GameDirector.Instance != null) {
+                        GameDirector.Instance.UnpauseDirector();
+                    }                     
+                    
                 }
             }
             
