@@ -104,4 +104,10 @@ void Update()
     }
 }
 
+public void openShop() {
+    startTime = Time.time;
+    shopBuilding.SetActive(true);
+    shopBuildingClosed.SetActive(false);
+}
+
 }
