@@ -1314,6 +1314,60 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1484782348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484782350}
+  - component: {fileID: 1484782349}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1484782349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484782348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66058d73fd7f31e458c1528dba18d558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kerocoPrefab: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
+  kepalaKerocoPrefab: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
+  jenderalPrefab: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
+  listPosition:
+  - {x: -2.34, y: 0, z: -4.43}
+  - {x: -0.52, y: 0, z: -5.47}
+  - {x: -4.48, y: 0, z: -11.27}
+  - {x: 14.75, y: 0, z: -7.07}
+  - {x: 2.9, y: 0, z: 15.72}
+  enemyType: 0
+--- !u!4 &1484782350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484782348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.658, y: 0.09, z: -12.661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485400742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2502,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1832595422}
   - {fileID: 1322871353}
+  - {fileID: 1484782350}
   - {fileID: 1517918049}
   - {fileID: 1695326719}
   - {fileID: 1925978466}

@@ -2177,22 +2177,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1711048154875989203, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711048154875989203, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.92387956
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711048154875989203, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.38268343
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711048154875989203, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2301,6 +2285,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 3855888510741248023}
   - {fileID: 1207032390}
+  - {fileID: 25717347}
   - {fileID: 1517918049}
   - {fileID: 1720733009}
   - {fileID: 544288303}
@@ -2316,4 +2301,3 @@ SceneRoots:
   - {fileID: 2043660725}
   - {fileID: 914968255}
   - {fileID: 507187763}
-  - {fileID: 25717347}
