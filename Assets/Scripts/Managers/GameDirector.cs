@@ -13,6 +13,7 @@ public class GameDirector : MonoBehaviour
     // instead we will check if each directables is finished 
     // and propagate the result to the succeeding directable
     [SerializeField] List<DirectableObject> directables;
+    [SerializeField] bool isDirecting = false;
 
     void Awake() {
         if (Instance != null) {
@@ -28,16 +29,34 @@ public class GameDirector : MonoBehaviour
         foreach(DirectableObject directable in directables) {
             directable.ResetDirectable();
         }
+
+        // we start directing
+        isDirecting = true;
     }
 
     void Update() {
         UpdateDirector();
     }
     public void UpdateDirector() {
+        if (!isDirecting) {
+            foreach(DirectableObject directable in directables) {
+                directable.ResetProgress();
+            }
+
+            return;
+        }
 
         foreach(DirectableObject directable in directables) {
             directable.UpdateDirectable();
         }
+    }
+
+    public void PauseDirector() {
+        isDirecting = false;
+    }
+
+    public void UnpauseDirector() {
+        isDirecting = true;
     }
 
     public List<Quest> GetQuests() {

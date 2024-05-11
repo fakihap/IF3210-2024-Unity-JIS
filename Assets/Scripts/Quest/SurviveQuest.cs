@@ -62,4 +62,11 @@ public class SurviveQuest : Quest
 
         currentSurviveDuration = surviveDuration;
     }
+
+    public override void ResetProgress()
+    {
+        base.ResetProgress();
+
+        currentSurviveDuration = surviveDuration;
+    }
 }
