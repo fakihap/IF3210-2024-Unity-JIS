@@ -1639,18 +1639,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4226230748553041908, guid: ed961614554841b429bd0cdd0cd3f0b6, type: 3}
-      propertyPath: sword
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4226230748553041908, guid: ed961614554841b429bd0cdd0cd3f0b6, type: 3}
-      propertyPath: shotgun
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7557192805929499545, guid: ed961614554841b429bd0cdd0cd3f0b6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7557192805929499605, guid: ed961614554841b429bd0cdd0cd3f0b6, type: 3}
       propertyPath: m_Name
       value: PlayerCutscene
