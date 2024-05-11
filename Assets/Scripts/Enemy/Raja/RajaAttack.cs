@@ -145,11 +145,11 @@ namespace Nightmare
                 print("masuk player");
             }
             else if(type==1){
-                shootableMask = LayerMask.GetMask("Environment");
+                shootableMask = LayerMask.GetMask("Shootable");
                 print("masuk healer");
             }
             else if(type==2){
-                shootableMask = LayerMask.GetMask("Environment");
+                shootableMask = LayerMask.GetMask("Shootable");
                 print("masuk attacker");
             }
 

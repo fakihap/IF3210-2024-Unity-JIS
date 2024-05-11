@@ -50,6 +50,7 @@ public class PetAttackerAttack : MonoBehaviour
             var enemyTransform = petAttackerMovement.closestDamageable.transform;
             var enemyPosition = new Vector3(enemyTransform.position.x, 0, enemyTransform.position.z);
             var petAttackerPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            if(Vector3.Distance(petAttackerPosition, enemyPosition) > radius) return;
             if(Vector3.Distance(petAttackerPosition, enemyPosition) < radius)
             {
                 fireballAudio.Play();

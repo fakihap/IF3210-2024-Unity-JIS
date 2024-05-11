@@ -10255,7 +10255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
-  spawnTime: 20
+  spawnTime: 25
   speed: 4
 --- !u!114 &332497901517952790
 MonoBehaviour:

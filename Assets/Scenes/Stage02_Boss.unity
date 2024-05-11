@@ -1746,6 +1746,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
+--- !u!1 &687174464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6903221987653653641, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
+  m_PrefabInstance: {fileID: 687174463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720753640
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4085,10 @@ PrefabInstance:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 947416368}
+    - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
+      propertyPath: deathCanvas
+      value: 
+      objectReference: {fileID: 687174464}
     - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
       propertyPath: healthSlider
       value: 

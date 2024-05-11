@@ -15880,8 +15880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
-  spawnTime: 2
-  speed: 0.1
+  spawnTime: 25
+  speed: 2
 --- !u!114 &9086130230481510831
 MonoBehaviour:
   m_ObjectHideFlags: 0
