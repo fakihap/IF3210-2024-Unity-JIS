@@ -34,7 +34,7 @@ namespace Nightmare
         private void IncreaseSpeed()
         {
             PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-            playerMovement.OrbIncreaseSpeed(5,1.5f);
+            playerMovement.OrbIncreaseSpeed(15,1.5f);
         }
 
         private void Despawn()

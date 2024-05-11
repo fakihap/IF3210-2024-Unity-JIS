@@ -1,6 +1,6 @@
 # IF3210-2024-Unity-JIS
 <h2 align="center">
-    Sharp Shooter<br/>
+    Not-A-Nightmare<br/>
 </h2>
 <hr>
 
@@ -14,9 +14,9 @@
 <a name="deskripsi-singkat"></a>
 
 ## Diskripsi Singkat
-Aplikasi _Sharp Shooter_ merupakan aplikasi yang dikembangkan untuk memenuhi tugas besar mata kuliah IF3210 Pemrograman Aplikasi pada Platform Khusus dengan judul "Survival Shooter The Sequel". _Sharp Shooter_ dikembangkan dengan Unity dan ditulis dalam bahasa pemrograman C#. Permainan ini bersifat _single player_ dan memiliki banyak fitur di dalamnya.
+Aplikasi _Not-A-Nightmare_ merupakan aplikasi yang dikembangkan untuk memenuhi tugas besar mata kuliah IF3210 Pemrograman Aplikasi pada Platform Khusus dengan judul "Survival Shooter The Sequel". _Not-A-Nightmare_ dikembangkan dengan Unity dan ditulis dalam bahasa pemrograman C#. Permainan ini bersifat _single player_ dan memiliki banyak fitur di dalamnya.
 
-Fitur-fitur yang tersedia di dalam aplikasi _Sharp Shooter_, antara lain:
+Fitur-fitur yang tersedia di dalam aplikasi _Not-A-Nightmare_, antara lain:
 1. Main Menu (Tampilan awal program):
     - Memulai permainan baru
     - Navigasi ke halaman _load game_, _statistics_, _settings_
@@ -45,7 +45,7 @@ Fitur-fitur yang tersedia di dalam aplikasi _Sharp Shooter_, antara lain:
 <a name="penggunaan-library"></a>
 
 ## Penggunaan Library
-Pada proses pengerjaannya, kami menggunakan beberapa library yang dapat membantu kami dalam mengembangkan aplikasi _Sharp Shooter_. Berikut adalah daftar library yang kami gunakan:
+Pada proses pengerjaannya, kami menggunakan beberapa library yang dapat membantu kami dalam mengembangkan aplikasi _Not-A-Nightmare_. Berikut adalah daftar library yang kami gunakan:
 1. X-Bar : Menampilkan _health bar_ dari _enemy_
 2. Hovl Studio (_Magic Effect_ dan _Procedural Fire_) : Menampilkan efek dari pet
 3. Pengambilan beberapa asset permainan dari RPGTalk, 2D Progress Bar Toolkit, FreeDragons, FuelPump3D
@@ -53,7 +53,7 @@ Pada proses pengerjaannya, kami menggunakan beberapa library yang dapat membantu
 <a name="screenshots"></a>
 
 ## Screenshots Aplikasi
-Berikut adalah beberapa tampilan dari aplikasi _Sharp Shooter_:
+Berikut adalah beberapa tampilan dari aplikasi _Not-A-Nightmare_:
 <p>
   <img src="/screenshots/SS1.png/">
   <p>Gambar 1. Main Menu</p>
