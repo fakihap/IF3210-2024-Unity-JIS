@@ -106,12 +106,60 @@ public class CurrStateData
         currGameData.pets = new List<int>();
     }
 
+    public static bool HasPetAttacker(){
+        for(int i = 0; i < CurrStateData.GetPetsLength(); i++)
+        {
+            if(currGameData.pets[i] == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static bool HasPetHealer(){
+        for(int i = 0; i < CurrStateData.GetPetsLength(); i++)
+        {
+            if(currGameData.pets[i] == 1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static int GetCurrentPet()
     {
         GetInstance();
         if (currGameData.pets.Count > 0)
         {
             return currGameData.pets[0];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public static int GetNextPet()
+    {
+        GetInstance();
+        if(currGameData.pets.Count > 1)
+        {
+            return currGameData.pets[1];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public static int GetPetAtIndex(int i)
+    {
+        GetInstance();
+        if(i >= 0 && i < currGameData.pets.Count)
+        {
+            return currGameData.pets[i];
         }
         else
         {
@@ -136,6 +184,20 @@ public class CurrStateData
     {
         GetInstance();
         currGameData.pets.Add(pet);
+    }
+
+    public static void SwitchPets()
+    {
+        if (currGameData.pets.Count >= 2)
+        {
+            int temp = currGameData.pets[0];
+            currGameData.pets[0] = currGameData.pets[1];
+            currGameData.pets[1] = temp;
+        }
+        else
+        {
+            Debug.LogError("Not enough pets to switch.");
+        }
     }
 
     public static int GetPetsLength()

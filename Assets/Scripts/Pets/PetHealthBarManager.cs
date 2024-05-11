@@ -23,10 +23,12 @@ public class PetHealthBarManager1 : MonoBehaviour
         if(CurrStateData.GetCurrentPet()==0)
         {
             petAttackerBar.gameObject.SetActive(true);
+            petHealerBar.gameObject.SetActive(false);
         }
         else if(CurrStateData.GetCurrentPet()==1)
         {
             petHealerBar.gameObject.SetActive(true);
+            petAttackerBar.gameObject.SetActive(false);
         }
         else{
             petAttackerBar.gameObject.SetActive(false);

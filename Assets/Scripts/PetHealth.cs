@@ -27,4 +27,14 @@ public class PetHealth : MonoBehaviour
         }
     }
 
+    public int GetCurrentHealth()
+    {
+        return currHealth;
+    }
+
+    public void SetCurrentHealth(int amount)
+    {
+        currHealth = amount;
+    }
+
 }

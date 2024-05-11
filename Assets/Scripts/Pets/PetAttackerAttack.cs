@@ -38,7 +38,7 @@ public class PetAttackerAttack : MonoBehaviour
         if (time >= fireballDelay)
         {
             LaunchFireball();
-            Debug.Log("Panggil Fireball");
+            // Debug.Log("Panggil Fireball");
         }
     }
 

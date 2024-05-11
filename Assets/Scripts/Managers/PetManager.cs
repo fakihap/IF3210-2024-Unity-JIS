@@ -32,6 +32,15 @@ public class PetManager : MonoBehaviour
         }
     }
 
+    public void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Ganti Pet");
+            SwitchPet();
+        } 
+    }
+
     public void SpawnCurrPet()
     {
         int petId = CurrStateData.GetCurrentPet();
@@ -117,6 +126,32 @@ public class PetManager : MonoBehaviour
             {
                 petHealth.SetManager(this);
             }
+        }
+    }
+
+    private void SwitchPet()
+    { 
+        DestroyCurrentPet();
+        CurrStateData.SwitchPets();
+        SpawnCurrPet();
+    }
+
+    private void DestroyCurrentPet()
+    {
+        GameObject currentPet;
+        if(CurrStateData.GetCurrentPet() == 0)
+        {
+            Debug.Log("Remove Pet Attacker");
+            currentPet = GameObject.FindGameObjectWithTag("PetAttacker");
+        }
+        else
+        {
+            Debug.Log("Remove Pet Healer");
+            currentPet = GameObject.FindGameObjectWithTag("PetHealer");
+        }
+        if (currentPet != null)
+        {
+            Destroy(currentPet);
         }
     }
 }
