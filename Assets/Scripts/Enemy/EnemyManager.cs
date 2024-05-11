@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemy Prefabs")]
     public GameObject kerocoPrefab;
     public GameObject kepalaKerocoPrefab;
     public GameObject jenderalPrefab;
@@ -10,6 +11,7 @@ public class EnemyManager : MonoBehaviour
     private int levelType;
     private int levelBefore;
     
+    [Header("Spawner")]
     public List<Vector3> listPosition;
     
     private float spawnKerocoInterval;

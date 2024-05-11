@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &25717345
+--- !u!1 &150673303
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,52 +131,99 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 25717347}
-  - component: {fileID: 25717346}
-  m_Layer: 0
-  m_Name: EnemySpawner
+  - component: {fileID: 150673304}
+  - component: {fileID: 150673307}
+  - component: {fileID: 150673306}
+  - component: {fileID: 150673305}
+  m_Layer: 5
+  m_Name: AndroidInputCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &25717346
+--- !u!224 &150673304
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150673303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646165842}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &150673305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25717345}
+  m_GameObject: {fileID: 150673303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66058d73fd7f31e458c1528dba18d558, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kerocoPrefab: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
-  kepalaKerocoPrefab: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
-  jenderalPrefab: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
-  listPosition:
-  - {x: -2.34, y: 0, z: -4.43}
-  - {x: -0.52, y: 0, z: -5.47}
-  - {x: -4.48, y: 0, z: -11.27}
-  - {x: 14.75, y: 0, z: -7.07}
-  - {x: 2.9, y: 0, z: 15.72}
-  enemyType: 1
---- !u!4 &25717347
-Transform:
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &150673306
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25717345}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.658, y: 0.09, z: -12.661}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 150673303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &150673307
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150673303}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!4 &310499276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2884904307103215961, guid: c253978afeb03a947a5e94c90565af49, type: 3}
@@ -530,6 +577,7 @@ RectTransform:
   - {fileID: 1102642550}
   - {fileID: 1801325609}
   - {fileID: 1477666960}
+  - {fileID: 150673304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1596,6 +1644,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petAttacker: {fileID: 3878630058993967848, guid: 88992ae95f5e3074fbf50fced5aada28, type: 3}
   petHealer: {fileID: 107872, guid: 7add1d5b90ab7234d92b5feb2d77c953, type: 3}
+--- !u!114 &1971956161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971956159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66058d73fd7f31e458c1528dba18d558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kerocoPrefab: {fileID: 4642746332030584112, guid: 0e9c9be39f5b76149a40ec06c2388ae5, type: 3}
+  kepalaKerocoPrefab: {fileID: 2931769509966874563, guid: e1728646401067647903b0b576a92b09, type: 3}
+  jenderalPrefab: {fileID: 5123624015402883104, guid: 1e8699303a4b6d3428099ac00a282d8b, type: 3}
+  listPosition:
+  - {x: -2.34, y: 0, z: -4.43}
+  - {x: -0.52, y: 0, z: -5.47}
+  - {x: -4.48, y: 0, z: -11.27}
+  - {x: 14.75, y: 0, z: -7.07}
+  - {x: 2.9, y: 0, z: 15.72}
+  enemyType: 1
 --- !u!1001 &1982704363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1894,6 +1964,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 570307742035191462, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1971956160}
+    - targetCorrespondingSourceObject: {fileID: 570307742035191462, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1971956161}
   m_SourcePrefab: {fileID: 100100000, guid: 88275b04c6d90f448905ea3fd5ba6450, type: 3}
 --- !u!1001 &7030882773041959784
 PrefabInstance:
@@ -2003,12 +2076,11 @@ SceneRoots:
   - {fileID: 1982704363}
   - {fileID: 646165842}
   - {fileID: 1665418288}
-  - {fileID: 1534160225}
   - {fileID: 333132407}
+  - {fileID: 1534160225}
   - {fileID: 869075098}
   - {fileID: 1499701903}
   - {fileID: 886345545}
   - {fileID: 2043660725}
   - {fileID: 914968255}
   - {fileID: 507187763}
-  - {fileID: 25717347}
