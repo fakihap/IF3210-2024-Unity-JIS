@@ -28,7 +28,6 @@ namespace Nightmare
         int shootableMask;
         void Awake()
         {
-            // Setting up the references.
             player = GameObject.FindGameObjectWithTag("Player").transform;
             shootableMask = LayerMask.GetMask("Player");
         }
@@ -44,7 +43,11 @@ namespace Nightmare
                 return;
 
             attackTimer += Time.deltaTime;
-            if (attackTimer >= attackTime)
+            if (attackTimer >= attackTime && gameObject.GetComponent<EnemyHealth>().currentHealth > 0)
+            {
+                print("attack kepalakeroco");
+                Attack();
+            }
             {
                 print("attack kepalakeroco");
                 Attack();

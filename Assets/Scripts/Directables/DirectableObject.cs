@@ -12,10 +12,9 @@ public abstract class DirectableObject : ScriptableObject
     protected abstract void StartDirectable(); 
     protected abstract void EndDirectable();
     public abstract void ResetDirectable(); // later fix this
+    public abstract void ResetProgress();
     
     public void UpdateDirectable() {
-        // Debug.Log("UPDATING THIS DIRECTABLE " + name);
-    
         if (CheckEnd()) {
             return;
         }

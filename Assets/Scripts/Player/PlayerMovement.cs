@@ -39,6 +39,7 @@ namespace Nightmare
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
 
+
             if (canSave)
             {
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -163,7 +164,7 @@ namespace Nightmare
 
         IEnumerator IncreaseSpeedForDuration(float duration, float multiplier)
         {
-            speed *= multiplier; // meningkatkan kecepatan sesuai multiplier
+            speed = originalSpeed * multiplier; // meningkatkan kecepatan sesuai multiplier
             yield return new WaitForSeconds(duration);
             speed /= multiplier; // mengembalikan kecepatan ke nilai semula setelah durasi selesai
         }

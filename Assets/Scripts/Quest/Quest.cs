@@ -91,15 +91,22 @@ public abstract class Quest : DirectableObject
         isActive = false;
         isCompleted = false;
     }
+
+    public override void ResetProgress()
+    {
+        // shud also have nothing
+        // only eliminationQuest and surviveQuest will override it
+        QuestManager.Instance.UpdateUI(); // shud be called last
+    }
     #endregion
 
 
-#region CurrStateData
+    #region CurrStateData
     public override void SetCompletion(bool completion)
     {
         isCompleted = completion;
     }
-#endregion
+    #endregion
 
     // skema nya diganti
     // void SubscribeToNotifiers() {

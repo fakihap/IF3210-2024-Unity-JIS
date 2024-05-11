@@ -13,6 +13,7 @@ public class PetAttackerMovement : MonoBehaviour
     Rigidbody petAttackRigidbody;
     public List<EnemyHealth> Damageables = new List<EnemyHealth>();
     public EnemyHealth closestDamageable;
+    public float thresholdToPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,17 @@ public class PetAttackerMovement : MonoBehaviour
     void Update()
     {
         move = false;
+        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if(distanceToPlayer > thresholdToPlayer)
+        {
+            LookAt(player.transform);
+            move = true;
+            _anim.SetBool("IsMoving", move);
+            nav.SetDestination(player.transform.position);
+            return;
+        }
 
         if(Damageables.Count > 0)
         {

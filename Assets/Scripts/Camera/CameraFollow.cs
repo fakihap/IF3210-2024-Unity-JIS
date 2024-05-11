@@ -18,7 +18,7 @@ namespace Nightmare
         public float topClamp = -60f;
         public float bottomClamp = 15f;
                 public float smoothing = 5f;        // The speed with which the camera will be following.
-        Vector3 offset;                     // The initial offset from the target.
+        [SerializeField] Vector3 offset = new Vector3(1, 15, -22);                     // The initial offset from the target.
 
 
         float xRotation = 0f;
@@ -28,7 +28,7 @@ namespace Nightmare
         private void Start()
         {
             // Cursor.lockState = CursorLockMode.Locked;
-            offset = transform.position - target.position;
+            // offset = transform.position - target.position; // we shouldn't not dynamically set the offset
         }
 
         private void FixedUpdate()

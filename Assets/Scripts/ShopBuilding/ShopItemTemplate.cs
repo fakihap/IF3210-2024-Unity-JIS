@@ -23,7 +23,14 @@ public class ShopItemTemplate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(title.text == "Attacker Pet" && CurrStateData.HasPetAttacker())
+        {
+            buyButton.gameObject.SetActive(false);
+        }
+        else if(title.text == "Healer Pet" && CurrStateData.HasPetHealer())
+        {
+            buyButton.gameObject.SetActive(false);
+        }
     }
 
     void BuyItem()

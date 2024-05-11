@@ -35,6 +35,14 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
 void Update()
 {
+    // check if this scene has any shop
+    // reference is a-okay as long as we start the scene on Stage01, 
+    // since it the only scene where the shop is being referenced
+    // TODO : fix this using onSceneLoaded
+    if (shopBuilding == null) {
+        return;
+    }
+
     // Check if the shop has closed
     if ((Time.time - startTime) > (timeLimit + 5))
     {

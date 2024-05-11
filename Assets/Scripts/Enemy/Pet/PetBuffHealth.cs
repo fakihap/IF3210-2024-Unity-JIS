@@ -74,10 +74,10 @@ public class PetBuffHealth : PetHealth, IDamageable
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isDisappear = true;
-        if (manager != null)
-        {
-            manager.SpawnNextPet(transform);
-        }
+        // if (manager != null)
+        // {
+        //     manager.SpawnNextPet(transform);
+        // }
         print("pet buff disappear");
         Destroy(gameObject, 2f);
     }
