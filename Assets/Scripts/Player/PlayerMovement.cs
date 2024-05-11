@@ -69,6 +69,10 @@ namespace Nightmare
                         Destroy(mob);
                     }
                 }
+                else
+                {
+
+                }
             }
             
 

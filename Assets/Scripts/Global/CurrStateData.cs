@@ -206,7 +206,7 @@ public class CurrStateData
 
     public static void AddPet(int pet)
     {
-        GetInstance();
+        //GetInstance();
         currGameData.petHealth.Add(100);
         currGameData.pets.Add(pet);
     }
