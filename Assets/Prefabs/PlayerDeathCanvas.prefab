@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7185297638853561808}
   - component: {fileID: 4730135297565059478}
   - component: {fileID: 4609835775109961812}
+  - component: {fileID: 5660800531230637100}
   m_Layer: 5
   m_Name: PlayerDeathCanvas
   m_TagString: Untagged
@@ -236,6 +237,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5660800531230637100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903221987653653641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b2e4a44970f324c9f1ee5fd0bce205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointButton: {fileID: 6768101566954551025}
+  mainMenuButton: {fileID: 1776767642775720207}
 --- !u!1001 &2260908892742128366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +259,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4591305591065001727}
     m_Modifications:
+    - target: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5660800531230637100}
+    - target: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOverManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3501604467970463420, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
       propertyPath: m_Name
       value: MainMenuButton
@@ -337,6 +368,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+--- !u!114 &1776767642775720207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+  m_PrefabInstance: {fileID: 2260908892742128366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8857224325205236203 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7317067570658675461, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
@@ -448,3 +490,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7317067570658675461, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
   m_PrefabInstance: {fileID: 6495638640015947024}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6768101566954551025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 560703004125463521, guid: b84af1fb44c8be048abc889fa0a9e9ad, type: 3}
+  m_PrefabInstance: {fileID: 6495638640015947024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

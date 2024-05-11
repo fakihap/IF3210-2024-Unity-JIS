@@ -444,7 +444,7 @@ PrefabInstance:
     - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 1131944666}
+      objectReference: {fileID: 0}
     - target: {fileID: 2884904307103215961, guid: c253978afeb03a947a5e94c90565af49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -514,22 +514,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1776767642775720207, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776767642775720207, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 599610034}
-    - target: {fileID: 1776767642775720207, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776767642775720207, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOverManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4591305591065001727, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -616,57 +600,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903221987653653641, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6903221987653653641, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 599610034}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
 --- !u!1 &599610031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6903221987653653641, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
   m_PrefabInstance: {fileID: 599610030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &599610032 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1776767642775720207, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-  m_PrefabInstance: {fileID: 599610030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &599610033 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6768101566954551025, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
-  m_PrefabInstance: {fileID: 599610030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &599610034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599610031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b2e4a44970f324c9f1ee5fd0bce205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointButton: {fileID: 599610033}
-  mainMenuButton: {fileID: 599610032}
 --- !u!1 &646165838
 GameObject:
   m_ObjectHideFlags: 0
