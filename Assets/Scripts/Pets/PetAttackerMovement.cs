@@ -38,7 +38,7 @@ public class PetAttackerMovement : MonoBehaviour
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if(distanceToPlayer > 15)
+        if(distanceToPlayer > 5)
         {
             LookAt(player.transform);
             move = true;
