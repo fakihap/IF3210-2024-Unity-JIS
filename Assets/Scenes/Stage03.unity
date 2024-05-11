@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -707,6 +707,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
+--- !u!1 &641051024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6903221987653653641, guid: 9d1cd9f939f19fd478ed8fbff8872520, type: 3}
+  m_PrefabInstance: {fileID: 641051023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &646165838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,6 +2149,10 @@ PrefabInstance:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 947416368}
+    - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
+      propertyPath: deathCanvas
+      value: 
+      objectReference: {fileID: 641051024}
     - target: {fileID: 345591742771806209, guid: c253978afeb03a947a5e94c90565af49, type: 3}
       propertyPath: healthSlider
       value: 
