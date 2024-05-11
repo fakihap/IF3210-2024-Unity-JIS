@@ -11,6 +11,9 @@ public class MainMenuManager : MonoBehaviour
     public Button exitButton;
     public Button statsButton;
     public Button settingsButton;
+    public Button slot1Button;
+    public Button slot2Button;
+    public Button slot3Button;
     public StatsManagerMainMenu statsManager;
     public SettingsManager settingsManager;
     public Button closeSettingsButton;
@@ -46,6 +49,54 @@ public class MainMenuManager : MonoBehaviour
 	}
 
     public void NewGame() {
+
+        // By default, this overwrites slot 
+        CurrStateData.InstantiateNewData();
+        SceneManager.LoadScene("Stage01");
+    }
+
+    public void LoadSlot1()
+    {
+        string output;
+        if (FileManager.LoadFromFile("Slot1.dat", out output))
+        {
+            print("Slot 1 output" + output);
+            CurrStateData.LoadFromJson(output);
+            CurrStateData.currGameData.currentSlot = 1;
+        } else
+        {
+            print("File doesn't exist");
+        }
+        SceneManager.LoadScene("Stage01");
+    }
+
+    public void LoadSlot2()
+    {
+        string output;
+        if (FileManager.LoadFromFile("Slot2.dat", out output))
+        {
+            print("Slot 2 output" + output);
+            CurrStateData.LoadFromJson(output);
+            CurrStateData.currGameData.currentSlot = 2;
+        } else
+        {
+            print("File doesn't exist");
+        }
+        SceneManager.LoadScene("Stage01");
+    }
+
+    public void LoadSlot3()
+    {
+        string output;
+        if (FileManager.LoadFromFile("Slot3.dat", out output))
+        {
+            print("Slot 3 output" + output);
+            CurrStateData.LoadFromJson(output);
+            CurrStateData.currGameData.currentSlot = 3;
+        } else
+        {
+            print("File doesn't exist");
+        }
         SceneManager.LoadScene("Stage01");
     }
 

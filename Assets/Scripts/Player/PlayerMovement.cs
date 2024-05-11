@@ -60,6 +60,11 @@ namespace Nightmare
                     GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject mob in mobs)
                     {
+                        HealthBar healthBar = mob.GetComponent<HealthBar>();
+                        if (healthBar != null)
+                        {
+                            healthBar.DisableHealthBar();
+                        }
                         Destroy(mob);
                     }
                 }
@@ -78,26 +83,30 @@ namespace Nightmare
             if (other.gameObject == safeHouse)
             {
                 //print("I hit the safe house (player movement)");
-                saveText.enabled = true;
+                //saveText.enabled = true;
                 canSave = true;
             }
         }
 
         private void SaveGame()
         {
-            CurrStateData currData = CurrStateData.GetInstance();
-            string output;
-            
-            if (FileManager.LoadFromFile("Slot1.dat", out output))
-            {
-                print("Slot 1 output" + output);
-            }
+            //CurrStateData currData = CurrStateData.GetInstance();
+            //string output;
 
-            if (FileManager.WriteToFile("Slot1.dat", currData.ToJson()))
+            string currFileName = "Slot";
+
+            currFileName += CurrStateData.currGameData.currentSlot.ToString() + ".dat";
+
+            print("Current slot: " + CurrStateData.currGameData.currentSlot.ToString());
+            print("Current file name: " + currFileName);
+
+
+            if (FileManager.WriteToFile(currFileName, CurrStateData.ToJson()))
             {
-                print("Save successful");
+                print("Save successful to " + currFileName);
                 // CurrStateData.currGameData.distanceTravelled = 0;
             }
+            
 
         }
 
@@ -106,7 +115,7 @@ namespace Nightmare
             if (other.gameObject == safeHouse)
             {
                 //print("I hit the safe house (player movement)");
-                saveText.enabled = false;
+                //saveText.enabled = false;
                 canSave = false;
             }
         }
