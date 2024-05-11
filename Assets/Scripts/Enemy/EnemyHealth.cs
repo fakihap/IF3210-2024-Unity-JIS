@@ -105,9 +105,8 @@ namespace Nightmare
             // set dead
             eliminationQuestNotifier.NotifyElimination();
 
-            JenderalMovement jenderalMovement = GameObject.FindGameObjectWithTag("Enemy").GetComponent<JenderalMovement>();
 
-            StartSinking();
+            // StartSinking();
             print("this is enemy namaaa "+ gameObject.name);
             if(gameObject.GetType().Name == "Jenderal") {
                 print("masuk jenderall lalalala");
@@ -140,7 +139,9 @@ namespace Nightmare
 
             isSinking = true;
 
+            print("game object name "+gameObject.name);
             if(gameObject.name=="Keroco(Clone)"){
+                print("nambah uangg");
                 CurrStateData.AddCoin(100);
             } else if(gameObject.name=="KepalaKeroco(Clone)") {
                 CurrStateData.AddCoin(150);

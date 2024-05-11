@@ -176,7 +176,7 @@ namespace Nightmare
                 gunLine3.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, bulletAngle, 0f) * shootRay.direction * range);
                 gunLine4.SetPosition(1, shootRay.origin + Quaternion.Euler(0f, -bulletAngle, 0f) * shootRay.direction * range);
 
-                Invoke("DisableGunLine", 0.1f);
+                Invoke("DisableGunLine", 0.5f);
             }
             else
             {
@@ -191,6 +191,7 @@ namespace Nightmare
             gunLine2.enabled = false;
             gunLine3.enabled = false;
             gunLine4.enabled = false;
+            gunLight.enabled = false;
         }
 
     }
